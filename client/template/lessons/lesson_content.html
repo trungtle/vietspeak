@@ -1,0 +1,18 @@
+<template name="lessonContent">
+  <button id="view-lesson" class="fa fa-book fa-border round large"></button>
+
+  {{#momentum plugin="slide-height"}}
+  	{{#if showLesson}}
+			<section id="lesson-content">
+				<div class='row'>
+					<span class="left back button tiny small-2 columns"> Back </span>
+					<span class='small-8 columns'>
+			    	{{content}}
+			    </span>
+					<span class="right next button tiny small-2 columns"> Next </span>
+				</div>
+			</section>
+		{{/if}}
+	{{/momentum}}
+
+</template>

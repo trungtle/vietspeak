@@ -1,0 +1,15 @@
+<template name="lessonsList">
+  <div class='row'>
+    <div class='push-3 small-6 columns text-center'>
+      <h1>Lessons {{count}}</h1>
+      <ul class='lesson-list panel'>
+        {{#each lessons}}          
+          <li class='lesson'>
+            <a class='fa fa-star fa-2x' href="{{pathFor 'lessonPage'}}"></a>
+            <p>{{name}}</p>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</template>

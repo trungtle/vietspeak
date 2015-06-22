@@ -1,0 +1,289 @@
+@font-face {
+	font-family:"VN Museo";
+	src:url("../fonts/VN_Museo/VNF_Museo Slab 500.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+
+@font-face {
+	font-family:"Hipsteria";
+	src:url("../fonts/VN_Hipsteria/Hipsteria.ttf") format("truetype");
+	font-weight:normal;
+	font-style:normal;
+}
+
+@font-face {
+	font-family:"BreeSerif";
+	src:url("../fonts/VN_Bree/BreeSerif.otf") format("truetype");
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+body, h1, h2, h3, p, button, div, span, .top-bar-section a:not(.button), .label {
+	font-family: "BreeSerif", sans-serif;
+}
+
+body {
+	overflow: hidden;
+}
+
+textarea {
+	resize: none;
+}
+
+button {
+	outline: none;
+}
+
+/* Top navigation */
+
+.name a {
+	font-family: "Hipsteria", sans-serif;
+	font-size: 30px;
+}
+
+.top-bar {
+	background: #BF4414;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+	background: #BF4414;	
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+	background-color: #333333;
+}
+
+/* Lessons */
+
+.lesson-list {
+	list-style: none;
+}
+
+.lesson a {
+	width: 100px;
+	text-align: center;
+	color: white;
+	padding: 10px;
+	background: #90B732;
+	border-radius: 50px;
+}
+
+/* Lesson area */
+
+#lesson-content {
+	position: absolute;
+	top: -10px;
+	left: 20px;
+	width: 100%;
+	height: 100%;
+	padding: 10%;
+	background-color: rgba(85, 85, 85, 1);
+	color: white;
+	overflow: hidden;
+	z-index: 10;
+	border-radius: 10px;
+}
+
+#view-lesson {
+	position: absolute;
+	top: 10px;
+	left: -120px;
+	z-index: 11;
+}
+
+#lesson-area {
+	position: relative;
+	margin: 5% 20%;
+	border-radius: 10px;
+	padding: 3%;
+	-webkit-box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
+	-moz-box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
+	box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
+}
+
+/* Challenge area */
+
+#challenge-area {
+	margin: 5%;
+}
+
+#challenge-progress {
+	background-color: #D7E1E5;
+	width: 100%;
+}
+
+/* Phrase */
+
+.phrase {
+	width: 100%;
+	height: 37px;
+	border-color: #cccccc;
+	background-color: white;
+  	font-size: 1rem;
+  	padding: 0.5rem;
+  	border-style: solid;
+	border-width: 1px;
+	border-color: #cccccc;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	color: rgba(0, 0, 0, 0.75);
+}
+
+/* Translate */
+
+
+/* Multiple choices */
+
+.choice {
+	height: 70px;
+	border-radius: 10px;
+	background-color: #ffffff;
+	box-shadow: 2px 2px 2px #cccccc;
+	cursor: pointer;
+	padding-left: 10px;	
+}
+
+.choice.checked {
+	box-shadow: 4px 4px 4px #008CBA;
+}
+
+.hotkey {
+	font-size: 12px;
+	color: #bbbbbb;
+	margin-right: 10px;
+}
+
+/* Report area */
+
+#feedback-area {
+	overflow: hidden;
+}
+
+#angry-thing, #happy-thing {
+	position: relative;
+	top: 200px;
+}
+
+#feedback {
+	font-size: 20px;
+}
+
+.feedback-correct {
+	color: green;
+}
+
+.feedback-wrong {
+	color: red;
+}
+
+/* Hints */
+
+#lookup-text {
+	border-radius: 3px;
+	padding: 10px;
+	-webkit-box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
+	-moz-box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
+	box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
+
+}
+
+/* audio */
+
+#playAudio {
+	padding: 10px;
+}
+
+/* Dictionary */
+
+#dict {
+	margin-top: 20px;
+	height: 600px;
+}
+
+/* Override foundation */
+
+label {
+	font-size: 20px;
+}
+
+.panel {
+	border: 0px;
+	border-radius: 10px;
+}
+
+.vocab {
+	font-size: 40px;
+	width: 140px;
+	height: 80px;
+}
+
+.has-tip {
+	font-weight: normal;
+}
+
+
+/* Override login buttons */
+
+#login-buttons a {
+	display: block;
+	color: white;
+	text-decoration: none !important;
+}
+
+.login-close-text {
+	background-color: white !important;
+	color: black !important;
+}
+
+#login-button {
+
+}
+
+/* Animations */
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+   -webkit-animation: flickerAnimation 3s infinite;
+   -moz-animation: flickerAnimation 3s infinite;
+   -o-animation: flickerAnimation 3s infinite;
+    animation: flickerAnimation 3s infinite;
+}
+
+/* Helpers */
+
+.full-height {
+	height: 100%;
+}
+
+.icon-center {
+    display: inline-block;
+    width: 100%;
+    text-align:center;	
+	margin-bottom: 20px;
+}
+

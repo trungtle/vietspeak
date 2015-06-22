@@ -1,0 +1,27 @@
+<template name="challenge">
+  <div id='challenge-area'>
+    {{> challengeProgress}}
+    {{qNumber}}
+    
+    <h3 id="instruction">
+      {{instruction}}          
+    </h3>
+
+    <div class='panel' id='question-area'>
+      {{> questionArea}}  
+    </div>
+    
+    <div id='feedback-area'>
+      <div class='left' id='feedback'>
+        {{#if gotFeedback}}
+          {{#if isCorrect}}Correct{{else}}Wrong. The correct answer is "{{feedback}}"{{/if}}.
+        {{/if}}
+      </div>
+
+      <button id='submit' class="right round" disabled>
+        <i class='{{submitButtonIcon}}'></i>            
+      </button>
+
+    </div>
+  </div>
+</template>

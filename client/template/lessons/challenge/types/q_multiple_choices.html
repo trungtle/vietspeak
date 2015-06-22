@@ -1,0 +1,15 @@
+<template name="qMultipleChoices">
+
+	<h3>{{phrase}}</h3>
+	<ul class="small-block-grid-2">
+		{{#each choices}}
+			<li>
+				<div class="choice {{#if checked}}checked{{/if}}" id="choice-{{hotkey}}">
+					{{translation}}
+					<kbk class="hotkey right">{{hotkey}}</kbk>
+				</div>
+			</li>
+		{{/each}}
+	</ul>
+	
+</template>
