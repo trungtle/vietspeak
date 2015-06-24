@@ -1,11 +1,13 @@
 // fonts
 @import url(http://fonts.googleapis.com/css?family=Dosis);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Crimson+Text);
+@import url(http://fonts.googleapis.com/css?family=Average);
 
 // Colors
 $dark-red: #BF4414;
 $dark-blue: #34495E;
-$light-blue: #5B6C7D;
+$light-blue: #8E969F;
 $light-purple: #636685;
 $dark: #333333;
 $teal: #2ecc71;
@@ -16,9 +18,11 @@ $hipsteria-font-stack: "Hipsteria", sans-serif;
 $museo-font-stack: 'Museo', sans-serif;
 $dosis-font-stack: 'Dosis', sans-serif;
 $open-sans-font-stack: 'Open Sans', sans-serif;
+$crimson-text-font-stack: 'Crimson Text', sans-serif;
+$average-font-stack: 'Average', serif;
 
-$heading-font: $museo-font-stack;
-$body-font: $museo-font-stack;
+$heading-font: $dosis-font-stack;
+$body-font: $dosis-font-stack;
 
 // Box shadows
 
@@ -47,8 +51,13 @@ html, body {
 	height: 100%;
 }
 
-body, p, h2, h3, button, div, span, .top-bar-section a:not(.button), .label {
+body, h1, h2, h3, button, div, span, .top-bar-section a:not(.button), .label {
+	font-family: $heading-font;
+}
+
+p {
 	font-family: $body-font;
+	font-size: 1em;
 }
 
 body {
@@ -60,10 +69,6 @@ textarea {
 }
 
 /* Top navigation */
-
-h1 {
-	font-family: $heading-font;
-}
 
 .name {
 
@@ -90,6 +95,40 @@ h1 {
 			background-color: $dark;
 		}
 	}
+}
+
+.login {
+
+}
+
+/* Intro page */
+
+.intro-area {
+	margin-top: 7%;
+}
+
+// Blur background
+// .intro-content:before {
+//   content: "";
+//   position: fixed;
+//   left: 0;
+//   right: 0;
+//   z-index: -1;
+
+//   display: block;
+//   background-image: url('img/saigon_topdown.jpeg');
+//   width: 1600px;
+//   height: 1200px;
+
+//   -webkit-filter: blur(5px);
+//   -moz-filter: blur(5px);
+//   -o-filter: blur(5px);
+//   -ms-filter: blur(5px);
+//   filter: blur(5px);
+// }
+
+.intro-content {
+
 }
 
 /* Lessons */

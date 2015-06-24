@@ -1,38 +1,43 @@
 
 <template name="header">
-	<nav class='top-bar' data-topbar role='navigation'>
+  {{#if login}}
+  	<nav class='top-bar' data-topbar role='navigation'>
 
-		<!-- Title area -->
-    <ul class='title-area'>
-      <li class='name'>
-        <h1>
-          <a href="{{pathFor 'lessonsList'}}">Việt Speak</a>
-        </h1>
-      </li>
-
-      <li class='toggle-topbar icon'>
-        <a href="{{pathFor 'lessonsList'}}">
-          <span>Menu</span>
-        </a>
-      </li>
-    </ul>
-
-    <!-- Menu -->
-  	<section class='top-bar-section'>
-    	<ul class='right'>
-        <li>
-          {{> loginButtons align="right"}}
+  		<!-- Title area -->
+      <ul class='title-area'>
+        <li class='name'>
+          <h1>
+            <a href="{{pathFor 'introPage'}}">Việt Speak</a>
+          </h1>
         </li>
-    	</ul>
-      <ul class='left'>
-        <li>
-          <a href='words.html'>
-            <i class='fa fa-book'></i>
-            Words
+
+        <li class='toggle-topbar icon'>
+          <a href="{{pathFor 'lessonsList'}}">
+            <span>Menu</span>
           </a>
         </li>
       </ul>
-    </section>
 
-  </nav>
+      <!-- Menu -->
+    	<section class='top-bar-section'>
+        <ul class='left'>
+          <li>
+            <a href="{{pathFor 'lessonsList'}}">
+              <i class='fa fa-book'></i>
+              Lessons
+            </a>
+          </li>
+        </ul>
+
+        <ul class='right'>
+          <li>
+            {{> loginButtons align="right"}}
+          </li>
+        </ul>
+      </section>
+
+    </nav>
+  {{/if}}
+
+
 </template>
