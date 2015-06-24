@@ -1,32 +1,54 @@
-@font-face {
-	font-family:"VN Museo";
-	src:url("../fonts/VN_Museo/VNF_Museo Slab 500.ttf") format("truetype");
-	font-weight:normal;
-	font-style:normal;
+// fonts
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+// Colors
+$dark-red: #BF4414;
+$dark-blue: #34495E;
+$light-blue: #5B6C7D;
+$light-purple: #636685;
+$dark: #333333;
+$teal: #2ecc71;
+
+// Font stack
+$bree-font-stack: "BreeSerif", sans-serif;
+$hipsteria-font-stack: "Hipsteria", sans-serif;
+$museo-font-stack: 'Museo', sans-serif;
+$dosis-font-stack: 'Dosis', sans-serif;
+$open-sans-font-stack: 'Open Sans', sans-serif;
+
+$heading-font: $museo-font-stack;
+$body-font: $museo-font-stack;
+
+// Box shadows
+
+@mixin box-shadow {
+	-webkit-box-shadow: 0px 0px 8px 3px rgba(63,63,63,0.73);
+	-moz-box-shadow: 0px 0px 8px 3px rgba(63,63,63,0.73);
+	box-shadow: 0px 0px 8px 3px rgba(63,63,63,0.73);
 }
 
 @font-face {
 	font-family:"Hipsteria";
-	src:url("../fonts/VN_Hipsteria/Hipsteria.ttf") format("truetype");
-	font-weight:normal;
-	font-style:normal;
+	src:url("/fonts/VN_Hipsteria/Hipsteria.ttf") format("truetype");
+}
+
+@font-face {
+	font-family:"Museo";
+	src:url("/fonts/VN_Museo/VNF_Museo Slab 500.ttf") format("truetype");
 }
 
 @font-face {
 	font-family:"BreeSerif";
-	src:url("../fonts/VN_Bree/BreeSerif.otf") format("truetype");
+	src:url("/fonts/VN_Bree/BreeSerif.otf") format("truetype");
 }
 
-html {
+html, body {
 	height: 100%;
 }
 
-body {
-	height: 100%;
-}
-
-body, h1, h2, h3, p, button, div, span, .top-bar-section a:not(.button), .label {
-	font-family: "BreeSerif", sans-serif;
+body, p, h2, h3, button, div, span, .top-bar-section a:not(.button), .label {
+	font-family: $body-font;
 }
 
 body {
@@ -37,42 +59,57 @@ textarea {
 	resize: none;
 }
 
-button {
-	outline: none;
-}
-
 /* Top navigation */
 
-.name a {
-	font-family: "Hipsteria", sans-serif;
-	font-size: 30px;
+h1 {
+	font-family: $heading-font;
+}
+
+.name {
+
+	a {
+		@extend h1;
+	}
 }
 
 .top-bar {
-	background: #BF4414;
+	background: $dark-blue;
 }
 
-.top-bar-section li:not(.has-form) a:not(.button) {
-	background: #BF4414;	
+.top-bar-section {
+	li:not(.has-form) {
+		a:not(.button) {
+			@extend .top-bar;
+		}
+	}
 }
 
-.top-bar-section li.active:not(.has-form) a:not(.button) {
-	background-color: #333333;
+.top-bar-section {
+	li.active:not(.has-form) {
+		a:not(.button) {
+			background-color: $dark;
+		}
+	}
 }
 
 /* Lessons */
 
-.lesson-list {
-	list-style: none;
+.title {
+	margin: 5%;
 }
 
-.lesson a {
+.lesson-list {
+	list-style: none;
+	@include box-shadow;
+}
+
+.lesson-item {
 	width: 100px;
-	text-align: center;
-	color: white;
-	padding: 10px;
-	background: #90B732;
-	border-radius: 50px;
+	height: 100px;
+	background-image: url("/img/icon-turtle.png");
+	background-size: 100px 100px;
+	background-repeat: no-repeat;
+	margin-bottom: -5px;
 }
 
 /* Lesson area */
@@ -103,9 +140,7 @@ button {
 	margin: 5% 20%;
 	border-radius: 10px;
 	padding: 3%;
-	-webkit-box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
-	-moz-box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
-	box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
+	@include box-shadow;
 }
 
 /* Challenge area */
@@ -122,17 +157,8 @@ button {
 /* Phrase */
 
 .phrase {
-	width: 100%;
-	height: 37px;
-	border-color: #cccccc;
-	background-color: white;
-  	font-size: 1rem;
-  	padding: 0.5rem;
-  	border-style: solid;
-	border-width: 1px;
-	border-color: #cccccc;
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-	color: rgba(0, 0, 0, 0.75);
+	font-weight: bold;
+	font-size: 1.5em;
 }
 
 /* Translate */
@@ -146,7 +172,7 @@ button {
 	background-color: #ffffff;
 	box-shadow: 2px 2px 2px #cccccc;
 	cursor: pointer;
-	padding-left: 10px;	
+	padding-left: 10px;
 }
 
 .choice.checked {
@@ -165,11 +191,6 @@ button {
 	overflow: hidden;
 }
 
-#angry-thing, #happy-thing {
-	position: relative;
-	top: 200px;
-}
-
 #feedback {
 	font-size: 20px;
 }
@@ -182,31 +203,21 @@ button {
 	color: red;
 }
 
-/* Hints */
+/* Lookup text */
 
 #lookup-text {
 	border-radius: 3px;
 	padding: 10px;
-	-webkit-box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
-	-moz-box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
-	box-shadow: 0px 0px 8px 3px rgba(153,153,153,0.73);
+	@include box-shadow;
 
-}
-
-/* audio */
-
-#playAudio {
-	padding: 10px;
-}
-
-/* Dictionary */
-
-#dict {
-	margin-top: 20px;
-	height: 600px;
 }
 
 /* Override foundation */
+
+button {
+	outline: none;
+	background-color: $dark-blue;
+}
 
 label {
 	font-size: 20px;
@@ -215,12 +226,6 @@ label {
 .panel {
 	border: 0px;
 	border-radius: 10px;
-}
-
-.vocab {
-	font-size: 40px;
-	width: 140px;
-	height: 80px;
 }
 
 .has-tip {
@@ -239,10 +244,6 @@ label {
 .login-close-text {
 	background-color: white !important;
 	color: black !important;
-}
-
-#login-button {
-
 }
 
 /* Animations */
@@ -273,17 +274,3 @@ label {
    -o-animation: flickerAnimation 3s infinite;
     animation: flickerAnimation 3s infinite;
 }
-
-/* Helpers */
-
-.full-height {
-	height: 100%;
-}
-
-.icon-center {
-    display: inline-block;
-    width: 100%;
-    text-align:center;	
-	margin-bottom: 20px;
-}
-

@@ -2,26 +2,31 @@
   <div id='challenge-area'>
     {{> challengeProgress}}
     {{qNumber}}
-    
+
     <h3 id="instruction">
-      {{instruction}}          
+      {{instruction}}
     </h3>
 
     <div class='panel' id='question-area'>
-      {{> questionArea}}  
+      {{> questionArea}}
     </div>
-    
+
     <div id='feedback-area'>
       <div class='left' id='feedback'>
         {{#if gotFeedback}}
-          {{#if isCorrect}}Correct{{else}}Wrong. The correct answer is "{{feedback}}"{{/if}}.
+          {{#if isCorrect}}
+            <span class="feedback-correct">Correct</span>
+          {{else}}
+            <span class="feedback-wrong">Wrong</span>. The correct answer is "{{feedback}}"{{/if}}.
         {{/if}}
       </div>
 
       <button id='submit' class="right round" disabled>
-        <i class='{{submitButtonIcon}}'></i>            
+        <i class='{{submitButtonIcon}}'></i>
       </button>
-
     </div>
   </div>
 </template>
+
+
+

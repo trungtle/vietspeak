@@ -23,10 +23,16 @@ QTYPE = {
 // Question state
 QSTATE = {
 	PROMPT: 0,  		// Player still choosing an answer
-	ANSWERED: 1,		// Player has picked an answer	
+	ANSWERED: 1,		// Player has picked an answer
 	GRADING: 2, 		// Grading player's answer
 	CONTINUE: 3 		// Player got a result for answer, reviewing, and ready for next
 };
+
+Template.challenge.onCreated(function() {
+
+	// Initialize to the first question in the lesson
+	Session.set("qNumber", 0);
+});
 
 //
 // Helpers
@@ -54,7 +60,6 @@ Template.challenge.helpers({
 	},
 
 	qNumber: function() {
-		Session.setDefault("qNumber", 0);
 		return Session.get("qNumber");
 	},
 
@@ -62,7 +67,7 @@ Template.challenge.helpers({
 		return _.keys(this.phrases).length;
 	},
 
-	instruction: function() {		
+	instruction: function() {
 		Session.setDefault("qType", _.first(this.phrases).qtype);
 
 		switch (Session.get("qType")) {
@@ -96,13 +101,13 @@ Template.challenge.helpers({
 
 Template.challenge.events({
 	"click #submit": function(ev) {
-		
+
 		var qState = Session.get("qState");
 
 		switch(qState) {
 			case QSTATE.PROMPT:
 			default:
-				// Do nothing		
+				// Do nothing
 				break;
 
 			case QSTATE.ANSWERED:
@@ -132,13 +137,13 @@ function nextQuestion(lesson) {
 
 	var qTotal = _.keys(lesson.phrases).length;
 	var qNumber = Session.get("qNumber");
-	
+
 	// User has looped through all the phrases, pick a random phrase
 	if (qNumber >= qTotal) {
 		Session.set("randomQuestion", true);
 	}
 
-	if (Session.get("randomQuestion")) {		
+	if (Session.get("randomQuestion")) {
 		qNumber = _.random(qTotal - 1);
 	} else {
 		qNumber++;
@@ -151,7 +156,7 @@ function nextQuestion(lesson) {
 }
 
 answer = function(lesson) {
-	
+
 	var phrase = lesson.phrases[Session.get("qNumber")];
 	var isCorrect = false;
 

@@ -20,9 +20,9 @@ if (Lessons.find().count() === 0)
 		content: "Basic 1 content",
 		phrases: [
 			{
-				qtype: QTYPE.MULTIPLE_CHOICES,
+				qtype: QTYPE.LISTENING_VE,
 				vietnamese: "Tôi là Trung",
-				audioSrc: "public/audio/lessons/toi_an.m4a",
+				audioSrc: "/audio/lessons/toi_an.m4a",
 				english: ["I am Trung", "I'm Trung"]
 			},
 			{

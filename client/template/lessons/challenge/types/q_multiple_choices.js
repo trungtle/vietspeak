@@ -1,41 +1,26 @@
 const CHOICE_NUM = 4;
 
-Template.qTranslateVE.rendered = function() {
-    if(!this._rendered) {      	
-      	this._rendered = true;      
-    }
+Template.qMultipleChoices.rendered = function() {
+
 }
+
+Template.qMultipleChoices.onCreated(function() {
+
+	var lesson = Template.currentData();
+	Session.set("isEV", true);  // English phrase, Vietnamese choices
+	pickChoices(lesson);
+
+});
 
 Template.qMultipleChoices.helpers({
 
 	phrase: function() {
+		var isEV = Session.get("isEV");
 		var phrase = this.phrases[Session.get("qNumber")];
-		return _.first(phrase.english);
+		return isEV ? _.first(phrase.english) : phrase.vietnamese;
 	},
 
 	choices: function() {
-
-		var qNumber = Session.get("qNumber");
-		Session.setDefault("qInitialized" + qNumber, false);
-
-		// First time initialized
-		if (Session.get("qInitialized" + qNumber) == false) {
-			var phrase = this.phrases[qNumber];
-			var choices = _.without(this.phrases, phrase); // Remove the phrase from choice list
-			var choices = _.sample(choices, CHOICE_NUM - 1); // Minus one since we will add it later
-			choices.push(phrase);
-			choices = _.shuffle(choices);
-
-			for (var i = 0; i < choices.length; ++i) {
-				choices[i] = _.extend(choices[i], {
-					hotkey: i+1, 
-					checked: false,
-					translation: choices[i].vietnamese,
-				});
-			}
-			Session.set("choices", choices);
-			Session.set("qInitialized" + qNumber, true);
-		}
 		return Session.get("choices");
 	},
 
@@ -76,12 +61,12 @@ Template.qMultipleChoices.events({
 	},
 
 	"keypress": function(ev) {
-		
+
 		switch(ev.keyCode) {
 
 			default:
 				break;
-	
+
 			// Simulate selecting options
 			case KEYCODE_ONE:
 				console.log(choices[i]);
@@ -104,9 +89,36 @@ Template.qMultipleChoices.events({
 	}
 });
 
+// ----------------------
+// Public functions
+// ----------------------
+
 aMultipleChoices = function(phrase) {
 	var userAnswer = _.findWhere(Session.get("choices"), {checked: true});
-	console.log(userAnswer);
 
 	return userAnswer.vietnamese === phrase.vietnamese;
+}
+
+// ----------------------
+// Private functions
+// ----------------------
+
+function pickChoices(lesson)
+{
+	var isEV = Session.get("isEV");
+	var qNumber = Session.get("qNumber");
+	var phrase = lesson.phrases[qNumber];
+	var choices = _.without(lesson.phrases, phrase); // Remove the phrase from choice list
+	var choices = _.sample(choices, CHOICE_NUM - 1); // Minus one since we will add it later
+	choices.push(phrase);
+	choices = _.shuffle(choices);
+
+	for (var i = 0; i < choices.length; ++i) {
+		choices[i] = _.extend(choices[i], {
+			hotkey: i+1,
+			checked: false,
+			translation: isEV ? choices[i].vietnamese : choices[i].english[0],
+		});
+	}
+	Session.set("choices", choices);
 }
