@@ -2,11 +2,12 @@
   <div class='row'>
     <div class='push-3 small-6 columns text-center'>
       <h1 class="title">Lessons</h1>
-      <ul class='lesson-list panel'>
+      <ul class='lesson-list'>
         {{#each lessons}}
-          <li>
-            <a class="lesson-item button" href="{{pathFor 'lessonPage'}}"></a>
-            <h3>{{name}}</h3>
+          <li class="lesson-item">
+            <a class="button" href="{{pathFor 'lessonPage'}}">
+              <p class="lesson-item-name">{{name}}</p>
+            </a>
           </li>
         {{/each}}
       </ul>

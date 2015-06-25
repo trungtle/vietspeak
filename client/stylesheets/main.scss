@@ -7,6 +7,8 @@
 // Colors
 $dark-red: #BF4414;
 $dark-blue: #34495E;
+$medium-green: #1abc9c;
+$light-yellow: #fbb351;
 $light-blue: #8E969F;
 $light-purple: #636685;
 $dark: #333333;
@@ -61,6 +63,7 @@ p {
 }
 
 body {
+	background-image: url("img/blur_background.jpg");
 	overflow: hidden;
 }
 
@@ -139,16 +142,31 @@ textarea {
 
 .lesson-list {
 	list-style: none;
-	@include box-shadow;
+	background-color: $light-yellow;
+	padding: 5%;
 }
 
 .lesson-item {
-	width: 100px;
-	height: 100px;
-	background-image: url("/img/icon-turtle.png");
-	background-size: 100px 100px;
-	background-repeat: no-repeat;
-	margin-bottom: -5px;
+
+	margin-bottom: 5%;
+
+	.button {
+		position: relative;
+		width: 120px;
+		height: 120px;
+		background-image: url("/img/icon-turtle.png");
+		background-size: 80px 80px;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin-bottom: -5px;
+	}
+
+	.lesson-item-name {
+		text-align: center;
+		position: absolute;
+		bottom: -20px;
+		font-size: 1.2em;
+	}
 }
 
 /* Lesson area */

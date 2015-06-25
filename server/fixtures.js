@@ -15,6 +15,17 @@ QTYPE = {
 
 if (Lessons.find().count() === 0)
 {
+	// Lessons.insert({
+	// 	name: "Introduction",
+	// 	content: "Introduction content",
+	// 	phrases: [
+	// 		{
+	// 			qtype: QTYPE.MULTIPLE_CHOICES,
+	// 			vietnamese: "Người đàn ông",
+	// 			english: ["man"]
+	// 		},
+	// });
+
 	Lessons.insert({
 		name: "Basic 1",
 		content: "Basic 1 content",

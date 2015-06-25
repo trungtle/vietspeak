@@ -5,5 +5,6 @@ Template.header.helpers({
 		} else {
 			return false;
 		}
-	}
+	},
+	a : "hello",
 });
