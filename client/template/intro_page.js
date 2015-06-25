@@ -1,4 +1,4 @@
-Template.introPage.helpers({
+Template.header.helpers({
 	login: function() {
 		if (Meteor.userId()) {
 			return true;

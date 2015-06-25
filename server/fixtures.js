@@ -20,87 +20,68 @@ if (Lessons.find().count() === 0)
 		content: "Basic 1 content",
 		phrases: [
 			{
-				qtype: QTYPE.LISTENING_VE,
-				vietnamese: "Tôi là Trung",
-				audioSrc: "/audio/lessons/toi_an.m4a",
-				english: ["I am Trung", "I'm Trung"]
-			},
-			{
-				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Bạn là Minh",
-				english: ["You are Minh", "You're Minh"]
-			},
-			{
-				qtype: QTYPE.TRANSLATE_VE,
-				vietnamese: "Người phụ nữ",
-				english: ["The woman", "woman"]
-			},
-			{
 				qtype: QTYPE.MULTIPLE_CHOICES,
 				vietnamese: "Người đàn ông",
-				english: ["The man", "man"]
+				english: ["man"]
 			},
 			{
 				qtype: QTYPE.MULTIPLE_CHOICES,
 				vietnamese: "Người đàn bà",
-				english: ["The woman", "woman"]
+				english: ["woman"]
 			},
 			{
 				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Người con trai",
-				english: ["The boy", "boy"]
+				vietnamese: "Tôi là đàn ông",
+				english: ["I'm a man", "I am a man"]
 			},
 			{
 				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Người con gái",
-				english: ["The girl", "Girl"]
+				vietnamese: "Tôi là đàn bà",
+				english: ["I'm a woman", "I am a woman"]
 			},
 			{
 				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Tôi là con trai",
-				english: ["I am a boy", "I'm a boy"]
+				vietnamese: "Con chó",
+				english: ["Dog"]
 			},
 			{
 				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Tôi là con gái",
-				english: ["I am a girl", "I'm a girl"]
+				vietnamese: "Con mèo",
+				english: ["Cat"]
 			},
 			{
 				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Tôi là nam",
-				english: ["I am a male", "I am male", "I'm male", "I'm a male", "I'm a man", "I am a man"]
+				vietnamese: "Đây là con chó",
+				english: ["This is a dog", "This is the dog"]
 			},
 			{
 				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Tôi là nữ",
-				english: ["I am a female", "I am female", "I'm female", "I'm a female", "I am a woman", "I'm a woman"]
-			},
-			{
-				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Bé trai",
-				english: ["baby boy"]
-			},
-			{
-				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Bé gái",
-				english: ["baby girl"]
-			},
-			{
-				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Tôi thích bé gái",
-				english: ["I like baby girl"]
-			},
-			{
-				qtype: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Bạn là đàn ông",
-				english: ["I am a male", "I am male", "I'm male", "I'm a male", "I'm a man", "I am a man"]
+				vietnamese: "Đây là con mèo",
+				english: ["This is a cat", "This is the cat"]
 			},
 		]
 	});
 
 	Lessons.insert({
 		name: "Greetings",
-		content: "Some greetigs stuff"
+		content: "Some greetings stuff",
+		phrases: [
+			{
+				qtype: QTYPE.MULTIPLE_CHOICES,
+				vietnamese: "Xin chào",
+				english: ["Hello"]
+			},
+			{
+				qtype: QTYPE.MULTIPLE_CHOICES,
+				vietnamese: "Chào",
+				english: ["Hi"]
+			},
+			{
+				qtype: QTYPE.MULTIPLE_CHOICES,
+				vietnamese: "Chào buổi sáng",
+				english: ["Good morning"]
+			},
+		]
 	});
 
 	Lessons.insert({
