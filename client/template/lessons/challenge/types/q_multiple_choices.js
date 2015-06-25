@@ -25,7 +25,12 @@ Template.qMultipleChoices.helpers({
 		}
 		return Session.get("choices");
 	},
-
+	isCorrect: function() {
+		return Session.get("isCorrect");
+	},
+	gotFeedback: function() {
+		return Session.equals("qState", QSTATE.CONTINUE);
+	}
 
 });
 
@@ -111,6 +116,9 @@ function pickChoices(lesson)
 	var qNumber = Session.get("qNumber");
 	var phrase = lesson.phrases[qNumber];
 	var choices = _.without(lesson.phrases, phrase); // Remove the phrase from choice list
+	choices = _.reject(choices, function(choice) {
+		return choice.qType !== QTYPE.MULTIPLE_CHOICES;
+	});
 	var choices = _.sample(choices, CHOICE_NUM - 1); // Minus one since we will add it later
 	choices.push(phrase);
 	choices = _.shuffle(choices);

@@ -1,3 +1,5 @@
 <template name="questionArea">
-	{{> Template.dynamic template=qTypeTemplate}}
+	{{#reveal}}
+		{{> Template.dynamic template=qTypeTemplate}}
+	{{/reveal}}
 </template>

@@ -1,6 +1,6 @@
 Template.questionArea.helpers({
 	qTypeTemplate: function() {
-		switch(Session.get("qType")) {
+		switch(this.phrases[Session.get("qNumber")].qType) {
 			case QTYPE.TRANSLATE_VE:
 				return "qTranslateVE";
 

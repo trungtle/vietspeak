@@ -1,0 +1,17 @@
+<template name="home">
+	<div class="row intro-area">
+		<div class="small-8 push-2 columns">
+			{{#unless login}}
+		    {{> landingPage}}
+	  	{{else}}
+
+	  		<h1>Welcome {{username}}</h1>
+	  		<div progress-report>
+	  			Here's your progress today.
+	  		</div>
+
+	  	{{/unless}}
+		</div>
+	</div>
+
+</template>

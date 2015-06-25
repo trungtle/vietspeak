@@ -7,6 +7,8 @@
 // Colors
 $dark-red: #BF4414;
 $dark-blue: #34495E;
+$medium-blue: #3C74A2;
+$light-blue: #7FA7C9;
 $light-green: #2ecc71;
 $medium-green: #1abc9c;
 $light-yellow: #fbb351;
@@ -15,8 +17,8 @@ $very-light-yellow: #FFE29A;
 $light-orange: #f39c12;
 $orange: #e67e22;
 $dark-orange: #DC840A;
+$medium-red: #c13f2f;
 $light-red: #d35400;
-$light-blue: #8E969F;
 $light-purple: #636685;
 $dark: #333333;
 $teal: #2ecc71;
@@ -42,6 +44,18 @@ $body-font: $san-francisco-font-stack;
 	box-shadow: 0px 0px 8px 3px rgba(63,63,63,0.73);
 }
 
+// Helpers
+
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
+
+// Fonts
+
 @font-face {
 	font-family:"Hipsteria";
 	src:url("/fonts/VN_Hipsteria/Hipsteria.ttf") format("truetype");
@@ -62,6 +76,8 @@ $body-font: $san-francisco-font-stack;
 	src:url("/fonts/San Francisco Display/SanFrancisco.ttf") format("truetype");
 }
 
+// Common tags
+
 html, body {
 	height: 100%;
 }
@@ -72,7 +88,6 @@ body, h1, h2, h3, button, .top-bar-section a:not(.button), .label {
 
 p, div, span {
 	font-family: $body-font;
-	font-size: 1em;
 }
 
 body {
@@ -87,41 +102,41 @@ textarea {
 
 /* Top navigation */
 
-.name {
+.top-bar {
+	background: $medium-blue;
+}
 
-	a {
-		@extend h1;
+.title-area {
+	padding-left: 20%;
+	.name {
+		@extend .top-bar;
+		a {
+			font-size: 20px;
+			font-weight: bold !important;
+			color: white;
+		}
 	}
 }
 
-.top-bar {
-	background: $dark-blue;
-}
-
 .top-bar-section {
+
+	padding-left: 20%;
+
 	li:not(.has-form) {
 		a:not(.button) {
 			@extend .top-bar;
+			font-size: 18px;
+		}
+
+		.nav-lesson {
+			background-image: url("img/paper-flat.png") !important;
+			background-position: middle !important;
+			padding-left: 35px !important;
+			background-repeat: no-repeat !important;
 		}
 	}
 }
 
-.top-bar-section {
-	li.active:not(.has-form) {
-		a:not(.button) {
-			background-color: $light-yellow;
-		}
-	}
-}
-
-.nav-lesson {
-	background-image: url("img/paper-flat.png") !important;
-	// background-size: 32px 32px !important;
-	background-position: middle !important;
-	padding-left: 35px !important;
-	background-repeat: no-repeat !important;
-	font-size: 1.3em;
-}
 
 /* Intro page */
 
@@ -155,13 +170,10 @@ textarea {
 
 /* Lessons */
 
-.title {
-	margin: 5%;
-}
-
 .lesson-list {
+	height: 100%;
 	list-style: none;
-	background-color: $light-yellow;
+	background-color: $light-blue;
 	padding: 5%;
 }
 
@@ -198,10 +210,14 @@ textarea {
 	width: 100%;
 	height: 100%;
 	padding: 10%;
-	background-color: $dark-blue;
+	background-color: $medium-blue;
 	color: white;
 	overflow: hidden;
 	z-index: 10;
+}
+
+.back, .next {
+	// background-color: $light-blue !important;
 }
 
 #view-lesson {
@@ -218,22 +234,18 @@ textarea {
 
 /* Challenge area */
 
-#challenge-area {
-
-}
-
 #instruction {
 	padding: 0% 3%;
-}
-
-#challenge-progress {
-	width: 90%;
-	margin: 5% 3% 5% 5%;
 }
 
 #question-area, #feedback-area {
 	padding: 3%;
 	background-color: $very-light-yellow;
+}
+
+#challenge-progress {
+	width: 90%;
+	margin: 5% 3% 5% 5%;
 }
 
 /* Phrase */
@@ -257,7 +269,15 @@ textarea {
 }
 
 .choice.checked {
+	background-color: $light-blue;
+}
+
+.choice.checked.correct {
 	background-color: $light-green;
+}
+
+.choice.checked.wrong {
+	background-color: $medium-red;
 }
 
 .hotkey {
@@ -297,7 +317,7 @@ textarea {
 
 button, .button {
 	outline: none;
-	background-color: $dark-blue;
+	background-color: $medium-blue;
 }
 
 label {

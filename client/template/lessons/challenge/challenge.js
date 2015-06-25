@@ -33,7 +33,15 @@ Template.challenge.onCreated(function() {
 	// Initialize to the first question in the lesson
 	Session.set("qNumber", 0);
 	Session.set("challengeProgress", 0);
+	Session.set("showLesson", true);
+	Session.set("qState", QSTATE.PROMPT);
+
 });
+
+Template.challenge.rendered = function() {
+
+
+}
 
 //
 // Helpers
@@ -41,7 +49,6 @@ Template.challenge.onCreated(function() {
 
 Template.challenge.helpers({
 	submitButtonIcon: function() {
-		Session.setDefault("qState", QSTATE.PROMPT);
 		var qState = Session.get("qState");
 
 		switch(qState) {
@@ -69,9 +76,8 @@ Template.challenge.helpers({
 	},
 
 	instruction: function() {
-		Session.setDefault("qType", _.first(this.phrases).qtype);
-
-		switch (Session.get("qType")) {
+		var qType = this.phrases[Session.get("qNumber")].qType;
+		switch (qType) {
 			case QTYPE.TRANSLATE_VE:
 			case QTYPE.LISTEN_VE:
 				return "Translate to English";
@@ -155,17 +161,16 @@ function nextQuestion(lesson) {
 	}
 
 	Session.set("qNumber", qNumber);
-
-	// Set question type and phrase
-	Session.set("qType", lesson.phrases[qNumber].qtype);
 }
 
 answer = function(lesson) {
 
 	var phrase = lesson.phrases[Session.get("qNumber")];
+	var qType = phrase.qType;
+
 	var isCorrect = false;
 
-	switch(Session.get("qType")) {
+	switch(qType) {
 		case QTYPE.TRANSLATE_VE:
 		case QTYPE.LISTEN_VE:
 			isCorrect = aTranslateVE(phrase);
@@ -182,7 +187,7 @@ answer = function(lesson) {
 	} else {
 		Session.set("feedback", phrase.english[0]);
 		Session.set("isCorrect", false);
-		Session.set("challengeProgress", challengeProgress -5);
+		Session.set("challengeProgress", challengeProgress - 5);
 	}
 }
 
