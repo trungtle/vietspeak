@@ -7,10 +7,12 @@
 // Colors
 $dark-red: #BF4414;
 $dark-blue: #34495E;
+$light-green: #2ecc71;
 $medium-green: #1abc9c;
 $light-yellow: #fbb351;
 $banana: #f1c40f;
 $very-light-yellow: #FFE29A;
+$light-orange: #f39c12;
 $orange: #e67e22;
 $dark-orange: #DC840A;
 $light-red: #d35400;
@@ -74,7 +76,7 @@ p, div, span {
 }
 
 body {
-	background-image: url("img/mock-ups-background-1.jpg");
+	background-image: url("img/blur_background.jpg");
 	background-size: cover;
 	overflow: hidden;
 }
@@ -181,7 +183,8 @@ textarea {
 	.lesson-item-name {
 		text-align: center;
 		position: absolute;
-		bottom: -20px;
+		bottom: 0px;
+		color: white;
 		font-size: 1.2em;
 	}
 }
@@ -210,29 +213,34 @@ textarea {
 #lesson-area {
 	position: relative;
 	margin: 5% 20%;
-	background-color: $orange;
+	background-color: $light-yellow;
 }
 
 /* Challenge area */
 
 #challenge-area {
-	padding: 3%;
+
+}
+
+#instruction {
+	padding: 0% 3%;
 }
 
 #challenge-progress {
-	width: 94%;
-	margin: 0 3% 3%;
+	width: 90%;
+	margin: 5% 3% 5% 5%;
 }
 
 #question-area, #feedback-area {
 	padding: 3%;
-	background-color: $light-yellow;
+	background-color: $very-light-yellow;
 }
 
 /* Phrase */
 
 .phrase {
 	font-size: 1.5em;
+	text-align: center;
 }
 
 /* Translate */
@@ -244,13 +252,12 @@ textarea {
 	height: 70px;
 	background-color: white;
 	cursor: pointer;
-	padding-left: 10px;
 	text-align: center;
-	vertical-align: middle;
+	padding-top: 20px;
 }
 
 .choice.checked {
-	background-color: $medium-green;
+	background-color: $light-green;
 }
 
 .hotkey {
@@ -310,12 +317,14 @@ label {
 /* Override login buttons */
 
 #login-buttons a {
+	font-family: $heading-font;
 	display: block;
 	color: white;
 	text-decoration: none !important;
 }
 
-.login-close-text {
+.login-close-text, #signup-link {
+	font-family: $heading-font;
 	background-color: white !important;
 	color: black !important;
 }

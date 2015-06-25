@@ -46,6 +46,11 @@ if (Lessons.find().count() === 0)
 				english: ["I'm a man", "I am a man"]
 			},
 			{
+				qtype: QTYPE.TRANSLATE_VE,
+				vietnamese: "Người đàn ông",
+				english: ["man"]
+			},
+			{
 				qtype: QTYPE.MULTIPLE_CHOICES,
 				vietnamese: "Tôi là đàn bà",
 				english: ["I'm a woman", "I am a woman"]
@@ -64,6 +69,11 @@ if (Lessons.find().count() === 0)
 				qtype: QTYPE.MULTIPLE_CHOICES,
 				vietnamese: "Đây là con chó",
 				english: ["This is a dog", "This is the dog"]
+			},
+			{
+				qtype: QTYPE.TRANSLATE_VE,
+				vietnamese: "Con chó",
+				english: ["Dog"]
 			},
 			{
 				qtype: QTYPE.MULTIPLE_CHOICES,

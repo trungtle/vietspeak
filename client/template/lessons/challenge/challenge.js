@@ -61,7 +61,7 @@ Template.challenge.helpers({
 	},
 
 	qNumber: function() {
-		return Session.get("qNumber");
+		return Session.get("qNumber") + 1;
 	},
 
 	qTotal: function() {
