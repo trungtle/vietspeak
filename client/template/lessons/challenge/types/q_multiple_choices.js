@@ -9,7 +9,6 @@ Template.qMultipleChoices.onCreated(function() {
 	var lesson = Template.currentData();
 	Session.set("isEV", true);  // English phrase, Vietnamese choices
 	pickChoices(lesson);
-
 });
 
 Template.qMultipleChoices.helpers({
@@ -21,6 +20,9 @@ Template.qMultipleChoices.helpers({
 	},
 
 	choices: function() {
+		if (Session.equals("qState", QSTATE.PROMPT)) {
+			pickChoices(this);
+		}
 		return Session.get("choices");
 	},
 

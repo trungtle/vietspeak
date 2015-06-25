@@ -7,7 +7,7 @@
       {{instruction}}
     </h3>
 
-    <div class='panel' id='question-area'>
+    <div id='question-area'>
       {{> questionArea}}
     </div>
 
@@ -21,9 +21,13 @@
         {{/if}}
       </div>
 
-      <button id='submit' class="right round" disabled>
-        <i class='{{submitButtonIcon}}'></i>
-      </button>
+      {{#momentum plugin="slide-height"}}
+        {{#if gotAnswer}}
+          <button id='submit' class="right round">
+            <i class='{{submitButtonIcon}}'></i>
+          </button>
+        {{/if}}
+      {{/momentum}}
     </div>
   </div>
 </template>

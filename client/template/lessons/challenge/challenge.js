@@ -32,6 +32,7 @@ Template.challenge.onCreated(function() {
 
 	// Initialize to the first question in the lesson
 	Session.set("qNumber", 0);
+	Session.set("challengeProgress", 0);
 });
 
 //
@@ -91,6 +92,10 @@ Template.challenge.helpers({
 
 	gotFeedback: function() {
 		return Session.equals("qState", QSTATE.CONTINUE);
+	},
+
+	gotAnswer: function() {
+		return Session.equals("qState", QSTATE.ANSWERED) || Session.equals("qState", QSTATE.CONTINUE);
 	}
 });
 
@@ -170,11 +175,14 @@ answer = function(lesson) {
 			break;
 	}
 
+	var challengeProgress = Session.get("challengeProgress");
 	if (isCorrect) {
 		Session.set("isCorrect", true);
+		Session.set("challengeProgress", challengeProgress + 10);
 	} else {
 		Session.set("feedback", phrase.english[0]);
 		Session.set("isCorrect", false);
+		Session.set("challengeProgress", challengeProgress -5);
 	}
 }
 

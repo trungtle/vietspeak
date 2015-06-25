@@ -6,5 +6,5 @@ Template.header.helpers({
 			return false;
 		}
 	},
-	a : "hello",
+	username : "hello",
 });
