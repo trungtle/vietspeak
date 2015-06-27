@@ -15,55 +15,66 @@ QTYPE = {
 
 if (Lessons.find().count() === 0)
 {
-	// Lessons.insert({
-	// 	name: "Introduction",
-	// 	content: "Introduction content",
-	// 	phrases: [
-	// 		{
-	// 			qType: QTYPE.MULTIPLE_CHOICES,
-	// 			vietnamese: "Người đàn ông",
-	// 			english: ["man"]
-	// 		},
-	// });
+	Lessons.insert({
+		name: "Introduction",
+		content: ["lessonIntroduction1", "lessonIntroduction2", "lessonIntroduction3"],
+		phrases: [
+			{
+				qType: QTYPE.TRUE_FALSE,
+				question: "Vietnamese is a tonal language.",
+				answer: true,
+			},
+			{
+				qType: QTYPE.TRUE_FALSE,
+				question: "Vietnamese uses many borrowed Chinese words in its vocabulary.",
+				answer: true,
+			},
+		]
+	});
 
 	Lessons.insert({
 		name: "Basic 1",
 		preview: "Đàn ông, đàn bà, con chó, con mèo...",
-		content: "Basic 1 content",
+		content: ["Basic 1 content"],
 		phrases: [
 			{
-				qType: QTYPE.MULTIPLE_CHOICES,
+				qType: QTYPE.MULTIPLE_CHOICES_PIC_VE,
+				image: "/img/lessons/man.jpg",
 				vietnamese: "Đàn ông",
 				english: ["Man"]
 			},
 			{
-				qType: QTYPE.MULTIPLE_CHOICES,
+				qType: QTYPE.MULTIPLE_CHOICES_PIC_VE,
 				vietnamese: "Đàn bà",
+				image: "/img/lessons/woman.jpg",
 				english: ["Woman"]
 			},
 			{
 				qType: QTYPE.MULTIPLE_CHOICES,
 				vietnamese: "Tôi là đàn ông",
-				english: ["I'm a man", "I am a man"]
+				english: ["I am a man", "I'm a man"]
 			},
 			{
 				qType: QTYPE.TRANSLATE_VE,
 				vietnamese: "Đàn ông",
+				image: "/img/lessons/man.jpg",
 				english: ["Man"]
 			},
 			{
 				qType: QTYPE.MULTIPLE_CHOICES,
 				vietnamese: "Tôi là đàn bà",
-				english: ["I'm a woman", "I am a woman"]
+				english: ["I am a woman", "I'm a woman"]
 			},
 			{
-				qType: QTYPE.MULTIPLE_CHOICES,
+				qType: QTYPE.MULTIPLE_CHOICES_PIC_VE,
 				vietnamese: "Con chó",
+				image: "/img/lessons/dog.jpg",
 				english: ["Dog"]
 			},
 			{
-				qType: QTYPE.MULTIPLE_CHOICES,
+				qType: QTYPE.MULTIPLE_CHOICES_PIC_VE,
 				vietnamese: "Con mèo",
+				image: "/img/lessons/cat.jpg",
 				english: ["Cat"]
 			},
 			{
@@ -89,7 +100,7 @@ if (Lessons.find().count() === 0)
 			{
 				qType: QTYPE.TRANSLATE_VE,
 				vietnamese: "Tôi là đàn bà",
-				english: ["I'm a woman", "I am a woman"]
+				english: ["I am a woman", "I'm a woman"]
 			},
 			{
 				qType: QTYPE.TRANSLATE_VE,

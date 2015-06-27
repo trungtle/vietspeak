@@ -43,6 +43,8 @@ aTranslateVE = function(phrase) {
     var answer = $('#answer-text').val().trim().toLowerCase();
     var translationList = phrase["english"];
 
+    Session.set("feedback", phrase.english[0]);
+
     return _.some(translationList, function(english) {
         return answer === english.toLowerCase();
     });

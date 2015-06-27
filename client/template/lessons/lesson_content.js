@@ -1,7 +1,13 @@
+Template.challenge.onCreated(function() {
+
+	// Initialize to the first question in the lesson
+	Session.set("lPage", 0); // lesson page
+
+});
+
 Template.lessonContent.helpers({
 	content: function() {
-		var lesson = Lessons.findOne(this._id);
-		return lesson.content;
+		return this.content[Session.get("lPage")];
 	},
 
 	showLesson: function() {
@@ -16,6 +22,17 @@ Template.lessonContent.events({
 		Session.set("showLesson", !Session.get("showLesson"));
 	},
 	"click .back": function() {
-
+		var page = Session.get("lPage");
+		if (page > 0) {
+			page--;
+		}
+		Session.set("lPage", page);
+	},
+	"click .next": function() {
+		var page = Session.get("lPage");
+		if (page + 1 < this.content.length) {
+			page++;
+		}
+		Session.set("lPage", page);
 	}
 });

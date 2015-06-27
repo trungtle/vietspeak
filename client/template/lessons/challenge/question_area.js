@@ -8,6 +8,7 @@ Template.questionArea.helpers({
 				return "qListenVE";
 
 			case QTYPE.MULTIPLE_CHOICES:
+			case QTYPE.MULTIPLE_CHOICES_PIC_VE:
 				return "qMultipleChoices";
 		}
 	}

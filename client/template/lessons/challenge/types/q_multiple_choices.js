@@ -30,8 +30,12 @@ Template.qMultipleChoices.helpers({
 	},
 	gotFeedback: function() {
 		return Session.equals("qState", QSTATE.CONTINUE);
+	},
+	hasImage: function() {
+		var choice = this;
+		var qType = choice.qType;
+		return qType === QTYPE.MULTIPLE_CHOICES_PIC_VE;
 	}
-
 });
 
 Template.qMultipleChoices.events({
@@ -103,6 +107,12 @@ Template.qMultipleChoices.events({
 aMultipleChoices = function(phrase) {
 	var userAnswer = _.findWhere(Session.get("choices"), {checked: true});
 
+	if (Session.get("isEV")) {
+		Session.set("feedback", phrase.vietnamese);
+	} else {
+		Session.set("feedback", phrase.english[0]);
+	}
+
 	return userAnswer.vietnamese === phrase.vietnamese;
 }
 
@@ -115,14 +125,24 @@ function pickChoices(lesson)
 	var isEV = Session.get("isEV");
 	var qNumber = Session.get("qNumber");
 	var phrase = lesson.phrases[qNumber];
-	var choices = _.without(lesson.phrases, phrase); // Remove the phrase from choice list
+	var qType = phrase.qType;
+
+	// Remove the phrase from correct choice from sample list
+	var choices = _.without(lesson.phrases, phrase);
+
+	// Reject other choices that are not of the same question type
 	choices = _.reject(choices, function(choice) {
-		return choice.qType !== QTYPE.MULTIPLE_CHOICES;
+		return choice.qType !== qType;
 	});
-	var choices = _.sample(choices, CHOICE_NUM - 1); // Minus one since we will add it later
+
+	// Minus one choice since we will re-add the correct choice later
+	var choices = _.sample(choices, CHOICE_NUM - 1);
 	choices.push(phrase);
+
+	// Randomize!
 	choices = _.shuffle(choices);
 
+	// Add hotkey and other properties
 	for (var i = 0; i < choices.length; ++i) {
 		choices[i] = _.extend(choices[i], {
 			hotkey: i+1,
@@ -130,5 +150,6 @@ function pickChoices(lesson)
 			translation: isEV ? choices[i].vietnamese : choices[i].english[0],
 		});
 	}
+
 	Session.set("choices", choices);
 }

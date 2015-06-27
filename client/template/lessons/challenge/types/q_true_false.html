@@ -1,0 +1,20 @@
+<template name="qMultipleChoices">
+
+	<p class="phrase">"{{question}}"</p>
+	<ul class="small-block-grid-2">
+		<li>
+			<div class="true choice {{#if trueChecked}}checked{{/if}} {{#if gotFeedback}}{{#if isCorrect}}correct{{else}}wrong{{/if}}{{/if}}" id="choice-true">
+				True
+				<kbk class="hotkey right">{{hotkey}}</kbk>
+			</div>
+		</li>
+
+		<li>
+			<div class="false choice {{#if falseChecked}}checked{{/if}} {{#if gotFeedback}}{{#if isCorrect}}correct{{else}}wrong{{/if}}{{/if}}" id="choice-false">
+				False
+				<kbk class="hotkey right">{{hotkey}}</kbk>
+			</div>
+		</li>
+	</ul>
+
+</template>

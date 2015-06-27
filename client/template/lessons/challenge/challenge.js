@@ -18,6 +18,7 @@ QTYPE = {
 	REPLACE_WRONG_WORD: 8, 		// Click on wrong word, retype it
 	SELECT_CORRECT_SPLEEING: 9, // 12 phrases flowing through
 	TRANSLATE_EV: 10,
+	TRUE_FALSE: 11,
 };
 
 // Question state
@@ -176,18 +177,34 @@ answer = function(lesson) {
 			isCorrect = aTranslateVE(phrase);
 			break;
 		case QTYPE.MULTIPLE_CHOICES:
+		case QTYPE.MULTIPLE_CHOICES_PIC_VE:
 			isCorrect = aMultipleChoices(phrase);
 			break;
 	}
 
 	var challengeProgress = Session.get("challengeProgress");
 	if (isCorrect) {
+
 		Session.set("isCorrect", true);
-		Session.set("challengeProgress", challengeProgress + 10);
+
+		if (challengeProgress + 10 > 100) {
+			challengeProgress = 100;
+			completeChallenge();
+		} else {
+			challengeProgress += 10;
+		}
+		Session.set("challengeProgress", challengeProgress);
+
 	} else {
-		Session.set("feedback", phrase.english[0]);
+
 		Session.set("isCorrect", false);
-		Session.set("challengeProgress", challengeProgress - 5);
+
+		if (challengeProgress - 5 < 0) {
+			challengeProgress = 0;
+		} else {
+			challengeProgress -= 5;
+		}
+		Session.set("challengeProgress", challengeProgress);
 	}
 }
 

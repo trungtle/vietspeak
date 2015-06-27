@@ -1,13 +1,14 @@
 <template name="lessonContent">
-  <button id="view-lesson" class="fa fa-book round large"></button>
+
+  <a id="view-lesson" class="">Tips & Lessons</a>
 
   {{#momentum plugin="fade"}}
-  	{{#if showLesson}}
+		{{#if showLesson}}
 			<section id="lesson-content">
 				<div class='row'>
 					<span class="left back button small-2 columns fa fa-chevron-left fa-2x"></span>
 					<span class='small-8 columns'>
-			    	{{content}}
+			    	{{> Template.dynamic template=content}}
 			    </span>
 					<span class="right next button small-2 columns fa fa-chevron-right fa-2x"></span>
 				</div>
