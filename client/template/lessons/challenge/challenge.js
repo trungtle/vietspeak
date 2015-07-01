@@ -77,7 +77,6 @@ Template.challenge.helpers({
 
 	instruction: function() {
 		var qType = this.phrases[Session.get("qNumber")].qType;
-		console.log(this.phrases[Session.get("qNumber")]);
 		switch (qType) {
 			case QTYPE.TRANSLATE_VE:
 			case QTYPE.LISTEN_VE:

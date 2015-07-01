@@ -9,10 +9,4 @@ Template.lessonPage.helpers({
 });
 
 Template.lessonPage.events({
-	"click .practice-button": function() {
-		Session.set("showChallenge", true);
-	},
-	"click .lesson-button": function() {
-		Session.set("showChallenge", false);
-	},
 });

@@ -9,7 +9,15 @@ Template.lessonContent.helpers({
 	content: function() {
 		return this.content[Session.get("lPage")];
 	},
-
+	page: function() {
+		return Session.get("lPage") + 1;
+	},
+	pageTotal: function() {
+		return this.content.length;
+	},
+	showChallenge: function() {
+		return Session.get("showChallenge");
+	}
 });
 
 Template.lessonContent.events({
@@ -26,5 +34,9 @@ Template.lessonContent.events({
 			page++;
 		}
 		Session.set("lPage", page);
-	}
+	},
+	"click .practice-button": function() {
+		Session.set("showChallenge", true);
+	},
+
 });
