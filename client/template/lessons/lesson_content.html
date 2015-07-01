@@ -1,19 +1,13 @@
 <template name="lessonContent">
 
-  <a id="view-lesson" class="">Tips & Lessons</a>
-
-  {{#momentum plugin="fade"}}
-		{{#if showLesson}}
-			<section id="lesson-content">
-				<div class='row'>
-					<span class="left back button small-2 columns fa fa-chevron-left fa-2x"></span>
-					<span class='small-8 columns'>
-			    	{{> Template.dynamic template=content}}
-			    </span>
-					<span class="right next button small-2 columns fa fa-chevron-right fa-2x"></span>
-				</div>
-			</section>
-		{{/if}}
-	{{/momentum}}
+	<section id="lesson-content">
+		<div class='row'>
+			<span class="left back button small-2 columns fa fa-chevron-left fa-2x"></span>
+			<span class='small-8 columns'>
+	    	{{> Template.dynamic template=content}}
+	    </span>
+			<span class="right next button small-2 columns fa fa-chevron-right fa-2x"></span>
+		</div>
+	</section>
 
 </template>

@@ -1,9 +1,16 @@
 <template name="lessonPage">
 
 	<div id="lesson-area">
-  	{{> lessonContent}}
-		{{> challenge}}
-		{{> lookupHelp}}
+  	{{#momentum plugin="slide-height"}}
+	  	{{#if showChallenge}}
+	  		{{> challenge}}
+	  		{{> lookupHelp}}
+	  		<button class="lesson-button">Lesson</button>
+	  	{{else}}
+		  	{{> lessonContent}}
+	  		<button class="practice-button">Challenge!</button>
+	  	{{/if}}
+	  {{/momentum}}
 	</div>
 
 </template>

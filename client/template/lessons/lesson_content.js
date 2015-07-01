@@ -1,4 +1,4 @@
-Template.challenge.onCreated(function() {
+Template.lessonContent.onCreated(function() {
 
 	// Initialize to the first question in the lesson
 	Session.set("lPage", 0); // lesson page
@@ -10,17 +10,9 @@ Template.lessonContent.helpers({
 		return this.content[Session.get("lPage")];
 	},
 
-	showLesson: function() {
-		return Session.get("showLesson");
-	}
-
 });
 
 Template.lessonContent.events({
-	"click #view-lesson": function()
-	{
-		Session.set("showLesson", !Session.get("showLesson"));
-	},
 	"click .back": function() {
 		var page = Session.get("lPage");
 		if (page > 0) {

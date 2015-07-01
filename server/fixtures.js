@@ -11,13 +11,20 @@ QTYPE = {
 	REPLACE_WRONG_WORD: 8, 		// Click on wrong word, retype it
 	SELECT_CORRECT_SPLEEING: 9, // 12 phrases flowing through
 	TRANSLATE_EV: 10,
+	TRUE_FALSE: 11,
 };
 
 if (Lessons.find().count() === 0)
 {
 	Lessons.insert({
 		name: "Introduction",
-		content: ["lessonIntroduction1", "lessonIntroduction2", "lessonIntroduction3"],
+		content: [
+			"lessonIntroduction1",
+			"lessonIntroduction2",
+			"lessonIntroduction3",
+			"lessonIntroduction4",
+			"lessonIntroduction5"
+			],
 		phrases: [
 			{
 				qType: QTYPE.TRUE_FALSE,
@@ -29,12 +36,32 @@ if (Lessons.find().count() === 0)
 				question: "Vietnamese uses many borrowed Chinese words in its vocabulary.",
 				answer: true,
 			},
+			{
+				qType: QTYPE.TRUE_FALSE,
+				question: "‘ư’ has an accent mark",
+				answer: false,
+			},
+			{
+				qType: QTYPE.TRUE_FALSE,
+				question: "‘ả’ has an accent mark",
+				answer: true,
+			},
+			{
+				qType: QTYPE.TRUE_FALSE,
+				question: "A word without an accent mark doesn’t have a tone",
+				answer: false,
+			},
+			{
+				qType: QTYPE.TRUE_FALSE,
+				question: "An accent mark is the same as a diacritic",
+				answer: true
+			}
 		]
 	});
 
 	Lessons.insert({
 		name: "Basic 1",
-		preview: "Đàn ông, đàn bà, con chó, con mèo...",
+		preview: "Đàn ông, phụ nữ, con chó, con mèo...",
 		content: ["Basic 1 content"],
 		phrases: [
 			{
@@ -45,7 +72,7 @@ if (Lessons.find().count() === 0)
 			},
 			{
 				qType: QTYPE.MULTIPLE_CHOICES_PIC_VE,
-				vietnamese: "Đàn bà",
+				vietnamese: "Phụ nữ",
 				image: "/img/lessons/woman.jpg",
 				english: ["Woman"]
 			},
@@ -62,7 +89,7 @@ if (Lessons.find().count() === 0)
 			},
 			{
 				qType: QTYPE.MULTIPLE_CHOICES,
-				vietnamese: "Tôi là đàn bà",
+				vietnamese: "Tôi là phụ nữ",
 				english: ["I am a woman", "I'm a woman"]
 			},
 			{
@@ -94,12 +121,12 @@ if (Lessons.find().count() === 0)
 			},
 			{
 				qType: QTYPE.TRANSLATE_VE,
-				vietnamese: "Đàn bà",
+				vietnamese: "Phụ nữ",
 				english: ["Woman"]
 			},
 			{
 				qType: QTYPE.TRANSLATE_VE,
-				vietnamese: "Tôi là đàn bà",
+				vietnamese: "Tôi là phụ nữ",
 				english: ["I am a woman", "I'm a woman"]
 			},
 			{

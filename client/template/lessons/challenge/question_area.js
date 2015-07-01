@@ -7,6 +7,9 @@ Template.questionArea.helpers({
 			case QTYPE.LISTEN_VE:
 				return "qListenVE";
 
+			case QTYPE.TRUE_FALSE:
+				return "qTrueFalse";
+
 			case QTYPE.MULTIPLE_CHOICES:
 			case QTYPE.MULTIPLE_CHOICES_PIC_VE:
 				return "qMultipleChoices";

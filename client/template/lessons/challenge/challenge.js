@@ -34,7 +34,6 @@ Template.challenge.onCreated(function() {
 	// Initialize to the first question in the lesson
 	Session.set("qNumber", 0);
 	Session.set("challengeProgress", 0);
-	Session.set("showLesson", true);
 	Session.set("qState", QSTATE.PROMPT);
 
 });
@@ -78,6 +77,7 @@ Template.challenge.helpers({
 
 	instruction: function() {
 		var qType = this.phrases[Session.get("qNumber")].qType;
+		console.log(this.phrases[Session.get("qNumber")]);
 		switch (qType) {
 			case QTYPE.TRANSLATE_VE:
 			case QTYPE.LISTEN_VE:
@@ -86,6 +86,8 @@ Template.challenge.helpers({
 				return "Match with correct answer";
 			case QTYPE.MULTIPLE_CHOICES_PIC_VE:
 				return "Match with correct picture";
+			case QTYPE.TRUE_FALSE:
+				return "True or False";
 		}
 	},
 
@@ -175,6 +177,9 @@ answer = function(lesson) {
 		case QTYPE.TRANSLATE_VE:
 		case QTYPE.LISTEN_VE:
 			isCorrect = aTranslateVE(phrase);
+			break;
+		case QTYPE.TRUE_FALSE:
+			isCorrect = aTrueFalse(phrase);
 			break;
 		case QTYPE.MULTIPLE_CHOICES:
 		case QTYPE.MULTIPLE_CHOICES_PIC_VE:

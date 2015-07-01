@@ -11,10 +11,10 @@ Template.qTrueFalse.helpers({
 		return Session.equals("qState", QSTATE.CONTINUE);
 	},
 	trueChecked: function() {
-		return Session.get("trueChecked");
+		return Session.get("trueChecked") && !Session.equals("qState", QSTATE.PROMPT);
 	},
 	falseChecked: function() {
-		return Session.get("falseChecked");
+		return Session.get("falseChecked") && !Session.equals("qState", QSTATE.PROMPT);
 	}
 });
 

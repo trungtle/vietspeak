@@ -203,39 +203,36 @@ textarea {
 
 /* Lesson area */
 
+#lesson-area {
+	margin: 5%;
+}
+
 #lesson-content {
-	position: absolute;
-	top: 20px;
-	left: 20px;
 	width: 100%;
-	min-height: 100%;
-	background-color: $medium-blue;
+	height: 100%;
+	background-color: $light-blue;
 	color: white;
-	z-index: 10;
 }
 
 .back, .next {
 	padding-top: 50px;
-	// background-color: $light-blue !important;
+	background-color: $light-blue !important;
 }
 
-#view-lesson {
+.practice-button, .lesson-button {
 	position: absolute;
-	top: 10px;
-	left: -130px;
-	text-decoration: underline;
-}
-
-#lesson-area {
-	position: relative;
-	margin: 5% 20%;
-	background-color: $light-yellow;
+	margin: auto;
+    width: 10%;
 }
 
 /* Challenge area */
 
 #instruction {
 	padding: 0% 3%;
+}
+
+#challenge-area {
+	background-color: $light-yellow;
 }
 
 #question-area, #feedback-area {
@@ -376,5 +373,5 @@ label {
    -webkit-animation: flickerAnimation 3s infinite;
    -moz-animation: flickerAnimation 3s infinite;
    -o-animation: flickerAnimation 3s infinite;
-    animation: flickerAnimation 3s infinite;
+   animation: flickerAnimation 3s infinite;
 }

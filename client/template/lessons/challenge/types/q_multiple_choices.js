@@ -1,9 +1,5 @@
 const CHOICE_NUM = 4;
 
-Template.qMultipleChoices.rendered = function() {
-
-}
-
 Template.qMultipleChoices.onCreated(function() {
 
 	var lesson = Template.currentData();
