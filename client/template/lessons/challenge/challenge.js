@@ -116,7 +116,7 @@ Template.challenge.events({
 	"click #submit": function(ev) {
 
 		var qState = Session.get("qState");
-
+		console.log("qstate is " + qState);
 		switch(qState) {
 			case QSTATE.PROMPT:
 			default:
@@ -136,7 +136,7 @@ Template.challenge.events({
 		}
 	},
 
-	"keypress": function (ev) {
+	"keyup": function (ev) {
 
 	    if (ev.keyCode === KEYCODE_ENTER) { // Enter key
 	    	$("#submit").click();

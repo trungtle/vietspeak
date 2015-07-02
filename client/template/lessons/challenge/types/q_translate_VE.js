@@ -1,3 +1,6 @@
+// maybe we should have a single file contain our constants
+const KEYCODE_ENTER = 13;
+
 Template.qTranslateVE.rendered = function() {
 
     // Focus answer box
@@ -26,7 +29,7 @@ Template.qTranslateVE.helpers({
 
 Template.qTranslateVE.events({
     "keyup #answer-text": function(ev) {
-        if (ev.target.value.length) {
+        if (ev.target.value.length && ev.keyCode !== KEYCODE_ENTER) {
             enableSubmitButton();
         }
     },
