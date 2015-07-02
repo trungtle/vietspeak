@@ -116,7 +116,6 @@ Template.challenge.events({
 	"click #submit": function(ev) {
 
 		var qState = Session.get("qState");
-		console.log("qstate is " + qState);
 		switch(qState) {
 			case QSTATE.PROMPT:
 			default:
