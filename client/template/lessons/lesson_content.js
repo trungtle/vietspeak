@@ -17,6 +17,9 @@ Template.lessonContent.helpers({
 	},
 	showChallenge: function() {
 		return Session.get("showChallenge");
+	},
+	showChallengeButton: function() {
+		return Session.get("showChallengeButton");
 	}
 });
 
@@ -38,5 +41,11 @@ Template.lessonContent.events({
 	"click .practice-button": function() {
 		Session.set("showChallenge", true);
 	},
-
+	"scroll": function(ev) {
+		var y = ev.target.scrollTop();
+		console.log(ev);
+		if (y > 500) {
+			Session.set("showChallengeButton", true);
+		}
+	}
 });

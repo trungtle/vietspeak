@@ -5,8 +5,9 @@
 	  	{{#if showChallenge}}
 	  		{{> challenge}}
 	  		{{> lookupHelp}}
-	  	{{/if}}
-  		{{> lessonContent}}
+	  	{{else}}
+  			{{> lessonContent}}
+  		{{/if}}
 	  {{/momentum}}
 	</div>
 

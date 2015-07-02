@@ -215,6 +215,10 @@ textarea {
 	color: white;
 	text-align: justify;
 	@include box-shadow;
+
+	h1, h2, h3 {
+		color: white;
+	}
 }
 
 .back, .next {

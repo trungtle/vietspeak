@@ -7,12 +7,13 @@
 				<h3>{{page}}/{{pageTotal}}</h3>
 	    	{{> Template.dynamic template=content}}
 	    </span>
-			<span class="right next button small-2 columns fa fa-chevron-right fa-2x"></span>
+			<span class="right next button small-1 columns fa fa-chevron-right fa-2x"></span>
 		</div>
-  	{{#unless showChallenge}}
-			<button class="practice-button right">Challenge!</button>
-		{{/unless}}
-
+		{{#momentum plugin="fade"}}
+	  	{{#if showChallengeButton}}
+				<button class="practice-button right">Challenge!</button>
+			{{/if}}
+		{{/momentum}}
 	</section>
 
 </template>
