@@ -10,8 +10,8 @@ QTYPE = {
 	RANDOM: 0,
 	TRANSLATE_VE: 1,
 	LISTEN_VE: 2,
-	MULTIPLE_CHOICES: 3,
-	MULTIPLE_CHOICES_PIC_VE: 4,
+	MULTIPLE_CHOICES_TRANSLATION: 3,
+	MULTIPLE_CHOICES_TRANSLATION_PIC: 4,
 	REARRANGE: 5,				// Rearrange words in a Vietnamese phrase
 	FILL_IN_BLANK: 6,			// Fill in the blank for a Vietnamese phrase
 	WORD_PAIRING: 7,			// Pairing between English & Vietnamese
@@ -83,9 +83,9 @@ Template.challenge.helpers({
 			case QTYPE.TRANSLATE_VE:
 			case QTYPE.LISTEN_VE:
 				return "Translate to English";
-			case QTYPE.MULTIPLE_CHOICES:
+			case QTYPE.MULTIPLE_CHOICES_TRANSLATION:
 				return "Match with correct answer";
-			case QTYPE.MULTIPLE_CHOICES_PIC_VE:
+			case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
 				return "Match with correct picture";
 			case QTYPE.TRUE_FALSE:
 				return "True or False";
@@ -166,27 +166,8 @@ function nextQuestion(lesson) {
 	Session.set("qNumber", qNumber);
 }
 
-answer = function(lesson) {
-
-	var phrase = lesson.phrases[Session.get("qNumber")];
-	var qType = phrase.qType;
-
-	var isCorrect = false;
-
-	switch(qType) {
-		case QTYPE.TRANSLATE_VE:
-		case QTYPE.LISTEN_VE:
-			isCorrect = aTranslateVE(phrase);
-			break;
-		case QTYPE.TRUE_FALSE:
-			isCorrect = aTrueFalse(phrase);
-			break;
-		case QTYPE.MULTIPLE_CHOICES:
-		case QTYPE.MULTIPLE_CHOICES_PIC_VE:
-			isCorrect = aMultipleChoices(phrase);
-			break;
-	}
-
+function computeProgress(isCorrect)
+{
 	var challengeProgress = Session.get("challengeProgress");
 	if (isCorrect) {
 
@@ -211,6 +192,32 @@ answer = function(lesson) {
 		}
 		Session.set("challengeProgress", challengeProgress);
 	}
+}
+
+// Global functions
+
+answer = function(lesson) {
+
+	var phrase = lesson.phrases[Session.get("qNumber")];
+	var qType = phrase.qType;
+
+	var isCorrect = false;
+
+	switch(qType) {
+		case QTYPE.TRANSLATE_VE:
+		case QTYPE.LISTEN_VE:
+			isCorrect = aTranslateVE(phrase);
+			break;
+		case QTYPE.TRUE_FALSE:
+			isCorrect = aTrueFalse(phrase);
+			break;
+		case QTYPE.MULTIPLE_CHOICES_TRANSLATION:
+		case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
+			isCorrect = aMultipleChoicesTranslation(phrase);
+			break;
+	}
+
+	computeProgress(isCorrect);
 }
 
 enableSubmitButton = function() {

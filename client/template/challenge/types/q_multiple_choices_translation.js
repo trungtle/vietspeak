@@ -1,13 +1,13 @@
 const CHOICE_NUM = 4;
 
-Template.qMultipleChoices.onCreated(function() {
+Template.qMultipleChoicesTranslation.onCreated(function() {
 
 	var lesson = Template.currentData();
 	Session.set("isEV", true);  // English phrase, Vietnamese choices
 	pickChoices(lesson);
 });
 
-Template.qMultipleChoices.helpers({
+Template.qMultipleChoicesTranslation.helpers({
 
 	phrase: function() {
 		var isEV = Session.get("isEV");
@@ -30,11 +30,11 @@ Template.qMultipleChoices.helpers({
 	hasImage: function() {
 		var choice = this;
 		var qType = choice.qType;
-		return qType === QTYPE.MULTIPLE_CHOICES_PIC_VE;
+		return qType === QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC;
 	}
 });
 
-Template.qMultipleChoices.events({
+Template.qMultipleChoicesTranslation.events({
 
 	"click .choice": function(ev) {
 		// Select a choice
@@ -100,7 +100,7 @@ Template.qMultipleChoices.events({
 // Public functions
 // ----------------------
 
-aMultipleChoices = function(phrase) {
+aMultipleChoicesTranslation = function(phrase) {
 	var userAnswer = _.findWhere(Session.get("choices"), {checked: true});
 
 	if (Session.get("isEV")) {
