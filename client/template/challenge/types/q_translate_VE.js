@@ -24,6 +24,10 @@ Template.qTranslateVE.helpers({
     vietnamese: function() {
         var phrase = this.phrases[Session.get("qNumber")];
         return phrase.vietnamese;
+    },
+    isListeningOnly: function() {
+        var phrase = this.phrases[Session.get("phraseIndex")];
+        return phrase.qType === QTYPE.LISTEN_VE;
     }
 });
 
