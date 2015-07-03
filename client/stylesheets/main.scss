@@ -175,6 +175,7 @@ textarea {
 	list-style: none;
 	background-color: $light-blue;
 	padding: 5%;
+	@include box-shadow;
 }
 
 .lesson-item {

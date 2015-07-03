@@ -19,8 +19,15 @@ Template.lessonContent.helpers({
 		return Session.get("showChallenge");
 	},
 	showChallengeButton: function() {
-		return Session.get("showChallengeButton");
+		return Session.equals("lPage", this.content.length - 1);
+	},
+	isFirstPage: function() {
+		return Session.equals("lPage", 0);
+	},
+	isLastPage: function() {
+		return Session.equals("lPage", this.content.length - 1);
 	}
+
 });
 
 Template.lessonContent.events({
@@ -40,12 +47,5 @@ Template.lessonContent.events({
 	},
 	"click .practice-button": function() {
 		Session.set("showChallenge", true);
-	},
-	"scroll": function(ev) {
-		var y = ev.target.scrollTop();
-		console.log(ev);
-		if (y > 500) {
-			Session.set("showChallengeButton", true);
-		}
-	}
+    }
 });

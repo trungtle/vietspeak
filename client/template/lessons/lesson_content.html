@@ -2,12 +2,12 @@
 
 	<section id="lesson-content">
 		<div class='row'>
-			<span class="left back button small-2 columns fa fa-chevron-left fa-2x"></span>
+			<span class="small-2 columns left {{#unless isFirstPage}}back button fa fa-chevron-left fa-2x{{/unless}}"></span>
 			<span class='small-8 columns'>
 				<h3>{{page}}/{{pageTotal}}</h3>
 	    	{{> Template.dynamic template=content}}
 	    </span>
-			<span class="right next button small-1 columns fa fa-chevron-right fa-2x"></span>
+			<span class="small-1 columns right {{#unless isLastPage}}next button fa fa-chevron-right fa-2x{{/unless}}"></span>
 		</div>
 		{{#momentum plugin="fade"}}
 	  	{{#if showChallengeButton}}
