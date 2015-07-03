@@ -13,27 +13,30 @@
         </div>
 
         <div id='feedback-area'>
-          <div class='left' id='feedback'>
-            {{#if gotFeedback}}
-              {{#if isCorrect}}
-                <span class="feedback-correct">Correct</span>
-              {{else}}
-                <span class="feedback-wrong">Wrong</span>. The correct answer is "{{feedback}}"{{/if}}.
-            {{/if}}
-          </div>
-
-          {{#momentum plugin="slide-height"}}
-            {{#if gotAnswer}}
-              <button id='submit' class="right round">
-                <i class='{{submitButtonIcon}}'></i>
-              </button>
-            {{/if}}
-          {{/momentum}}
+          {{> feedback}}
         </div>
       </div>
     </div>
   </div>
 </template>
 
+<template name="feedback">
 
+  <div class='left' id='feedback'>
+    {{#if gotFeedback}}
+      {{#if isCorrect}}
+        <span class="feedback-correct">Correct</span>
+      {{else}}
+        <span class="feedback-wrong">Wrong</span>. The correct answer is "{{feedback}}"{{/if}}.
+    {{/if}}
+  </div>
 
+  {{#momentum plugin="slide-height"}}
+    {{#if gotAnswer}}
+      <button id='submit' class="right round">
+        <i class='{{submitButtonIcon}}'></i>
+      </button>
+    {{/if}}
+  {{/momentum}}
+
+</template>

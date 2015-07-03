@@ -50,25 +50,6 @@ Template.challenge.rendered = function() {
 //
 
 Template.challenge.helpers({
-	submitButtonIcon: function() {
-		var qState = Session.get("qState");
-
-		switch(qState) {
-			case QSTATE.CONTINUE:
-				return "fa fa-hand-o-right";
-
-			case QSTATE.ANSWERED:
-				$("#submit").prop("disabled", false);
-				return "fa fa-check";
-
-			case QSTATE.PROMPT:
-			default:
-				$("#submit").prop("disabled", true);
-				return "fa fa-check";
-
-		}
-	},
-
 	qNumber: function() {
 		return Session.get("qNumber") + 1;
 	},
@@ -91,7 +72,28 @@ Template.challenge.helpers({
 				return "True or False";
 		}
 	},
+});
 
+
+Template.feedback.helpers({
+	submitButtonIcon: function() {
+		var qState = Session.get("qState");
+
+		switch(qState) {
+			case QSTATE.CONTINUE:
+				return "fa fa-hand-o-right";
+
+			case QSTATE.ANSWERED:
+				$("#submit").prop("disabled", false);
+				return "fa fa-check";
+
+			case QSTATE.PROMPT:
+			default:
+				$("#submit").prop("disabled", true);
+				return "fa fa-check";
+
+		}
+	},
 	feedback: function() {
 		return Session.get("feedback");
 	},
@@ -108,7 +110,6 @@ Template.challenge.helpers({
 		return Session.equals("qState", QSTATE.ANSWERED) || Session.equals("qState", QSTATE.CONTINUE);
 	}
 });
-
 
 //
 // Events
