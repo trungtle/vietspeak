@@ -34,7 +34,8 @@ QSTATE = {
 Template.challenge.onCreated(function() {
 
 	// Initialize to the first question in the lesson
-	Session.set("qNumber", 0);
+	Session.set("phraseIndex", 0);
+	Session.set("qNumber", 1);
 	Session.set("challengeProgress", 0);
 	Session.set("qState", QSTATE.PROMPT);
 
@@ -51,7 +52,7 @@ Template.challenge.rendered = function() {
 
 Template.challenge.helpers({
 	qNumber: function() {
-		return Session.get("qNumber") + 1;
+		return Session.get("qNumber");
 	},
 
 	qTotal: function() {
@@ -59,7 +60,7 @@ Template.challenge.helpers({
 	},
 
 	instruction: function() {
-		var qType = this.phrases[Session.get("qNumber")].qType;
+		var qType = this.phrases[Session.get("phraseIndex")].qType;
 		switch (qType) {
 			case QTYPE.TRANSLATE_VE:
 			case QTYPE.LISTEN_VE:
@@ -151,20 +152,24 @@ Template.challenge.events({
 function nextQuestion(lesson) {
 
 	var qTotal = _.keys(lesson.phrases).length;
-	var qNumber = Session.get("qNumber");
+	var phraseIndex = Session.get("phraseIndex");
 
 	// User has looped through all the phrases, pick a random phrase
-	if (qNumber >= qTotal) {
+	if (phraseIndex >= qTotal - 1) {
 		Session.set("randomQuestion", true);
 	}
 
 	if (Session.get("randomQuestion")) {
-		qNumber = _.random(qTotal - 1);
+		phraseIndex = _.random(qTotal - 1);
 	} else {
-		qNumber++;
+		phraseIndex++;
 	}
 
-	Session.set("qNumber", qNumber);
+	Session.set("phraseIndex", phraseIndex);
+
+	// Increment question number
+	var qNumber = Session.get("qNumber");
+	Session.set("qNumber", qNumber + 1);
 }
 
 function computeProgress(isCorrect)
@@ -199,7 +204,7 @@ function computeProgress(isCorrect)
 
 answer = function(lesson) {
 
-	var phrase = lesson.phrases[Session.get("qNumber")];
+	var phrase = lesson.phrases[Session.get("phraseIndex")];
 	var qType = phrase.qType;
 
 	var isCorrect = false;

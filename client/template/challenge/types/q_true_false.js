@@ -1,7 +1,7 @@
 Template.qTrueFalse.helpers({
 
 	question: function() {
-		var phrase = this.phrases[Session.get("qNumber")];
+		var phrase = this.phrases[Session.get("phraseIndex")];
 		return phrase.question;
 	},
 	isCorrect: function() {
@@ -63,6 +63,7 @@ Template.qTrueFalse.events({
 // ----------------------
 
 aTrueFalse = function(phrase) {
+	Session.set("feedback", phrase.answer ? "True" : "False");
 	if (phrase.answer == true) {
 		return Session.get("trueChecked");
 	} else {

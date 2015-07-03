@@ -11,7 +11,7 @@ Template.qMultipleChoicesTranslation.helpers({
 
 	phrase: function() {
 		var isEV = Session.get("isEV");
-		var phrase = this.phrases[Session.get("qNumber")];
+		var phrase = this.phrases[Session.get("phraseIndex")];
 		return isEV ? _.first(phrase.english) : phrase.vietnamese;
 	},
 
@@ -119,8 +119,8 @@ aMultipleChoicesTranslation = function(phrase) {
 function pickChoices(lesson)
 {
 	var isEV = Session.get("isEV");
-	var qNumber = Session.get("qNumber");
-	var phrase = lesson.phrases[qNumber];
+	var phraseIndex = Session.get("phraseIndex");
+	var phrase = lesson.phrases[phraseIndex];
 	var qType = phrase.qType;
 
 	// Remove the phrase from correct choice from sample list

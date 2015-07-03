@@ -7,22 +7,22 @@ Template.qTranslateVE.rendered = function() {
     $('#answer-text').focus();
 }
 
-Template.qTranslateVE.onCreated = function () {
+Template.qTranslateVE.onCreated(function () {
 
     // Play sound when first created
     var lesson = Template.currentData();
-    var phrase = lesson.phrases[Session.get("qNumber")];
+    var phrase = lesson.phrases[Session.get("phraseIndex")];
     var audio = new Audio(phrase.audioSrc);
     audio.play();
-}
+});
 
 Template.qTranslateVE.helpers({
     audioSrc: function() {
-        var phrase = this.phrases[Session.get("qNumber")];
+        var phrase = this.phrases[Session.get("phraseIndex")];
         return phrase.audioSrc;
     },
     vietnamese: function() {
-        var phrase = this.phrases[Session.get("qNumber")];
+        var phrase = this.phrases[Session.get("phraseIndex")];
         return phrase.vietnamese;
     },
     isListeningOnly: function() {
@@ -38,7 +38,7 @@ Template.qTranslateVE.events({
         }
     },
     "click .play-audio": function(ev) {
-        var phrase = this.phrases[Session.get("qNumber")];
+        var phrase = this.phrases[Session.get("phraseIndex")];
         var audio = new Audio(phrase.audioSrc);
         audio.play();
     }
