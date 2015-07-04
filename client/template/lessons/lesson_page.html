@@ -1,15 +1,11 @@
 <template name="lessonPage">
-
-	<div id="lesson-area">
-  	{{#momentum plugin="slide-height"}}
-	  	{{#if showChallenge}}
-	  		{{> challenge}}
-	  		{{> lookupHelp}}
-	  	{{else}}
-  			{{> lessonContent}}
-  		{{/if}}
-	  {{/momentum}}
-	</div>
-
+  <div id="lesson-area">
+    {{#momentum plugin="slide-height" }}
+      {{#if showChallenge}}
+        {{> challenge}} {{> lookupHelp}}
+      {{else}}
+        {{> lessonContent}}
+      {{/if}}
+    {{/momentum}}
+  </div>
 </template>
-

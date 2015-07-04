@@ -3,20 +3,16 @@
     <div class="push-2 small-8 columns">
       <div id='challenge-area'>
         {{> challengeProgress}}
-
         <h3 id="instruction">
           {{qNumber}}. {{instruction}}
         </h3>
-
         <div id='question-area'>
           {{> questionArea}}
         </div>
-
         <div id='feedback-area'>
           {{> feedback}}
         </div>
-
-        {{#momentum plugin="growl"}}
+        {{#momentum plugin="growl" }}
           {{#if completed}}
             {{> challengeComplete}}
           {{/if}}
@@ -25,9 +21,7 @@
     </div>
   </div>
 </template>
-
 <template name="feedback">
-
   <div class='left' id='feedback'>
     {{#if gotFeedback}}
       {{#if isCorrect}}
@@ -36,13 +30,11 @@
         <span class="feedback-wrong">Wrong</span>. The correct answer is "{{feedback}}"{{/if}}.
     {{/if}}
   </div>
-
-  {{#momentum plugin="slide-height"}}
+  {{#momentum plugin="slide-height" }}
     {{#if gotAnswer}}
       <button id='submit' class="right round">
         <i class='{{submitButtonIcon}}'></i>
       </button>
     {{/if}}
   {{/momentum}}
-
 </template>

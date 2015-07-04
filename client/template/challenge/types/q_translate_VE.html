@@ -1,17 +1,17 @@
 <template name="qTranslateVE">
-	<button class="round success tiny play-audio">
-		<i class="fa fa-play"></i>
-	</button>
-	<div class="row">
-		{{#unless isListeningOnly}}
-		<div class="small-6 columns">
-			<span class="phrase">
-				"{{vietnamese}}"
-			</span>
-		</div>
-		{{/unless}}
-		<div class="small-6 columns">
-			<input type="text" id="answer-text">
-		</div>
-	</div>
+  <button class="round success tiny play-audio">
+    <i class="fa fa-play"></i>
+  </button>
+  <div class="row">
+    {{#unless isListeningOnly}}
+      <div class="small-6 columns">
+        <span class="phrase">
+        "{{vietnamese}}"
+      </span>
+      </div>
+    {{/unless}}
+    <div class="small-6 columns">
+      <input type="text" id="answer-text">
+    </div>
+  </div>
 </template>

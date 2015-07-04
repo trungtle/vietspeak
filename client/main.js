@@ -1,5 +1,5 @@
 Template.body.helpers({
-	log: function() {
-		console.log(this);
-	}
+    log: function() {
+        console.log(this);
+    }
 });

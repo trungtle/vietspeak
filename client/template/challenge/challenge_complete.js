@@ -1,5 +1,5 @@
 Template.challengeComplete.events({
-	"click #try-again-button": function() {
-		resetChallenge();
-	},
+    "click #try-again-button": function() {
+        resetChallenge();
+    },
 });

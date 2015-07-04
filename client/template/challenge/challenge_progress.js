@@ -1,5 +1,5 @@
 Template.challengeProgress.helpers({
-	percent: function() {
-		return Session.get("challengeProgress");
-	}
+    percent: function() {
+        return Session.get("challengeProgress");
+    }
 });

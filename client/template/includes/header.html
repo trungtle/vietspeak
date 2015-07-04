@@ -1,9 +1,7 @@
-
 <template name="header">
   {{#if login}}
-  	<nav class='top-bar' data-topbar role='navigation'>
-
-  		<!-- Title area -->
+    <nav class='top-bar' data-topbar role='navigation'>
+      <!-- Title area -->
       <ul class='title-area'>
         <li class='name'>
           <h1>
@@ -12,16 +10,14 @@
             </a>
           </h1>
         </li>
-
         <li class='toggle-topbar icon'>
           <a href="{{pathFor 'home'}}">
             <span>Menu</span>
           </a>
         </li>
       </ul>
-
       <!-- Menu -->
-    	<section class='top-bar-section'>
+      <section class='top-bar-section'>
         <ul class='left'>
           <li>
             <a class="nav-lesson" href="{{pathFor 'lessonsList'}}">
@@ -29,16 +25,12 @@
             </a>
           </li>
         </ul>
-
         <ul class='right'>
           <li>
             {{> loginButtons align="right"}}
           </li>
         </ul>
       </section>
-
     </nav>
   {{/if}}
-
-
 </template>

@@ -7,7 +7,7 @@ Template.qTranslateVE.rendered = function() {
     $('#answer-text').focus();
 }
 
-Template.qTranslateVE.onCreated(function () {
+Template.qTranslateVE.onCreated(function() {
 
     // Play sound when first created
     var lesson = Template.currentData();
@@ -56,4 +56,3 @@ aTranslateVE = function(phrase) {
         return answer === english.toLowerCase();
     });
 }
-
