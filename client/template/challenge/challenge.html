@@ -15,6 +15,12 @@
         <div id='feedback-area'>
           {{> feedback}}
         </div>
+
+        {{#momentum plugin="growl"}}
+          {{#if completed}}
+            {{> challengeComplete}}
+          {{/if}}
+        {{/momentum}}
       </div>
     </div>
   </div>

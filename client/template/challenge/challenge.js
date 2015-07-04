@@ -33,18 +33,9 @@ QSTATE = {
 
 Template.challenge.onCreated(function() {
 
-	// Initialize to the first question in the lesson
-	Session.set("phraseIndex", 0);
-	Session.set("qNumber", 1);
-	Session.set("challengeProgress", 0);
-	Session.set("qState", QSTATE.PROMPT);
+	resetChallenge();
 
 });
-
-Template.challenge.rendered = function() {
-
-
-}
 
 //
 // Helpers
@@ -73,6 +64,9 @@ Template.challenge.helpers({
 				return "True or False";
 		}
 	},
+	completed: function() {
+		return Session.equals("challengeProgress", 100);
+	}
 });
 
 
@@ -181,7 +175,6 @@ function computeProgress(isCorrect)
 
 		if (challengeProgress + 10 > 100) {
 			challengeProgress = 100;
-			completeChallenge();
 		} else {
 			challengeProgress += 10;
 		}
@@ -229,4 +222,11 @@ answer = function(lesson) {
 enableSubmitButton = function() {
 	$("#submit").prop('disabled', false);
 	Session.set("qState", QSTATE.ANSWERED);
+}
+
+resetChallenge = function() {
+	Session.set("phraseIndex", 0);  // phraseIndex can sometimes be random
+	Session.set("qNumber", 1);		// qNumber increments naturally
+	Session.set("challengeProgress", 0);
+	Session.set("qState", QSTATE.PROMPT);
 }

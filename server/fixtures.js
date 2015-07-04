@@ -142,12 +142,6 @@ if (Lessons.find().count() === 0)
 				english: ["This is a cat", "This is the cat"]
 			},
 			{
-				qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,
-				vietnamese: "Con chó",
-				image: "/img/lessons/dog.jpg",
-				english: ["Dog"]
-			},
-			{
 				qType: QTYPE.LISTEN_VE,
 				vietnamese: "Đàn ông",
 				english: ["Man"]

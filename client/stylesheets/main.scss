@@ -240,6 +240,7 @@ textarea {
 }
 
 #challenge-area {
+	position: relative;
 	background-color: $light-yellow;
 }
 
@@ -251,6 +252,25 @@ textarea {
 #challenge-progress {
 	width: 90%;
 	margin: 5% 3% 5% 5%;
+}
+
+#challenge-complete-area {
+	text-align: center;
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width: 80%;
+	min-height: 80%;
+	background-color: $light-blue;
+	@include box-shadow;
+
+	h1 {
+		color: white;
+	}
+}
+
+#continue-button {
+	font-family: $heading-font;
 }
 
 /* Phrase */
