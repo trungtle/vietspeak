@@ -19,41 +19,7 @@ QTYPE = {
 Lessons.remove({});
 
 if (Lessons.find().count() === 0) {
-    Lessons.insert({
-        name: "Introduction",
-        content: [
-            "lessonIntroduction1",
-            "lessonIntroduction2",
-            "lessonIntroduction3",
-            "lessonIntroduction4",
-            "lessonIntroduction5"
-        ],
-        phrases: [{
-            qType: QTYPE.TRUE_FALSE,
-            question: "Vietnamese is a tonal language.",
-            answer: true,
-        }, {
-            qType: QTYPE.TRUE_FALSE,
-            question: "Vietnamese uses many borrowed Chinese words in its vocabulary.",
-            answer: true,
-        }, {
-            qType: QTYPE.TRUE_FALSE,
-            question: "‘ư’ has an accent mark",
-            answer: false,
-        }, {
-            qType: QTYPE.TRUE_FALSE,
-            question: "‘ả’ has an accent mark",
-            answer: true,
-        }, {
-            qType: QTYPE.TRUE_FALSE,
-            question: "A word without an accent mark doesn’t have a tone",
-            answer: false,
-        }, {
-            qType: QTYPE.TRUE_FALSE,
-            question: "An accent mark is the same as a diacritic",
-            answer: true
-        }]
-    });
+
 
     Lessons.insert({
         name: "Basic 1",

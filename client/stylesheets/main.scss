@@ -141,31 +141,20 @@ textarea {
     }
   }
 }
-/* Intro page */
+/* Landing page */
 
-.intro-area {
-  margin-top: 7%;
+.landing-page-nav {
+  padding-top: 7%;
 }
 
-// Blur background
-// .intro-content:before {
-//   content: "";
-//   position: fixed;
-//   left: 0;
-//   right: 0;
-//   z-index: -1;
-//   display: block;
-//   background-image: url('img/saigon_topdown.jpeg');
-//   width: 1600px;
-//   height: 1200px;
-//   -webkit-filter: blur(5px);
-//   -moz-filter: blur(5px);
-//   -o-filter: blur(5px);
-//   -ms-filter: blur(5px);
-//   filter: blur(5px);
-// }
-.intro-content {}
-/* Lessons */
+
+// Dashboard
+
+.dashboard-area {
+  padding-top: 7%;
+}
+
+/* Lesson page */
 
 .lesson-list {
   height: 100%;
@@ -282,6 +271,11 @@ textarea {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.image-hint:before {
+  text-align: center;
+}
+
 
 .choice.checked {
   background-color: $light-blue;
