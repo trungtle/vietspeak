@@ -16,6 +16,8 @@ QTYPE = {
     MULTIPLE_CHOICES_MULTIPLE_ANSWERS_AUDIO: 13, // Multiple choices with multiple answers allowed
 };
 
+Lessons.remove({});
+
 if (Lessons.find().count() === 0) {
     Lessons.insert({
         name: "Introduction",
