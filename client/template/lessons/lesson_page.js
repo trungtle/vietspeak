@@ -1,5 +1,5 @@
 Template.lessonPage.onCreated(function() {
-    Session.set("showChallenge", false);
+    Session.set("showChallenge", true);
     Session.set("showChallengeButton", true);
 });
 

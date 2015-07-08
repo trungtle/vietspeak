@@ -156,25 +156,35 @@ textarea {
 
 /* Lesson page */
 
+$lesson-item-margin: 15px;
+$lesson-list-width: 800px;
+$lesson-item-height: 120px;
+$lesson-item-width: $lesson-item-height;
+
 .lesson-list {
-  height: 100%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100%;
   list-style: none;
-  background-color: $light-blue;
+  background-color: $very-light-yellow;
   padding: 5%;
+  width: $lesson-list-width;
   @include box-shadow;
+
 }
 
 .lesson-item {
   margin-bottom: 5%;
   .button {
     position: relative;
-    width: 120px;
-    height: 120px;
-    background-image: url("/img/icon-turtle-trans.png");
+    width: $lesson-item-width;
+    height: $lesson-item-height;
+    background-color: $light-orange;
+    background-image: url("/img/icon-turtle.png");
     background-size: 80px 80px;
     background-position: center;
     background-repeat: no-repeat;
-    margin-bottom: -5px;
   }
   .lesson-item-name {
     text-align: center;
@@ -187,12 +197,13 @@ textarea {
 /* Lesson area */
 
 #lesson-area {
-  margin: 5%;
+  margin: 3%;
 }
 
 #lesson-content {
   width: 70%;
   height: 100%;
+  padding: 5%;
   margin: auto;
   background-color: $light-blue;
   color: white;
@@ -218,7 +229,7 @@ textarea {
 /* Challenge area */
 
 #instruction {
-  padding: 0% 3%;
+  padding: 0% 2%;
 }
 
 #challenge-area {
@@ -228,13 +239,13 @@ textarea {
 
 #question-area,
 #feedback-area {
-  padding: 3%;
+  padding: 1%;
   background-color: $very-light-yellow;
 }
 
 #challenge-progress {
   width: 90%;
-  margin: 5% 3% 5% 5%;
+  margin: 3% 2% 5% 5%;
 }
 
 #challenge-complete-area {
@@ -257,7 +268,7 @@ textarea {
 /* Phrase */
 
 .phrase {
-  font-size: 1.5em;
+  font-size: 1.7em;
   text-align: center;
 }
 /* Translate */
@@ -271,11 +282,6 @@ textarea {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
-.image-hint:before {
-  text-align: center;
-}
-
 
 .choice.checked {
   background-color: $light-blue;
