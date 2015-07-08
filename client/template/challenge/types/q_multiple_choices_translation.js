@@ -36,21 +36,22 @@ Template.qMultipleChoicesTranslation.helpers({
 
 Template.qMultipleChoicesTranslation.events({
 
-    "click .choice": function(ev) {
+    "click .choice, .image-hint": function(ev) {
+
         // Select a choice
         var choices = Session.get("choices");
         var selectedIndex = 0;
 
-        if (ev.target === $('#choice-1')[0]) {
+        if (ev.target === $('.choice-1')[0] || ev.target === $('.choice-1')[1]) {
             selectedIndex = 0;
         }
-        else if (ev.target === $('#choice-2')[0]) {
+        else if (ev.target === $('.choice-2')[0] || ev.target === $('.choice-2')[1]) {
             selectedIndex = 1;
         }
-        else if (ev.target === $('#choice-3')[0]) {
+        else if (ev.target === $('.choice-3')[0] || ev.target === $('.choice-3')[1]) {
             selectedIndex = 2;
         }
-        else if (ev.target === $('#choice-4')[0]) {
+        else if (ev.target === $('.choice-4')[0] || ev.target === $('.choice-4')[1]) {
             selectedIndex = 3;
         }
 

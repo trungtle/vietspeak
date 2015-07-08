@@ -3,10 +3,10 @@
   <ul class="small-block-grid-2">
     {{#each choices}}
       <li>
-        {{#if hasImage}}
-          <img class="image-hint" src="{{image}}" width="150px" height="150px">
-        {{/if}}
-        <div class="choice {{#if checked}}checked{{/if}} {{#if gotFeedback}}{{#if isCorrect}}correct{{else}}wrong{{/if}}{{/if}}" id="choice-{{hotkey}}">
+        <div class="choice {{#if checked}}checked{{/if}} {{#if gotFeedback}}{{#if isCorrect}}correct{{else}}wrong{{/if}}{{/if}} choice-{{hotkey}}">
+          {{#if hasImage}}
+            <img class="image-hint choice-{{hotkey}}" src="{{image}}" width="150px" height="150px">
+          {{/if}}
           {{translation}}
           <kbk class="hotkey right">{{hotkey}}</kbk>
         </div>
