@@ -1,5 +1,6 @@
+Meteor.subscribe("user");
+
 Template.dashboard.onCreated(function() {
-	var user = Meteor.user();
 
 });
 
@@ -9,7 +10,15 @@ Template.dashboard.helpers({
     },
 
     dayStreak: function() {
-    	var user = Meteor.user();
-    	return user.dayStreak;
+    	var dayStreak = Meteor.user().profile.dayStreak;
+        if (dayStreak <= 1) {
+            return dayStreak + " day streak"
+        } else {
+            return dayStreak + " days streak"
+        }
+    },
+
+    level: function() {
+    	return Meteor.user().profile.level;
     }
 });
