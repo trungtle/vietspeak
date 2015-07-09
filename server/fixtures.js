@@ -2,9 +2,8 @@ Lessons.remove({});
 
 if (Lessons.find().count() === 0) {
 
-
     Lessons.insert({
-        name: "Basic 1",
+        name: "Basics 1",
         preview: "Đàn ông, phụ nữ, con chó, con mèo...",
         content: ["basic1"],
         phrases: [{
@@ -73,6 +72,14 @@ if (Lessons.find().count() === 0) {
             vietnamese: "Đàn ông",
             english: ["Man"]
         }, ]
+    });
+
+    Lessons.insert({
+        name: "Basics 2",
+        content: ["basic2"],
+        phrases: [{
+
+        }]
     });
 
     Lessons.insert({
@@ -154,6 +161,55 @@ if (Lessons.find().count() === 0) {
                 english: ["How are you?", "How are you"]
             },
         ]
+    });
+
+    Lessons.insert({
+        name: "Food",
+        content: ["food"],
+        phrases: [{
+
+        }]
+    });
+
+    Lessons.insert({
+        name: "Family",
+        content: ["family"],
+        phrases: [{
+
+        }]
+    });
+
+    Lessons.insert({
+        name: "Date & Time",
+        content: ["datetime"],
+        phrases: [{
+                qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
+                vietnamese: "Xin chào",
+                english: ["Hello"]
+            }]
+
+    });
+
+    Lessons.insert({
+        name: "Animals",
+        content: ["animals"],
+        phrases: [{
+                qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
+                vietnamese: "Xin chào",
+                english: ["Hello"]
+            }]
+
+    });
+
+    Lessons.insert({
+        name: "On the street",
+        content: ["streets"],
+        phrases: [{
+                qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
+                vietnamese: "Xin chào",
+                english: ["Hello"]
+            }]
+
     });
 
 }
