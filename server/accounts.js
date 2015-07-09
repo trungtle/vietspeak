@@ -25,6 +25,7 @@ function resetUser(options, user) {
     user.profile['level'] = 1;
     user.profile['dayStreak'] = 0;
     user.profile['completedLessons'] = [];
+    user.profile['xp'] = 0;
     return user;
 }
 

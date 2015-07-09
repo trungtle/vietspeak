@@ -235,6 +235,7 @@ $lesson-item-width: $lesson-item-height;
 #challenge-area {
   position: relative;
   background-color: $light-yellow;
+  @include box-shadow;
 }
 
 #question-area,
