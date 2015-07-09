@@ -1,11 +1,11 @@
 <template name="qMultipleChoicesTranslation">
   <p class="phrase">"{{phrase}}"</p>
-  <ul class="small-block-grid-2">
+  <ul class="small-block-grid-4">
     {{#each choices}}
       <li>
         <div class="choice {{#if checked}}checked{{/if}} {{#if gotFeedback}}{{#if isCorrect}}correct{{else}}wrong{{/if}}{{/if}} choice-{{hotkey}}">
           {{#if hasImage}}
-            <img class="image-hint choice-{{hotkey}}" src="{{image}}" width="150px" height="150px">
+            <div><img class="image-hint choice-{{hotkey}}" src="{{image}}" width="150px" height="150px"></div>
           {{/if}}
           {{translation}}
           <kbk class="hotkey right">{{hotkey}}</kbk>
