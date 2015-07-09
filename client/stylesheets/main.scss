@@ -49,6 +49,12 @@ $body-font: $san-francisco-font-stack;
   box-shadow:  0px 0px 14px 5px rgba(57,168,209,1);
 }
 
+@mixin box-shadow-none {
+  -webkit-box-shadow:  0px 0px 0px 0px rgba(0, 0, 0, 0);
+  -moz-box-shadow:  0px 0px 0px 0px rgba(0, 0, 0, 0);
+  box-shadow:  0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
 // Helpers
 @mixin vertical-align {
   position: relative;
@@ -293,10 +299,12 @@ $lesson-item-width: $lesson-item-height;
 
 .choice.checked.correct {
   background-color: $light-green;
+  @include box-shadow-none;
 }
 
 .choice.checked.wrong {
   background-color: $medium-red;
+  @include box-shadow-none;
 }
 
 .hotkey {
