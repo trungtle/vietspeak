@@ -11,6 +11,10 @@ Template.questionArea.helpers({
             case QTYPE.MULTIPLE_CHOICES_TRANSLATION:
             case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
                 return "qMultipleChoicesTranslation";
+            case QTYPE.WORD_PAIRING:
+                return "qWordPairing";
+            default:
+                return "qTrueFalse";
         }
     }
 });
