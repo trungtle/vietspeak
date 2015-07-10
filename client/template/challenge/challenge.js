@@ -5,23 +5,14 @@ const KEYCODE_TWO = 50;
 const KEYCODE_THREE = 51;
 const KEYCODE_FOUR = 52;
 
-// Question type
-QTYPE = {
-    RANDOM: 0,
-    TRANSLATE_VE: 1,
-    LISTEN_VE: 2,
-    MULTIPLE_CHOICES_TRANSLATION: 3,
-    MULTIPLE_CHOICES_TRANSLATION_PIC: 4,
-    REARRANGE: 5, // Rearrange words in a Vietnamese phrase
-    FILL_IN_BLANK: 6, // Fill in the blank for a Vietnamese phrase
-    WORD_PAIRING: 7, // Pairing between English & Vietnamese
-    REPLACE_WRONG_WORD: 8, // Use English hint, click on wrong word in Vietnamese phrase
-    SELECT_CORRECT_SPELLING: 9, // Play a tone, and select the correct spelling for the tone
-    TRANSLATE_EV: 10, // Teach typing in Vietnamese
-    TRUE_FALSE: 11,
-    MULTIPLE_CHOICES_MULTIPLE_ANSWERS: 12, // Multiple choices with multiple answers allowed
-    MULTIPLE_CHOICES_MULTIPLE_ANSWERS_AUDIO: 13, // Multiple choices with multiple answers allowed
-};
+// Challenge Progress points
+
+const CHALLENGE_PROGRESS_CORRECT = 10;
+const CHALLENGE_PROGRESS_WRONG = 5;
+
+// XP
+
+const XP_WRONG = 5;
 
 // Question state
 QSTATE = {
@@ -32,9 +23,7 @@ QSTATE = {
 };
 
 Template.challenge.onCreated(function() {
-
     resetChallenge();
-
 });
 
 //
@@ -173,11 +162,12 @@ function computeProgress(isCorrect) {
 
         Session.set("isCorrect", true);
 
-        if (challengeProgress + 10 > 100) {
+        if (challengeProgress + CHALLENGE_PROGRESS_CORRECT >= 100) {
             challengeProgress = 100;
+            challengeComplete(Template.currentData());
         }
         else {
-            challengeProgress += 10;
+            challengeProgress += CHALLENGE_PROGRESS_CORRECT;
         }
         Session.set("challengeProgress", challengeProgress);
 
@@ -186,17 +176,28 @@ function computeProgress(isCorrect) {
 
         Session.set("isCorrect", false);
 
-        if (challengeProgress - 5 < 0) {
+        if (challengeProgress - CHALLENGE_PROGRESS_WRONG < 0) {
             challengeProgress = 0;
         }
         else {
-            challengeProgress -= 5;
+            challengeProgress -= CHALLENGE_PROGRESS_WRONG;
         }
         Session.set("challengeProgress", challengeProgress);
     }
 }
 
+function challengeComplete(lesson) {
+    var completedLessons = Meteor.user().profile.completedLessons;
+    console.log(completedLessons);
+    if(!_.contains(completedLessons, lesson.name)) {
+        completedLessons.push(lesson.name);
+    }
+    Meteor.users.update(Meteor.userId(), {$set: { "profile.completedLessons": completedLessons}});
+}
+
+//
 // Global functions
+//
 
 answer = function(lesson) {
 
@@ -235,4 +236,5 @@ resetChallenge = function() {
     Session.set("qNumber", 1); // qNumber increments naturally
     Session.set("challengeProgress", 0);
     Session.set("qState", QSTATE.PROMPT);
+    Session.set("xpGained", 100); // the amount of xp user gained if answered perfectly
 }

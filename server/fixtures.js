@@ -1,60 +1,9 @@
-// Question type
-QTYPE = {
-    RANDOM: 0,
-    TRANSLATE_VE: 1,
-    LISTEN_VE: 2,
-    MULTIPLE_CHOICES_TRANSLATION: 3,
-    MULTIPLE_CHOICES_TRANSLATION_PIC: 4,
-    REARRANGE: 5, // Rearrange words in a Vietnamese phrase
-    FILL_IN_BLANK: 6, // Fill in the blank for a Vietnamese phrase
-    WORD_PAIRING: 7, // Pairing between English & Vietnamese
-    REPLACE_WRONG_WORD: 8, // Use English hint, click on wrong word in Vietnamese phrase
-    SELECT_CORRECT_SPELLING: 9, // Play a tone, and select the correct spelling for the tone
-    TRANSLATE_EV: 10, // Teach typing in Vietnamese
-    TRUE_FALSE: 11,
-    MULTIPLE_CHOICES_MULTIPLE_ANSWERS: 12, // Multiple choices with multiple answers allowed
-    MULTIPLE_CHOICES_MULTIPLE_ANSWERS_AUDIO: 13, // Multiple choices with multiple answers allowed
-};
+Lessons.remove({});
 
 if (Lessons.find().count() === 0) {
-    Lessons.insert({
-        name: "Introduction",
-        content: [
-            "lessonIntroduction1",
-            "lessonIntroduction2",
-            "lessonIntroduction3",
-            "lessonIntroduction4",
-            "lessonIntroduction5"
-        ],
-        phrases: [{
-            qType: QTYPE.TRUE_FALSE,
-            question: "Vietnamese is a tonal language.",
-            answer: true,
-        }, {
-            qType: QTYPE.TRUE_FALSE,
-            question: "Vietnamese uses many borrowed Chinese words in its vocabulary.",
-            answer: true,
-        }, {
-            qType: QTYPE.TRUE_FALSE,
-            question: "‘ư’ has an accent mark",
-            answer: false,
-        }, {
-            qType: QTYPE.TRUE_FALSE,
-            question: "‘ả’ has an accent mark",
-            answer: true,
-        }, {
-            qType: QTYPE.TRUE_FALSE,
-            question: "A word without an accent mark doesn’t have a tone",
-            answer: false,
-        }, {
-            qType: QTYPE.TRUE_FALSE,
-            question: "An accent mark is the same as a diacritic",
-            answer: true
-        }]
-    });
 
     Lessons.insert({
-        name: "Basic 1",
+        name: "Basics 1",
         preview: "Đàn ông, phụ nữ, con chó, con mèo...",
         content: ["basic1"],
         phrases: [{
@@ -128,6 +77,14 @@ if (Lessons.find().count() === 0) {
             vietnamese: "Đàn ông",
             english: ["Man"]
         }, ]
+    });
+
+    Lessons.insert({
+        name: "Basics 2",
+        content: ["basic2"],
+        phrases: [{
+
+        }]
     });
 
     Lessons.insert({
@@ -209,6 +166,55 @@ if (Lessons.find().count() === 0) {
                 english: ["How are you?", "How are you"]
             },
         ]
+    });
+
+    Lessons.insert({
+        name: "Food",
+        content: ["food"],
+        phrases: [{
+
+        }]
+    });
+
+    Lessons.insert({
+        name: "Family",
+        content: ["family"],
+        phrases: [{
+
+        }]
+    });
+
+    Lessons.insert({
+        name: "Date & Time",
+        content: ["datetime"],
+        phrases: [{
+                qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
+                vietnamese: "Xin chào",
+                english: ["Hello"]
+            }]
+
+    });
+
+    Lessons.insert({
+        name: "Animals",
+        content: ["animals"],
+        phrases: [{
+                qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
+                vietnamese: "Xin chào",
+                english: ["Hello"]
+            }]
+
+    });
+
+    Lessons.insert({
+        name: "On the street",
+        content: ["streets"],
+        phrases: [{
+                qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
+                vietnamese: "Xin chào",
+                english: ["Hello"]
+            }]
+
     });
 
 }

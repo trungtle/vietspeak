@@ -1,9 +1,11 @@
 // fonts
 @import url(http://fonts.googleapis.com/css?family=Dosis);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-@import url(http://fonts.googleapis.com/css?family=Crimson+Text);
-@import url(http://fonts.googleapis.com/css?family=Average);
+
+// -------------
 // Colors
+// -------------
+
 $dark-red: #BF4414;
 $dark-blue: #34495E;
 $medium-blue: #3C74A2;
@@ -21,21 +23,15 @@ $light-red: #d35400;
 $light-purple: #636685;
 $dark: #333333;
 $teal: #2ecc71;
+
+// -------------
 // Font stack
-$bree-font-stack: "BreeSerif",
-sans-serif;
-$hipsteria-font-stack: "Hipsteria",
-sans-serif;
-$museo-font-stack: 'Museo',
-sans-serif;
+// -------------
+
 $dosis-font-stack: 'Dosis',
 sans-serif;
 $open-sans-font-stack: 'Open Sans',
 sans-serif;
-$crimson-text-font-stack: 'Crimson Text',
-sans-serif;
-$average-font-stack: 'Average',
-serif;
 $san-francisco-font-stack: 'San Francisco',
 sans-serif;
 $heading-font: $dosis-font-stack;
@@ -45,6 +41,18 @@ $body-font: $san-francisco-font-stack;
   -webkit-box-shadow: 10px 10px 50px -16px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 50px -16px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 50px -16px rgba(0, 0, 0, 0.75);
+}
+
+@mixin box-shadow-light-blue {
+  -webkit-box-shadow:  0px 0px 14px 5px rgba(57,168,209,1);
+  -moz-box-shadow:  0px 0px 14px 5px rgba(57,168,209,1);
+  box-shadow:  0px 0px 14px 5px rgba(57,168,209,1);
+}
+
+@mixin box-shadow-none {
+  -webkit-box-shadow:  0px 0px 0px 0px rgba(0, 0, 0, 0);
+  -moz-box-shadow:  0px 0px 0px 0px rgba(0, 0, 0, 0);
+  box-shadow:  0px 0px 0px 0px rgba(0, 0, 0, 0);
 }
 
 // Helpers
@@ -100,7 +108,7 @@ span {
 }
 
 body {
-  background-image: url("img/blur_background.jpg");
+  background-image: url("img/block_background.jpg");
   background-attachment: fixed;
   background-size: cover;
 }
@@ -141,51 +149,50 @@ textarea {
     }
   }
 }
-/* Intro page */
+/* Landing page */
 
-.intro-area {
-  margin-top: 7%;
+.landing-page-nav {
+  padding-top: 7%;
 }
 
-// Blur background
-// .intro-content:before {
-//   content: "";
-//   position: fixed;
-//   left: 0;
-//   right: 0;
-//   z-index: -1;
-//   display: block;
-//   background-image: url('img/saigon_topdown.jpeg');
-//   width: 1600px;
-//   height: 1200px;
-//   -webkit-filter: blur(5px);
-//   -moz-filter: blur(5px);
-//   -o-filter: blur(5px);
-//   -ms-filter: blur(5px);
-//   filter: blur(5px);
-// }
-.intro-content {}
-/* Lessons */
+
+// Dashboard
+
+.dashboard-area {
+  padding-top: 7%;
+}
+
+/* Lesson page */
+
+$lesson-item-margin: 15px;
+$lesson-list-width: 800px;
+$lesson-item-height: 120px;
+$lesson-item-width: $lesson-item-height;
 
 .lesson-list {
-  height: 100%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100%;
   list-style: none;
-  background-color: $light-blue;
+  background-color: $very-light-yellow;
   padding: 5%;
+  width: $lesson-list-width;
   @include box-shadow;
+
 }
 
 .lesson-item {
   margin-bottom: 5%;
   .button {
     position: relative;
-    width: 120px;
-    height: 120px;
-    background-image: url("/img/icon-turtle-trans.png");
+    width: $lesson-item-width;
+    height: $lesson-item-height;
+    background-color: $light-orange;
+    background-image: url("/img/icon-turtle.png");
     background-size: 80px 80px;
     background-position: center;
     background-repeat: no-repeat;
-    margin-bottom: -5px;
   }
   .lesson-item-name {
     text-align: center;
@@ -198,12 +205,13 @@ textarea {
 /* Lesson area */
 
 #lesson-area {
-  margin: 5%;
+  margin: 3%;
 }
 
 #lesson-content {
   width: 70%;
   height: 100%;
+  padding: 5%;
   margin: auto;
   background-color: $light-blue;
   color: white;
@@ -229,23 +237,24 @@ textarea {
 /* Challenge area */
 
 #instruction {
-  padding: 0% 3%;
+  padding: 0% 2%;
 }
 
 #challenge-area {
   position: relative;
   background-color: $light-yellow;
+  @include box-shadow;
 }
 
 #question-area,
 #feedback-area {
-  padding: 3%;
+  padding: 1%;
   background-color: $very-light-yellow;
 }
 
 #challenge-progress {
   width: 90%;
-  margin: 5% 3% 5% 5%;
+  margin: 3% 2% 5% 5%;
 }
 
 #challenge-complete-area {
@@ -268,7 +277,7 @@ textarea {
 /* Phrase */
 
 .phrase {
-  font-size: 1.5em;
+  font-size: 1.7em;
   text-align: center;
 }
 /* Translate */
@@ -281,18 +290,21 @@ textarea {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  border-radius: 10px;
 }
 
 .choice.checked {
-  background-color: $light-blue;
+  @include box-shadow-light-blue;
 }
 
 .choice.checked.correct {
   background-color: $light-green;
+  @include box-shadow-none;
 }
 
 .choice.checked.wrong {
   background-color: $medium-red;
+  @include box-shadow-none;
 }
 
 .hotkey {

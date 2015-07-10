@@ -1,16 +1,14 @@
 <template name="lessonsList">
-  <div class='row'>
-    <div class='small-6 push-3 columns text-center'>
-      <h1> Lessons </h1>
-      <ul class='lesson-list'>
-        {{#each lessons}}
-          <li class="lesson-item">
-            <a class="button" href="{{pathFor 'lessonPage'}}">
-              <h3 class="lesson-item-name">{{name}}</h3>
-            </a>
-          </li>
-        {{/each}}
-      </ul>
-    </div>
+  <div class='lesson-list'>
+    <ul class="small-block-grid-4">
+      {{#each lessons}}
+      <li class="lesson-item level-{{level}}-{{order}}">
+        <a class="button" href="{{pathFor 'lessonPage'}}">
+          <h3 class="lesson-item-name">{{name}}</h3>
+          {{#if completed}}completed{{/if}}
+        </a>
+      </li>
+      {{/each}}
+    </ul>
   </div>
 </template>
