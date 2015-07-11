@@ -11,7 +11,18 @@ Meteor.publish("user", function(){
 // Accounts
 // --------------
 
+// By default, create an admin account
+
+Meteor.users.remove({username: 'admin'});
 Accounts.onCreateUser(resetUser);
+
+if (Meteor.users.find().count() === 0) {
+
+    Accounts.createUser({
+        username: 'admin',
+        password: 'password'
+    });
+}
 
 function resetUser(options, user) {
     if (user.profile == undefined) {
@@ -22,10 +33,12 @@ function resetUser(options, user) {
     	user.profile = options.profile;
     }
 
+    user.profile['unlockedLessons'] = ['Basics 1', 'Basics 2', 'Greetings'];
     user.profile['level'] = 1;
     user.profile['dayStreak'] = 0;
     user.profile['completedLessons'] = [];
     user.profile['xp'] = 0;
+
     return user;
 }
 
