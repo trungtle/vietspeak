@@ -51,8 +51,9 @@ aTranslateVE = function(phrase) {
     var translationList = phrase["english"];
 
     Session.set("feedback", phrase.english[0]);
-
-    return _.some(translationList, function(english) {
+    var answerCorrect = _.some(translationList, function(english) {
         return answer === english.toLowerCase();
     });
+    
+    return answerCorrect? CHALLENGE_PROGRESS_CORRECT : CHALLENGE_PROGRESS_WRONG;
 }

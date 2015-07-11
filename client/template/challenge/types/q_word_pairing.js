@@ -29,6 +29,7 @@ Template.qWordPairing.events({
     }
 
 });
+
 // ----------------------
 // Public functions
 // ----------------------
@@ -37,7 +38,7 @@ aWordPairing = function() {
     //@TODO: calculate score based on how many matches user
      // got right on their first try
     var numMatches = Session.get("numMatches");
-    return numMatches === CHOICE_NUM;
+    return CHALLENGE_PROGRESS_CORRECT;
 }
 
 // ----------------------
