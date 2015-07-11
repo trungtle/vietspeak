@@ -1,10 +1,12 @@
 Template.lessonsList.helpers({
     lessons: function() {
         var lessons = Lessons.find().fetch();
-        console.log(Meteor.user());
-        var completedLessons = Meteor.user().profile.completedLessons;
+        var profile = Meteor.user().profile;
+        var completedLessons = profile.completedLessons;
+        var unlockedLessons = profile.unlockedLessons;
         _.each(lessons, function(lesson) {
         	lesson.completed = _.contains(completedLessons, lesson.name);
+            lesson.unlocked = _.contains(unlockedLessons, lesson.name);
 	    });
 
         return lessons;

@@ -2,8 +2,8 @@
   <div class='lesson-list'>
     <ul class="small-block-grid-4">
       {{#each lessons}}
-      <li class="lesson-item {{#if completed}}completed{{/if}} {{#if locked}}locked{{/if}}">
-        <a class="button" href="{{pathFor 'lessonPage'}}">
+      <li class="lesson-item {{#if completed}}completed{{/if}} {{#unless unlocked}}locked{{/unless}}">
+        <a class="button" href="{{#if unlocked}}{{pathFor 'lessonPage'}}{{/if}}">
           <h3 class="lesson-item-name">{{name}}</h3>
         </a>
       </li>

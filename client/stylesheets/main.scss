@@ -65,6 +65,11 @@ $body-font: $san-francisco-font-stack;
   transform: translateY(50%);
 }
 
+@mixin desaturate {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
 // Fonts
 @font-face {
   font-family: "Hipsteria";
@@ -205,9 +210,16 @@ $lesson-item-width: $lesson-item-height;
 }
 
 .lesson-item.completed {
-    .button {
-      background-image: url("/img/icon-turtle-completed.png");
-    }
+  .button {
+    background-image: url("/img/icon-turtle-completed.png");
+  }
+}
+
+.lesson-item.locked {
+  .button {
+    cursor: default;
+    @include desaturate;
+  }
 }
 
 /* Lesson area */

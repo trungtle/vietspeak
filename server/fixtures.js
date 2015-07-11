@@ -4,6 +4,7 @@ if (Lessons.find().count() === 0) {
 
     Lessons.insert({
         name: "Basics 1",
+        locked: false,
         preview: "Tôi là, đàn ông, phụ nữ, đây là, con chó, con mèo",
         content: ["basic1"],
         phrases: [{
@@ -80,6 +81,7 @@ if (Lessons.find().count() === 0) {
 
     Lessons.insert({
         name: "Basics 2",
+        locked: false,
         content: ["basic2"],
         preview: "có, thích, anh ấy, cô ấy, bạn",
         phrases: [{
@@ -135,6 +137,7 @@ if (Lessons.find().count() === 0) {
 
     Lessons.insert({
         name: "Greetings",
+        locked: false,
         content: ["greetings1"],
         phrases: [{
                 qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
@@ -218,6 +221,7 @@ if (Lessons.find().count() === 0) {
 
     Lessons.insert({
         name: "Food",
+        locked: true,
         content: ["food"],
         phrases: [{
 
@@ -226,6 +230,7 @@ if (Lessons.find().count() === 0) {
 
     Lessons.insert({
         name: "Family",
+        locked: true,
         content: ["family"],
         phrases: [{
 
@@ -234,6 +239,7 @@ if (Lessons.find().count() === 0) {
 
     Lessons.insert({
         name: "Date & Time",
+        locked: true,
         content: ["datetime"],
         phrases: [{
                 qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
@@ -245,6 +251,7 @@ if (Lessons.find().count() === 0) {
 
     Lessons.insert({
         name: "Animals",
+        locked: true,
         content: ["animals"],
         phrases: [{
                 qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
@@ -256,6 +263,7 @@ if (Lessons.find().count() === 0) {
 
     Lessons.insert({
         name: "On the street",
+        locked: true,
         content: ["streets"],
         phrases: [{
                 qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
@@ -264,5 +272,4 @@ if (Lessons.find().count() === 0) {
             }]
 
     });
-
 }
