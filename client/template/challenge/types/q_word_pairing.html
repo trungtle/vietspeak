@@ -1,0 +1,12 @@
+<template name="qWordPairing">
+  <p>Pair up the Vietnamese words with their English translations:</p>
+  <ul class="small-block-grid-{{choiceNum}}">
+    {{#each choices}}
+      <li>
+        <div class="choice {{#if disabled}}correct{{else}}enabled{{/if}} {{#if checked}}checked{{/if}}" id="{{displayedWord}}">
+          {{displayedWord}}
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</template>
