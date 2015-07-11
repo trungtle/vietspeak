@@ -23,6 +23,7 @@ $light-red: #d35400;
 $light-purple: #636685;
 $dark: #333333;
 $teal: #2ecc71;
+$light-gray: #ccc;
 
 // -------------
 // Font stack
@@ -281,20 +282,29 @@ $lesson-item-width: $lesson-item-height;
 #continue-button {
   font-family: $heading-font;
 }
-/* Phrase */
+/* Translate */
 
-.phrase {
+#answer-text {
+  width: 90%;
+  border-radius: 10px;
+  font-size: 1em;
+  @include box-shadow-light-blue;
+}
+
+.phrase-translate {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 20px;
+  background-color: white;
+  @include box-shadow;
+}
+
+/* Multiple choices */
+
+.phrase-multiple-choices {
   font-size: 1.7em;
   text-align: center;
 }
-/* Translate */
-#answer-text {
-  @include box-shadow;
-  border-radius: 10px;
-}
-
-
-/* Multiple choices */
 
 .choice {
   min-height: 70px;

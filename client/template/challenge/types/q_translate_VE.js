@@ -23,7 +23,8 @@ Template.qTranslateVE.helpers({
     },
     vietnamese: function() {
         var phrase = this.phrases[Session.get("phraseIndex")];
-        return phrase.vietnamese;
+        var vietnamese = phrase.vietnamese;
+        return vietnamese;
     },
     isListeningOnly: function() {
         var phrase = this.phrases[Session.get("phraseIndex")];
