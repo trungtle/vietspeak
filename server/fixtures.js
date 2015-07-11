@@ -4,11 +4,9 @@ if (Lessons.find().count() === 0) {
 
     Lessons.insert({
         name: "Basics 1",
-        preview: "Đàn ông, phụ nữ, con chó, con mèo...",
+        preview: "Tôi là, đàn ông, phụ nữ, đây là, con chó, con mèo",
         content: ["basic1"],
         phrases: [{
-            qType: QTYPE.WORD_PAIRING,
-        }, {
             qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,
             image: "/img/lessons/man.jpg",
             vietnamese: "Đàn ông",
@@ -46,6 +44,8 @@ if (Lessons.find().count() === 0) {
             vietnamese: "Phụ nữ",
             english: ["Woman"]
         }, {
+            qType: QTYPE.WORD_PAIRING,
+        }, {
             qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
             vietnamese: "Đây là con chó",
             english: ["This is a dog", "This is the dog"]
@@ -66,6 +66,8 @@ if (Lessons.find().count() === 0) {
             vietnamese: "Tôi là phụ nữ",
             english: ["I am a woman", "I'm a woman"]
         }, {
+            qType: QTYPE.WORD_PAIRING,
+        }, {
             qType: QTYPE.TRANSLATE_VE,
             vietnamese: "Đây là con mèo",
             english: ["This is a cat", "This is the cat"]
@@ -79,8 +81,55 @@ if (Lessons.find().count() === 0) {
     Lessons.insert({
         name: "Basics 2",
         content: ["basic2"],
+        preview: "có, thích, anh ấy, cô ấy, bạn",
         phrases: [{
-
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Tôi có một con chó",
+            english: ["I have a dog"]
+        }, {
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Bạn có con chó",
+            english: ["You have a dog", "You have the dog"]
+        }, {
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Bạn không có con mèo",
+            english: ["You don't have a cat", "You do not have a cat"]
+        },{
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Cô ấy có một con mèo",
+            english: ["She has a cat"]
+        }, {
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Tôi thích con chó",
+            english: ["I like the dog"]
+        }, {
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Anh  thích con chó",
+            english: ["I like the dog"]
+        }, {
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Bạn thích chó",
+            english: ["You like dogs"]
+        }, {
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Cô ấy thích phụ nữ",
+            english: ["She likes women"]
+        }, {
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Đây là con mèo",
+            english: ["This is a cat", "This is the cat"]
+        }, {
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Cô ấy không phải là con mèo",
+            english: ["She is not a cat", "She's not a cat"]
+        }, {
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Cô ấy thích con chó",
+            english: ["She likes the dog"]
+        }, {
+            qType: QTYPE.TRANSLATE_VE,
+            vietnamese: "Bạn có con mèo",
+            english: ["You have a cat", "You have the cat"]
         }]
     });
 
@@ -112,12 +161,12 @@ if (Lessons.find().count() === 0) {
                 vietnamese: "Tôi khoẻ",
                 english: ["I'm good", "I am good", "I'm well", "I am well"]
             }, {
+                qType: QTYPE.WORD_PAIRING,
+            }, {
                 qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
                 vietnamese: "Cám ơn",
                 english: ["Thank you", "Thanks"]
-            },
-
-            {
+            }, {
                 qType: QTYPE.TRANSLATE_VE,
                 vietnamese: "Xin chào",
                 english: ["Hello"]
@@ -145,6 +194,8 @@ if (Lessons.find().count() === 0) {
                 qType: QTYPE.TRANSLATE_VE,
                 vietnamese: "Không sao",
                 english: ["No problem"]
+            }, {
+                qType: QTYPE.WORD_PAIRING,
             }, {
                 qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
                 vietnamese: "Phụ nữ",
