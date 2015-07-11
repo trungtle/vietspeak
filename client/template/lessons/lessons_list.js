@@ -2,11 +2,12 @@ Template.lessonsList.helpers({
     lessons: function() {
         var lessons = Lessons.find().fetch();
         var profile = Meteor.user().profile;
-        var completedLessons = profile.completedLessons;
         var unlockedLessons = profile.unlockedLessons;
         _.each(lessons, function(lesson) {
-        	lesson.completed = _.contains(completedLessons, lesson.name);
-            lesson.unlocked = _.contains(unlockedLessons, lesson.name);
+            lesson.unlocked = _.contains(_.keys(unlockedLessons), lesson.name);
+        	if (lesson.unlocked) {
+                lesson.completed = unlockedLessons[lesson.name].percentCompleted === 100;
+            }
 	    });
 
         return lessons;

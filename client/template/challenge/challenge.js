@@ -189,12 +189,12 @@ function computeProgress(isCorrect) {
 }
 
 function challengeComplete(lesson) {
-    var completedLessons = Meteor.user().profile.completedLessons;
-    if(!_.contains(completedLessons, lesson.name)) {
-        completedLessons.push(lesson.name);
-    }
-    Meteor.users.update(Meteor.userId(), {$set: { "profile.completedLessons": completedLessons}});
-    Meteor.users.update(Meteor.userId(), {$incr: { "profile.completedLessons": completedLessons}});
+    var unlockedLessons = Meteor.user().profile.unlockedLessons;
+    unlockedLessons[lesson.name].percentCompleted = 100;
+    unlockedLessons[lesson.name].timestamp = _.now();
+
+    Meteor.users.update(Meteor.userId(), {$set: { "profile.unlockedLessons": unlockedLessons}});
+    Meteor.users.update(Meteor.userId(), {$incr: { "profile.unlockedLessons": unlockedLessons}});
 }
 
 //
