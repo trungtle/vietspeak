@@ -218,6 +218,9 @@ answer = function(lesson) {
         case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
             isCorrect = aMultipleChoicesTranslation(phrase);
             break;
+        case QTYPE.WORD_PAIRING:
+            isCorrect = aWordPairing();
+            break;
     }
 
     computeProgress(isCorrect);
