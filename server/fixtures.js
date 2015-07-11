@@ -8,9 +8,6 @@ if (Lessons.find().count() === 0) {
         content: ["basic1"],
         phrases: [{
             qType: QTYPE.WORD_PAIRING,
-            image: "/img/lessons/man.jpg",
-            vietnamese: "TODO: remove this field",
-            english: ["TODO: remove this field"]
         }, {
             qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,
             image: "/img/lessons/man.jpg",
