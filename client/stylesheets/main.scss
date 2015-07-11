@@ -202,6 +202,13 @@ $lesson-item-width: $lesson-item-height;
     font-size: 1.2em;
   }
 }
+
+.lesson-item.completed {
+    .button {
+      background-image: url("/img/icon-turtle-completed.png");
+    }
+}
+
 /* Lesson area */
 
 #lesson-area {

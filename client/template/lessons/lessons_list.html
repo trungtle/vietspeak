@@ -2,10 +2,9 @@
   <div class='lesson-list'>
     <ul class="small-block-grid-4">
       {{#each lessons}}
-      <li class="lesson-item level-{{level}}-{{order}}">
+      <li class="lesson-item {{#if completed}}completed{{/if}} {{#if locked}}locked{{/if}}">
         <a class="button" href="{{pathFor 'lessonPage'}}">
           <h3 class="lesson-item-name">{{name}}</h3>
-          {{#if completed}}completed{{/if}}
         </a>
       </li>
       {{/each}}
