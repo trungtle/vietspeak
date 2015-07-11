@@ -281,6 +281,12 @@ $lesson-item-width: $lesson-item-height;
   text-align: center;
 }
 /* Translate */
+#answer-text {
+  @include box-shadow;
+  border-radius: 10px;
+}
+
+
 /* Multiple choices */
 
 .choice {
@@ -291,6 +297,13 @@ $lesson-item-width: $lesson-item-height;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 10px;
+
+  .image-hint {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
 
 .choice.checked {

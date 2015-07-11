@@ -5,7 +5,7 @@
       <li>
         <div class="choice {{#if checked}}checked{{/if}} {{#if gotFeedback}}{{#if isCorrect}}correct{{else}}wrong{{/if}}{{/if}} choice-{{hotkey}}">
           {{#if hasImage}}
-            <div><img class="image-hint choice-{{hotkey}}" src="{{image}}" width="150px" height="150px"></div>
+            <img class="image-hint choice-{{hotkey}}" src="{{image}}" width="150px" height="150px">
           {{/if}}
           {{translation}}
           <kbk class="hotkey right">{{hotkey}}</kbk>

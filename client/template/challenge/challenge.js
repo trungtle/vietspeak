@@ -188,11 +188,11 @@ function computeProgress(isCorrect) {
 
 function challengeComplete(lesson) {
     var completedLessons = Meteor.user().profile.completedLessons;
-    console.log(completedLessons);
     if(!_.contains(completedLessons, lesson.name)) {
         completedLessons.push(lesson.name);
     }
     Meteor.users.update(Meteor.userId(), {$set: { "profile.completedLessons": completedLessons}});
+    Meteor.users.update(Meteor.userId(), {$incr: { "profile.completedLessons": completedLessons}});
 }
 
 //
