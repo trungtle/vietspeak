@@ -51,6 +51,8 @@ Template.challenge.helpers({
                 return "Match with correct picture";
             case QTYPE.TRUE_FALSE:
                 return "True or False";
+            case QTYPE.WORD_PAIRING:
+                return "Match the pairs";
         }
     },
     completed: function() {
