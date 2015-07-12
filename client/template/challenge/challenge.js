@@ -189,12 +189,32 @@ function computeProgress(isCorrect) {
 }
 
 function challengeComplete(lesson) {
-    var unlockedLessons = Meteor.user().profile.unlockedLessons;
-    unlockedLessons[lesson.name].percentCompleted = 100;
-    unlockedLessons[lesson.name].timestamp = _.now();
+    var now = new Date().getTime();
+    var midnight = new Date();
+    midnight.setHours(0,0,0,0);
+    midnight = midnight.getTime();
 
-    Meteor.users.update(Meteor.userId(), {$set: { "profile.unlockedLessons": unlockedLessons}});
-    Meteor.users.update(Meteor.userId(), {$incr: { "profile.unlockedLessons": unlockedLessons}});
+    var user = Meteor.user();
+    var userId = Meteor.userId();
+
+    // Mark unlocked question
+    var unlockedLessons = user.profile.unlockedLessons;
+    unlockedLessons[lesson.name].percentCompleted = 100;
+    unlockedLessons[lesson.name].timestamp = now;
+
+    Meteor.users.update(userId, {$set: { "profile.unlockedLessons": unlockedLessons}});
+
+    // If this is the first challenge completed over midnight, increment day streak
+    if (now >= midnight && user.profile.timeLastChallengeCompleted <= midnight) {
+        Meteor.users.update(userId, {$inc: {"profile.dayStreak": 1}});
+    }
+
+    // Mark last challenge completed
+    Meteor.users.update(userId, {$set: { "profile.timeLastChallengeCompleted": now}});
+
+    // Increase xp
+    Meteor.users.update(userId, {$inc: { "profile.xp": Session.get('xpGained')}});
+
 }
 
 //
@@ -236,7 +256,7 @@ enableSubmitButton = function() {
 resetChallenge = function() {
     Session.set("phraseIndex", 0); // phraseIndex can sometimes be random
     Session.set("qNumber", 1); // qNumber increments naturally
-    Session.set("challengeProgress", 0);
+    Session.set("challengeProgress", 90);
     Session.set("qState", QSTATE.PROMPT);
     Session.set("xpGained", 100); // the amount of xp user gained if answered perfectly
 }

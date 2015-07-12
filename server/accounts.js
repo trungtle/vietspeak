@@ -21,6 +21,7 @@ Meteor.publish("user", function() {
 Meteor.users.remove({
     username: 'admin'
 });
+
 Accounts.onCreateUser(resetUser);
 
 if (Meteor.users.find().count() === 0) {
@@ -59,3 +60,28 @@ function resetUser(options, user) {
     user.profile['timeLastChallengeCompleted'] = 0;
     return user;
 }
+
+// --------------
+// Daystreak
+// --------------
+
+const MILLISECONDS_PER_DAY = 86400000;
+
+function checkDayStreak() {
+    var users = Meteor.users.find().fetch();
+    var now = new Date().getTime();
+
+    _.each(users, function(user) {
+
+        // Reset day streak if user hasn't practice within the last day
+        if (now - user.profile.timeLastChallengeCompleted >= SECONDS_PER_DAY) {
+            Meteor.users.update(user._id, {$set: {"profile.dayStreak": 0}})
+        }
+    });
+}
+
+var cron = new Meteor.Cron( {
+      events:{
+        "0 0 * * *"  : checkDayStreak,
+      }
+    });
