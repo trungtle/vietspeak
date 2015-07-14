@@ -53,6 +53,8 @@ Template.challenge.helpers({
                 return "True or False";
             case QTYPE.WORD_PAIRING:
                 return "Match the pairs";
+            case QTYPE.REARRANGE:
+                return "Arrange the words into the phrase";
         }
     },
     completed: function() {
