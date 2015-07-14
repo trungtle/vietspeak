@@ -23,6 +23,7 @@ $light-red: #d35400;
 $light-purple: #636685;
 $dark: #333333;
 $teal: #2ecc71;
+$light-gray: #ccc;
 
 // -------------
 // Font stack
@@ -62,6 +63,11 @@ $body-font: $san-francisco-font-stack;
   -webkit-transform: translateY(50%);
   -ms-transform: translateY(50%);
   transform: translateY(50%);
+}
+
+@mixin desaturate {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 // Fonts
@@ -202,6 +208,20 @@ $lesson-item-width: $lesson-item-height;
     font-size: 1.2em;
   }
 }
+
+.lesson-item.completed {
+  .button {
+    background-image: url("/img/icon-turtle-completed.png");
+  }
+}
+
+.lesson-item.locked {
+  .button {
+    cursor: default;
+    @include desaturate;
+  }
+}
+
 /* Lesson area */
 
 #lesson-area {
@@ -274,14 +294,29 @@ $lesson-item-width: $lesson-item-height;
 #continue-button {
   font-family: $heading-font;
 }
-/* Phrase */
+/* Translate */
 
-.phrase {
+#answer-text {
+  width: 90%;
+  border-radius: 10px;
+  font-size: 1em;
+  @include box-shadow-light-blue;
+}
+
+.phrase-translate {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 20px;
+  background-color: white;
+  @include box-shadow;
+}
+
+/* Multiple choices */
+
+.phrase-multiple-choices {
   font-size: 1.7em;
   text-align: center;
 }
-/* Translate */
-/* Multiple choices */
 
 .choice {
   min-height: 70px;
@@ -291,6 +326,13 @@ $lesson-item-width: $lesson-item-height;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 10px;
+
+  .image-hint {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
 
 .choice.checked {

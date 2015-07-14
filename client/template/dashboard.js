@@ -5,20 +5,12 @@ Template.dashboard.onCreated(function() {
 });
 
 Template.dashboard.helpers({
-    username: function() {
-        return Meteor.user().username;
-    },
-
-    dayStreak: function() {
+    dayStreakUnit: function() {
     	var dayStreak = Meteor.user().profile.dayStreak;
         if (dayStreak <= 1) {
-            return dayStreak + " day streak"
+            return "day streak"
         } else {
-            return dayStreak + " days streak"
+            return "days streak"
         }
     },
-
-    level: function() {
-    	return Meteor.user().profile.level;
-    }
 });
