@@ -65,9 +65,11 @@ Template.qTrueFalse.events({
 aTrueFalse = function(phrase) {
     Session.set("feedback", phrase.answer ? "True" : "False");
     if (phrase.answer == true) {
-        return Session.get("trueChecked");
+        return Session.get("trueChecked")? CHALLENGE_PROGRESS_CORRECT :
+                                            CHALLENGE_PROGRESS_WRONG;
     }
     else {
-        return Session.get("falseChecked");
+        return Session.get("falseChecked")? CHALLENGE_PROGRESS_CORRECT:
+                                             CHALLENGE_PROGRESS_WRONG;
     }
 }

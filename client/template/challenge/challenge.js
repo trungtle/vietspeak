@@ -7,8 +7,8 @@ const KEYCODE_FOUR = 52;
 
 // Challenge Progress points
 
-const CHALLENGE_PROGRESS_CORRECT = 10;
-const CHALLENGE_PROGRESS_WRONG = 5;
+CHALLENGE_PROGRESS_CORRECT = 10;
+CHALLENGE_PROGRESS_WRONG = -5;
 
 // XP
 
@@ -158,34 +158,20 @@ function nextQuestion(lesson) {
     Session.set("qNumber", qNumber + 1);
 }
 
-function computeProgress(isCorrect) {
+function computeProgress(answerScore) {
     var challengeProgress = Session.get("challengeProgress");
-    if (isCorrect) {
 
-        Session.set("isCorrect", true);
-
-        if (challengeProgress + CHALLENGE_PROGRESS_CORRECT >= 100) {
-            challengeProgress = 100;
-            challengeComplete(Template.currentData());
-        }
-        else {
-            challengeProgress += CHALLENGE_PROGRESS_CORRECT;
-        }
-        Session.set("challengeProgress", challengeProgress);
-
+    if (challengeProgress + answerScore >= 100 ) {
+        challengeProgress = 100;
+        challengeComplete(Template.currentData());
+    } else if ( challengeProgress + answerScore < 0) {
+        challengeProgress = 0;
+    } else {
+        challengeProgress += answerScore;
     }
-    else {
-
-        Session.set("isCorrect", false);
-
-        if (challengeProgress - CHALLENGE_PROGRESS_WRONG < 0) {
-            challengeProgress = 0;
-        }
-        else {
-            challengeProgress -= CHALLENGE_PROGRESS_WRONG;
-        }
-        Session.set("challengeProgress", challengeProgress);
-    }
+    
+    Session.set("isCorrect", answerScore >= 0);
+    Session.set("challengeProgress", challengeProgress);
 }
 
 function challengeComplete(lesson) {
@@ -226,26 +212,26 @@ answer = function(lesson) {
     var phrase = lesson.phrases[Session.get("phraseIndex")];
     var qType = phrase.qType;
 
-    var isCorrect = false;
+    var answerScore = 0;
 
     switch (qType) {
         case QTYPE.TRANSLATE_VE:
         case QTYPE.LISTEN_VE:
-            isCorrect = aTranslateVE(phrase);
+            answerScore = aTranslateVE(phrase);
             break;
         case QTYPE.TRUE_FALSE:
-            isCorrect = aTrueFalse(phrase);
+            answerScore = aTrueFalse(phrase);
             break;
         case QTYPE.MULTIPLE_CHOICES_TRANSLATION:
         case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
-            isCorrect = aMultipleChoicesTranslation(phrase);
+            answerScore = aMultipleChoicesTranslation(phrase);
             break;
         case QTYPE.WORD_PAIRING:
-            isCorrect = aWordPairing();
+            answerScore = aWordPairing();
             break;
     }
 
-    computeProgress(isCorrect);
+    computeProgress(answerScore);
 }
 
 enableSubmitButton = function() {

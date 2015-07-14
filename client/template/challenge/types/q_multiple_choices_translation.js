@@ -115,8 +115,9 @@ aMultipleChoicesTranslation = function(phrase) {
     else {
         Session.set("feedback", phrase.english[0]);
     }
-
-    return userAnswer.vietnamese === phrase.vietnamese;
+    var answerCorrect = userAnswer.vietnamese === phrase.vietnamese;
+    return answerCorrect? CHALLENGE_PROGRESS_CORRECT : 
+                            CHALLENGE_PROGRESS_WRONG;
 }
 
 // ----------------------

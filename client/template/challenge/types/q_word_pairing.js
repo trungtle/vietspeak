@@ -1,5 +1,5 @@
 const CHOICE_NUM = 4;
-
+const WRONG_DEDUCTION = 3;
 Template.qWordPairing.onCreated(function() {
 
     var lesson = Template.currentData();
@@ -29,15 +29,13 @@ Template.qWordPairing.events({
     }
 
 });
+
 // ----------------------
 // Public functions
 // ----------------------
 
 aWordPairing = function() {
-    //@TODO: calculate score based on how many matches user
-     // got right on their first try
-    var numMatches = Session.get("numMatches");
-    return numMatches === CHOICE_NUM;
+    return Session.get("answerScore");
 }
 
 // ----------------------
@@ -64,6 +62,7 @@ function compareChoices(prevChoiceWord, curChoiceWord) {
         } else { 
             prevChoice["checked"] = false;
             curChoice["checked"] = false;
+            reduceAnswerScore();
             //@TODO: run fancy "wrong!" animation
         }
     Session.set("prevChoiceWord", null);
@@ -76,6 +75,14 @@ function compareChoices(prevChoiceWord, curChoiceWord) {
 
     // update Session
     Session.set("choices", choices);
+}
+
+function reduceAnswerScore(){
+    var answerScore = Session.get("answerScore");
+    if (answerScore > 0) {
+        answerScore -=WRONG_DEDUCTION;
+        Session.set("answerScore", answerScore);
+    }
 }
 
 function fetchMatches(lesson) {
@@ -124,4 +131,5 @@ function fetchMatches(lesson) {
     Session.set("choices", choices);
     Session.set("prevChoiceWord", null); // comparison for match
     Session.set("numMatches", 0);
+    Session.set("answerScore", WRONG_DEDUCTION*CHOICE_NUM);
 }
