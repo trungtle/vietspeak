@@ -102,4 +102,7 @@ if (Lessons.find().count() === 0) {
     Lessons.insert({
         name: "Nature",
     });
+    Lessons.insert({
+        name: "Spirituality",
+    });
 }

@@ -24,6 +24,12 @@ $light-purple: #636685;
 $dark: #333333;
 $teal: #2ecc71;
 $light-gray: #ccc;
+$very-light-gray: #eee;
+$heavy-white-transparent: rgba(255,255,255,.97);
+$more-medium-white-transparent: rgba(255,255,255,.8);
+$medium-white-transparent: rgba(255,255,255,.5);
+$light-white-transparent: rgba(255,255,255,.2);
+$transparent: rgba(0,0,0,0);
 
 // -------------
 // Font stack
@@ -37,6 +43,7 @@ $san-francisco-font-stack: 'San Francisco',
 sans-serif;
 $heading-font: $dosis-font-stack;
 $body-font: $san-francisco-font-stack;
+
 // Box shadows
 @mixin box-shadow {
   -webkit-box-shadow: 10px 10px 50px -16px rgba(0, 0, 0, 0.75);
@@ -68,6 +75,10 @@ $body-font: $san-francisco-font-stack;
 @mixin desaturate {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
+}
+
+@mixin margin-top-from-nav {
+  margin-top: 70px;
 }
 
 // Fonts
@@ -114,7 +125,7 @@ span {
 }
 
 body {
-  background-image: url("img/block_background.jpg");
+  background-image: url("img/block-background.jpg");
   background-attachment: fixed;
   background-size: cover;
 }
@@ -122,50 +133,74 @@ body {
 textarea {
   resize: none;
 }
+
 /* Top navigation */
 
 .top-bar {
-  background: $medium-blue;
+  background-color: $transparent;
 }
 
 .title-area {
-  padding-left: 20%;
   .name {
     @extend .top-bar;
     a {
-      font-size: 20px;
+      font-size: 30px;
       font-weight: bold !important;
-      color: white;
+      color: $medium-blue !important;
     }
   }
 }
 
 .top-bar-section {
-  padding-left: 20%;
   li:not(.has-form) {
+    background-color: $transparent;
     a:not(.button) {
       @extend .top-bar;
-      font-size: 18px;
+      font-size: 30px;
+      color: black;
+      font-weight: bold;
     }
     .nav-lesson {
-      background-image: url("img/paper-flat.png") !important;
       background-position: middle !important;
-      padding-left: 35px !important;
       background-repeat: no-repeat !important;
     }
   }
 }
+
+// Page title
+
+.page-title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: $medium-white-transparent;
+}
+
 /* Landing page */
 
-.landing-page-nav {
-  padding-top: 7%;
+.landing-page-login {
+  a {
+    padding: 20px;
+    background-color: black;
+    font-size: 1.5em;
+    color: white;
+  }
+}
+
+.landing-page-header {
+  @include margin-top-from-nav;
 }
 
 
 // Dashboard
 
 .dashboard-area {
-  padding-top: 7%;
+  @include margin-top-from-nav;
+  min-height: 500px;
+  width: 800px;
+  background-color: $medium-white-transparent;
+  @include box-shadow;
+
 }
 
 /* Lesson page */
@@ -176,12 +211,13 @@ $lesson-item-height: 120px;
 $lesson-item-width: $lesson-item-height;
 
 .lesson-list {
-  margin-top: 50px;
+  @include margin-top-from-nav;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 50px;
   min-height: 100%;
   list-style: none;
-  background-color: $very-light-yellow;
+  background-color: $medium-white-transparent;
   padding: 5%;
   width: $lesson-list-width;
   @include box-shadow;
@@ -194,11 +230,11 @@ $lesson-item-width: $lesson-item-height;
     position: relative;
     width: $lesson-item-width;
     height: $lesson-item-height;
-    background-color: $light-orange;
     background-image: url("/img/icon-turtle.png");
     background-size: 80px 80px;
     background-position: center;
     background-repeat: no-repeat;
+    @include box-shadow;
   }
   .lesson-item-name {
     text-align: center;
@@ -211,7 +247,7 @@ $lesson-item-width: $lesson-item-height;
 
 .lesson-item.completed {
   .button {
-    background-image: url("/img/icon-turtle-completed.png");
+    background-image: url("/img/check_white.png");
   }
 }
 
@@ -225,7 +261,7 @@ $lesson-item-width: $lesson-item-height;
 /* Lesson area */
 
 #lesson-area {
-  margin: 3%;
+  margin-top: 70px;
 }
 
 #lesson-content {
@@ -256,39 +292,46 @@ $lesson-item-width: $lesson-item-height;
 }
 /* Challenge area */
 
+#challenge-header {
+  background-color: $more-medium-white-transparent;
+}
+
 #instruction {
-  padding: 0% 2%;
+  padding-left: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 #challenge-area {
   position: relative;
-  background-color: $light-yellow;
   @include box-shadow;
 }
 
 #question-area,
 #feedback-area {
-  padding: 1%;
-  background-color: $very-light-yellow;
+  padding: 10px;
+  background-color: $medium-white-transparent;
+}
+
+#question-area {
+  padding-top: 40px;
+  min-height: 100px;
 }
 
 #challenge-progress {
-  width: 90%;
-  margin: 3% 2% 5% 5%;
+  border: solid 0px;
+  background-color: $light-white-transparent;
 }
 
 #challenge-complete-area {
   text-align: center;
   position: absolute;
-  top: 10%;
+  top: 25px;
   left: 10%;
   width: 80%;
-  min-height: 80%;
-  background-color: $light-blue;
+  min-height: 50%;
+  background-color: white;
   @include box-shadow;
-  h1 {
-    color: white;
-  }
 }
 
 #continue-button {
@@ -307,8 +350,9 @@ $lesson-item-width: $lesson-item-height;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-left: 20px;
+  border-radius: 10px;
   background-color: white;
-  @include box-shadow;
+  border: solid 3px white;
 }
 
 /* Multiple choices */
@@ -320,33 +364,41 @@ $lesson-item-width: $lesson-item-height;
 
 .choice {
   min-height: 70px;
-  background-color: white;
+  background-color: $medium-white-transparent;
   cursor: pointer;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 10px;
+  border: solid 3px $transparent;
+  width: 190px;
+
+  &:hover {
+    border: solid 3px gray;
+  }
 
   .image-hint {
     width: 150px;
     margin-left: auto;
     margin-right: auto;
     display: block;
+    border-radius: 10px;
   }
 }
 
 .choice.checked {
-  @include box-shadow-light-blue;
+  border: solid 3px $light-yellow;
+  background-color: $very-light-yellow;
 }
 
 .choice.checked.correct {
   background-color: $light-green;
-  @include box-shadow-none;
+  border: solid 3px $light-green;
 }
 
 .choice.checked.wrong {
-  background-color: $medium-red;
-  @include box-shadow-none;
+  background-color: $light-red;
+  border: solid 3px $light-red;
 }
 
 .hotkey {
@@ -400,11 +452,18 @@ label {
 }
 /* Override login buttons */
 
-#login-buttons a {
-  font-family: $heading-font;
-  display: block;
-  color: white;
-  text-decoration: none !important;
+#login-buttons {
+
+  a {
+    font-family: $heading-font;
+    display: block;
+    text-decoration: none !important;
+
+    &:hover {
+      color: white;
+    }
+  }
+
 }
 
 .login-close-text,
@@ -413,6 +472,7 @@ label {
   background-color: white !important;
   color: black !important;
 }
+
 /* Animations */
 
 @keyframes flickerAnimation {

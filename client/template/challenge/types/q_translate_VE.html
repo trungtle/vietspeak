@@ -1,7 +1,9 @@
 <template name="qTranslateVE">
-  <button class="round success tiny play-audio">
-    <i class="fa fa-play"></i>
-  </button>
+  {{#if isListeningOnly}}
+    <button class="round success tiny play-audio">
+      <i class="fa fa-play"></i>
+    </button>
+  {{/if}}
   <div class="row">
     {{#unless isListeningOnly}}
       <div class="small-5 columns phrase-translate">

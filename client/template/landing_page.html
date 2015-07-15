@@ -1,5 +1,5 @@
 <template name="landingPage">
-  <div class="row landing-page-nav">
+  <div class="row landing-page-header">
     <div class="small-12 columns">
       <h1 class="name">
     		Vietspeak
@@ -22,8 +22,8 @@ Whatever it can do, I hope you will feel more at home in Vietnam. Let’s ventur
 
       {{/markdown}}
     </div>
-    <button class='right round success login'>
-      {{> loginButtons}}
-    </button>
+    <div class="landing-page-login right">
+      {{> loginButtons align="right"}}
+    </div>
   </div>
 </template>
