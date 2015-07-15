@@ -1,13 +1,21 @@
 <template name="lessonsList">
   <div class='lesson-list'>
-    <ul class="small-block-grid-4">
-      {{#each lessons}}
-      <li class="lesson-item {{#if completed}}completed{{/if}} {{#unless unlocked}}locked{{/unless}}">
-        <a class="button" href="{{#if unlocked}}{{pathFor 'lessonPage'}}{{/if}}">
-          <h3 class="lesson-item-name">{{name}}</h3>
-        </a>
-      </li>
+    <div class="row">
+      {{#each levels}}
+        <ul class="small-block-grid-{{number}} lesson-level {{#if evenRow}}even-row{{/if}}">
+          {{#each lessons level}}
+            {{> lessonItem}}
+          {{/each}}
+        </ul>
       {{/each}}
-    </ul>
+    </div>
   </div>
+</template>
+
+<template name="lessonItem">
+  <li class="lesson-item {{#if completed}}completed{{/if}} {{#unless unlocked}}locked{{/unless}}">
+    <a class="button" href="{{#if unlocked}}{{pathFor 'lessonPage'}}{{/if}}">
+      <h3 class="lesson-item-name">{{name}}</h3>
+    </a>
+  </li>
 </template>

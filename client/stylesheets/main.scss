@@ -217,15 +217,22 @@ $lesson-item-width: $lesson-item-height;
   margin-bottom: 50px;
   min-height: 100%;
   list-style: none;
-  background-color: $medium-white-transparent;
-  padding: 5%;
   width: $lesson-list-width;
-  @include box-shadow;
+}
 
+.lesson-level {
+  padding-top: 20px;
+  margin-bottom: 40px;
+  background-color: $medium-white-transparent;
+  @include box-shadow;
+}
+
+.lesson-level.even-row {
+  background-color: $light-white-transparent;
 }
 
 .lesson-item {
-  margin-bottom: 5%;
+  text-align: center;
   .button {
     position: relative;
     width: $lesson-item-width;
@@ -236,8 +243,10 @@ $lesson-item-width: $lesson-item-height;
     background-repeat: no-repeat;
     @include box-shadow;
   }
-  .lesson-item-name {
+  a {
     text-align: center;
+  }
+  .lesson-item-name {
     position: absolute;
     bottom: 0px;
     color: white;
