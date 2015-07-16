@@ -1,15 +1,24 @@
 <template name="qRearrange">
-  <button class="round success tiny play-audio">
-    <i class="fa fa-play"></i>
-  </button>
-  <!-- <div class="row">
-    {{#unless isListeningOnly}}
-      <div class="small-5 columns phrase-translate">
-        {{{vietnamese}}}
-      </div>
-    {{/unless}}
-    <div class="small-6 columns">
-      <input type="text" id="answer-text">
-    </div>
-  </div> -->
+  <p class="phrase-multiple-choices">{{englishHint}}</p>
+  <!-- @TODO: figure out appropriate styles to make this not collapse when empty  -->
+  <ul class="small-block-grid- arrangeList">
+    {{#each arrangedWords}}
+      <li>
+        <button class="arranged" id="{{word}}">
+          {{word}}
+        </button>
+      </li>
+    {{/each}}
+  </ul>
+  <!-- @TODO: add animations when word transferred from one list to other -->
+    <ul class="small-block-grid-">
+    {{#each unarrangedWords}}
+      <li>
+        <button class="unarranged" id="{{word}}">
+          {{word}}
+        </button>
+      </li>
+    {{/each}}
+  </ul>
+
 </template>

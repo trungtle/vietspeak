@@ -3,7 +3,7 @@ const WRONG_DEDUCTION = 3;
 Template.qWordPairing.onCreated(function() {
 
     var lesson = Template.currentData();
-    fetchMatches(lesson);
+    setUpQuestion(lesson);
 });
 
 Template.qWordPairing.helpers({
@@ -85,10 +85,10 @@ function reduceAnswerScore(){
     }
 }
 
-function fetchMatches(lesson) {
+function setUpQuestion(lesson) {
     var choices = lesson.phrases;
 
-    // Reject other choices that are not of the same question type
+    // pick choices of a single question type
     choices = _.reject(choices, function(choice) {
         return choice.qType !== QTYPE.TRANSLATE_VE; // @TODO -- choose appropriate QTYPE
                 

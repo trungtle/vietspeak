@@ -13,7 +13,7 @@ Template.questionArea.helpers({
                 return "qMultipleChoicesTranslation";
             case QTYPE.WORD_PAIRING:
                 return "qWordPairing";
-            case QTYPE.WORD_PAIRING:
+            case QTYPE.REARRANGE:
                 return "qRearrange";
             default:
                 return "qTrueFalse";
