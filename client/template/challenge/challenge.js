@@ -246,7 +246,7 @@ enableSubmitButton = function() {
 resetChallenge = function() {
     Session.set("phraseIndex", 0); // phraseIndex can sometimes be random
     Session.set("qNumber", 1); // qNumber increments naturally
-    Session.set("challengeProgress", 90);
+    Session.set("challengeProgress", 0);
     Session.set("qState", QSTATE.PROMPT);
     Session.set("xpGained", 100); // the amount of xp user gained if answered perfectly
 }

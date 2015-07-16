@@ -2,10 +2,12 @@
   <div class="row">
     <div class="small-12 columns">
       <div id='challenge-area'>
-        {{> challengeProgress}}
-        <h3 id="instruction">
-          {{qNumber}}. {{instruction}}
-        </h3>
+        <div id='challenge-header'>
+          {{> challengeProgress}}
+          <h3 id="instruction">
+            {{qNumber}}. {{instruction}}
+          </h3>
+        </div>
         <div id='question-area'>
           {{> questionArea}}
         </div>

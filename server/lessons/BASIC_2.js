@@ -1,5 +1,6 @@
 BASIC_2 = {
     name: "Basics 2",
+    level: 1,
     content: ["basic2"],
     preview: "có, thích, anh ấy, cô ấy, bạn",
     phrases: [{

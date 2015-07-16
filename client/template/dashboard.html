@@ -1,19 +1,19 @@
 <template name="dashboard">
-  <div class="row">
+  <div class="row dashboard-area">
     <div class="small-8 push-2 columns">
-      <h1>Welcome {{username}}</h1>
+      <h1 class="page-title">Welcome {{username}}</h1>
       <div progress-report>
         Here's your progress today.
+        <h3>
+          {{profile.dayStreak}} {{dayStreakUnit}}
+        </h3>
+        <h3>
+          Level: {{profile.level}}
+        </h3>
+        <h3>
+          XP: {{profile.xp}}
+        </h3>
       </div>
-      <h2>
-       	Level: {{profile.level}}
-       </h2>
-       <h2>
-        XP: {{profile.xp}}
-       </h2>
-       <h2>
-       	{{profile.dayStreak}} {{dayStreakUnit}}
-       </h2>
     </div>
   </div>
 </template>

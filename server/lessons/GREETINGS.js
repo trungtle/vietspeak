@@ -1,6 +1,7 @@
 GREETINGS = {
     name: "Greetings",
     content: ["greetings1"],
+    level: 1,
     phrases: [{
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
         vietnamese: "Xin chào",
