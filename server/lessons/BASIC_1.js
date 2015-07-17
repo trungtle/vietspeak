@@ -3,7 +3,10 @@ BASIC_1 = {
     level: 1,
     preview: "Tôi là, đàn ông, phụ nữ, đây là, con chó, con mèo",
     content: ["basic1"],
-    phrases: [{
+    phrases: [
+    {
+        qType: QTYPE.REARRANGE,
+    }, {
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,
         image: "/img/lessons/man.jpg",
         vietnamese: "Đàn ông",

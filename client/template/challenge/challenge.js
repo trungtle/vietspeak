@@ -53,6 +53,8 @@ Template.challenge.helpers({
                 return "True or False";
             case QTYPE.WORD_PAIRING:
                 return "Match the pairs";
+            case QTYPE.REARRANGE:
+                return "Arrange this phrase in Vietnamese";
         }
     },
     completed: function() {
@@ -228,6 +230,8 @@ answer = function(lesson) {
             break;
         case QTYPE.WORD_PAIRING:
             answerScore = aWordPairing();
+        case QTYPE.REARRANGE:
+            answerScore = aRearrange();
             break;
     }
 

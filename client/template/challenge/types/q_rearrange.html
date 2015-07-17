@@ -1,0 +1,24 @@
+<template name="qRearrange">
+  <p class="phrase-multiple-choices">{{englishHint}}</p>
+  <!-- @TODO: figure out appropriate styles to make this not collapse when empty  -->
+  <ul class="small-block-grid- arrangeList">
+    {{#each arrangedWords}}
+      <li>
+        <button class="arranged" id="{{word}}">
+          {{word}}
+        </button>
+      </li>
+    {{/each}}
+  </ul>
+  <!-- @TODO: add animations when word transferred from one list to other -->
+    <ul class="small-block-grid-">
+    {{#each unarrangedWords}}
+      <li>
+        <button class="unarranged" id="{{word}}">
+          {{word}}
+        </button>
+      </li>
+    {{/each}}
+  </ul>
+
+</template>
