@@ -41,24 +41,34 @@ function resetUser(options, user) {
         user.profile = options.profile;
     }
 
-    user.profile['unlockedLessons'] = {
-    'Basics 1': {
-        timestamp: 0,
-        percentCompleted: 0
-    },
-    'Basics 2': {
-        timestamp: 0,
-        percentCompleted: 0
-    },
-    'Greetings': {
-        timestamp: 0,
-        percentCompleted: 0,
-    }};
+    user.profile['unlockedLessons'] = {};
+    unlockLevel(user, 1);
     user.profile['level'] = 1;
     user.profile['dayStreak'] = 0;
     user.profile['xp'] = 0;
     user.profile['timeLastChallengeCompleted'] = 0;
     return user;
+}
+
+// --------------
+// Unlock lessons
+// --------------
+
+unlockLevel = function(user, level) {
+    var lessons = Lessons.find({level: level}).fetch();
+    for (var i = 0; i < lessons.length; i++) {
+        unlockLesson(user, lessons[i].name);
+    }
+}
+
+unlockLesson = function(user, lessonName) {
+    var unlockedLessons = user.profile.unlockedLessons;
+    unlockedLessons[lessonName] = {
+        timestamp: new Date(),
+        percentCompleted: 0
+    };
+
+    Meteor.users.update(user._id, {$set: { "profile.unlockedLessons": unlockedLessons}});
 }
 
 // --------------

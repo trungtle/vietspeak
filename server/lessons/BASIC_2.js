@@ -12,6 +12,8 @@ BASIC_2 = {
         vietnamese: "Bạn có con chó",
         english: ["You have a dog", "You have the dog"]
     }, {
+        qType: QTYPE.REARRANGE
+    }
         qType: QTYPE.TRANSLATE_VE,
         vietnamese: "Bạn không có con mèo",
         english: ["You don't have a cat", "You do not have a cat"]
@@ -25,8 +27,10 @@ BASIC_2 = {
         english: ["I like the dog"]
     }, {
         qType: QTYPE.TRANSLATE_VE,
-        vietnamese: "Anh  thích con chó",
-        english: ["I like the dog"]
+        vietnamese: "Anh ấy thích con chó",
+        english: ["He likes the dog"]
+    }, {
+        qType: QTYPE.REARRANGE
     }, {
         qType: QTYPE.TRANSLATE_VE,
         vietnamese: "Bạn thích chó",

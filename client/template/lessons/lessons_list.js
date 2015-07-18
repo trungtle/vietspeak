@@ -6,12 +6,16 @@ Template.lessonsList.helpers({
         return Lessons.find().count();
     },
     levels: function() {
+        // Return the levels attributes
         var highestLevel = 10;
         var levels = [];
         for (var i = 1; i <= highestLevel; i++) {
-            var count = Lessons.find({level:i}).count();
-            console.log(count);
-            levels.push({level: i, number: count, evenRow: i % 2 == 0});
+            var lessonsPerLevel = Lessons.find({level:i}).count();
+            levels.push({
+                level: i,
+                lessonsPerLevel: lessonsPerLevel,
+                evenRow: i % 2 == 0
+            });
         }
         return levels;
     }

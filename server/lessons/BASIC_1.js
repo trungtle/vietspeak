@@ -5,8 +5,6 @@ BASIC_1 = {
     content: ["basic1"],
     phrases: [
     {
-        qType: QTYPE.REARRANGE,
-    }, {
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,
         image: "/img/lessons/man.jpg",
         vietnamese: "Đàn ông",
@@ -35,6 +33,8 @@ BASIC_1 = {
         image: "/img/lessons/dog.jpg",
         english: ["Dog"]
     }, {
+        qType: QTYPE.REARRANGE,
+    }, {
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,
         vietnamese: "Con mèo",
         image: "/img/lessons/cat.jpg",
@@ -57,6 +57,8 @@ BASIC_1 = {
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
         vietnamese: "Đây là con mèo",
         english: ["This is a cat", "This is the cat"]
+    }, {
+        qType: QTYPE.REARRANGE,
     }, {
         qType: QTYPE.TRANSLATE_VE,
         vietnamese: "Phụ nữ",

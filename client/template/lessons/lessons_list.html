@@ -2,7 +2,7 @@
   <div class='lesson-list'>
     <div class="row">
       {{#each levels}}
-        <ul class="small-block-grid-{{number}} lesson-level {{#if evenRow}}even-row{{/if}}">
+        <ul class="small-block-grid-{{lessonsPerLevel}} lesson-level {{#if evenRow}}even-row{{/if}}">
           {{#each lessons level}}
             {{> lessonItem}}
           {{/each}}

@@ -5,11 +5,7 @@ if (Lessons.find().count() === 0) {
     Lessons.insert(BASIC_1);
     Lessons.insert(BASIC_2);
     Lessons.insert(GREETINGS);
-
-    Lessons.insert({
-        name: "Food",
-        level: 2,
-    });
+    Lessons.insert(FOODS_1);
 
     Lessons.insert({
         name: "Family",

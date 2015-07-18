@@ -203,6 +203,13 @@ function challengeComplete(lesson) {
     // Increase xp
     Meteor.users.update(userId, {$inc: { "profile.xp": Session.get('xpGained')}});
 
+    // Unlock new level
+    _.each(LEVEL_XP_REQUIREMENTS, function(xpReq, level) {
+        if (user.profile.xp >= xpReq) {
+            Meteor.call('unlockLevel', userId, level);
+        }
+    });
+
 }
 
 //

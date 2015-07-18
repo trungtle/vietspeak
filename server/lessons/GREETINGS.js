@@ -53,6 +53,8 @@ GREETINGS = {
         vietnamese: "Chào buổi sáng",
         english: ["Good morning"]
     }, {
+        qType: QTYPE.REARRANGE,
+    }, {
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
         vietnamese: "Xin lỗi",
         english: ["Sorry", "Excuse me"]
