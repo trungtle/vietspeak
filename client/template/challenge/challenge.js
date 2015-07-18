@@ -120,8 +120,8 @@ Template.challenge.events({
 
             case QSTATE.CONTINUE:
                 Session.set("qState", QSTATE.PROMPT);
-                $("#answer-text").text("");
                 nextQuestion(this);
+                $('#answer-text')[0].value = "";
                 break;
         }
     },
@@ -171,7 +171,7 @@ function computeProgress(answerScore) {
     } else {
         challengeProgress += answerScore;
     }
-    
+
     Session.set("isCorrect", answerScore >= 0);
     Session.set("challengeProgress", challengeProgress);
 }
