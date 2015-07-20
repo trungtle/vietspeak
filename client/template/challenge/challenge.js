@@ -240,6 +240,7 @@ function challengeComplete(lesson) {
     // Unlock new level
     var nextLevel = user.profile.level + 1;
     if (user.profile.xp >= LEVEL_XP_REQUIREMENTS[nextLevel]) {
+        Session.set("reachedNewLevel", true);
         Meteor.call('unlockLevel', userId, nextLevel);
     }
 
@@ -284,6 +285,9 @@ enableSubmitButton = function() {
 }
 
 resetChallenge = function(lesson) {
+
+    Session.set("reachedNewLevel", false);
+
     // phraseIndex tracks the current index of the phrase/question.
     // It can be random if all the phrases are exhausted
     Session.set("phraseIndex", 0);

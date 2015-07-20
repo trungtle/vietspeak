@@ -1,10 +1,14 @@
 <template name="challengeComplete">
   <div id="challenge-complete-area">
-    <h1>Congrats, you got it!</h1>
-    <button id="try-again-button">Redo</button>
-    <a href="{{pathFor 'lessonsList'}}" id="continue-button" class="button">Continue</a>
+    <h1>Challenge completed! You're awesome</h1>
+    <p>+ {{xpGained}} points</p>
+    {{#if reachedNewLevel}}
+    	<div>You have reached level {{currentUser.profile.level}}</div>
+    {{/if}}
     <div>
       <img src="/img/mascot-turtle.png" width="30%" height="30%">
     </div>
+    <button id="try-again-button">Redo</button>
+    <a href="{{pathFor 'lessonsList'}}" id="continue-button" class="button">Continue</a>
   </div>
 </template>

@@ -58,5 +58,7 @@ setupTranslate = function(lesson) {
     var audio = new Audio(phrase.audioSrc);
     audio.play();
 
-    $('#answer-text')[0].value = "";
+    if($('#answer-text')[0] !== undefined) {
+        $('#answer-text')[0].value = "";
+    }
 }
