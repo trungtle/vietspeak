@@ -7,15 +7,6 @@ Template.qTranslateVE.rendered = function() {
     $('#answer-text').focus();
 }
 
-Template.qTranslateVE.onCreated(function() {
-
-    // Play sound when first created
-    var lesson = Template.currentData();
-    var phrase = lesson.phrases[Session.get("phraseIndex")];
-    var audio = new Audio(phrase.audioSrc);
-    audio.play();
-});
-
 Template.qTranslateVE.helpers({
     audioSrc: function() {
         var phrase = this.phrases[Session.get("phraseIndex")];
@@ -55,6 +46,17 @@ aTranslateVE = function(phrase) {
     var answerCorrect = _.some(translationList, function(english) {
         return answer === english.toLowerCase();
     });
-    
+
     return answerCorrect? CHALLENGE_PROGRESS_CORRECT : CHALLENGE_PROGRESS_WRONG;
+}
+
+setupTranslate = function(lesson) {
+
+    // Play sound when first created
+    var lesson = Template.currentData();
+    var phrase = lesson.phrases[Session.get("phraseIndex")];
+    var audio = new Audio(phrase.audioSrc);
+    audio.play();
+
+    $('#answer-text')[0].value = "";
 }

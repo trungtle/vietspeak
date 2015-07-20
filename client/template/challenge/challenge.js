@@ -23,7 +23,8 @@ QSTATE = {
 };
 
 Template.challenge.onCreated(function() {
-    resetChallenge();
+    var lesson = Template.currentData();
+    resetChallenge(lesson);
 });
 
 //
@@ -121,7 +122,6 @@ Template.challenge.events({
             case QSTATE.CONTINUE:
                 Session.set("qState", QSTATE.PROMPT);
                 nextQuestion(this);
-                $('#answer-text')[0].value = "";
                 break;
         }
     },
@@ -158,6 +158,40 @@ function nextQuestion(lesson) {
     // Increment question number
     var qNumber = Session.get("qNumber");
     Session.set("qNumber", qNumber + 1);
+
+    // Initialize the question
+    setupQuestion(lesson, phraseIndex);
+}
+
+function setupQuestion(lesson, phraseIndex) {
+    Session.set("feedback", "");
+
+    var qType = lesson.phrases[phraseIndex].qType;
+    switch (qType) {
+        case QTYPE.TRANSLATE_VE:
+        case QTYPE.LISTEN_VE:
+            setupTranslate(lesson);
+            break;
+
+        case QTYPE.TRUE_FALSE:
+            break;
+
+        case QTYPE.MULTIPLE_CHOICES_TRANSLATION:
+        case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
+            setupMultipleChoicesTranslation(lesson);
+            break;
+
+        case QTYPE.WORD_PAIRING:
+            setupWordPairing(lesson);
+            break;
+
+        case QTYPE.REARRANGE:
+            setupRearrange(lesson);
+            break;
+
+        default:
+            return;
+    }
 }
 
 function computeProgress(answerScore) {
@@ -250,10 +284,12 @@ enableSubmitButton = function() {
     Session.set("qState", QSTATE.ANSWERED);
 }
 
-resetChallenge = function() {
+resetChallenge = function(lesson) {
     Session.set("phraseIndex", 0); // phraseIndex can sometimes be random
     Session.set("qNumber", 1); // qNumber increments naturally
     Session.set("challengeProgress", 0);
     Session.set("qState", QSTATE.PROMPT);
     Session.set("xpGained", 100); // the amount of xp user gained if answered perfectly
+
+    setupQuestion(lesson, 0);
 }

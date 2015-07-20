@@ -1,12 +1,5 @@
 const CHOICE_NUM = 4;
 
-Template.qMultipleChoicesTranslation.onCreated(function() {
-
-    var lesson = Template.currentData();
-    Session.set("isEV", true); // English phrase, Vietnamese choices
-    pickChoices(lesson);
-});
-
 Template.qMultipleChoicesTranslation.helpers({
 
     phrase: function() {
@@ -16,9 +9,6 @@ Template.qMultipleChoicesTranslation.helpers({
     },
 
     choices: function() {
-        if (Session.equals("qState", QSTATE.PROMPT)) {
-            pickChoices(this);
-        }
         return Session.get("choices");
     },
     isCorrect: function() {
@@ -104,6 +94,11 @@ Template.qMultipleChoicesTranslation.events({
 // Public functions
 // ----------------------
 
+setupMultipleChoicesTranslation = function(lesson) {
+    Session.set("isEV", true); // English phrase, Vietnamese choices
+    pickChoices(lesson);
+}
+
 aMultipleChoicesTranslation = function(phrase) {
     var userAnswer = _.findWhere(Session.get("choices"), {
         checked: true
@@ -116,7 +111,7 @@ aMultipleChoicesTranslation = function(phrase) {
         Session.set("feedback", phrase.english[0]);
     }
     var answerCorrect = userAnswer.vietnamese === phrase.vietnamese;
-    return answerCorrect? CHALLENGE_PROGRESS_CORRECT : 
+    return answerCorrect? CHALLENGE_PROGRESS_CORRECT :
                             CHALLENGE_PROGRESS_WRONG;
 }
 

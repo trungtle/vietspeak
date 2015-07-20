@@ -16,7 +16,7 @@ Template.questionArea.helpers({
             case QTYPE.REARRANGE:
                 return "qRearrange";
             default:
-                return "qTrueFalse";
+                return;
         }
     }
 });

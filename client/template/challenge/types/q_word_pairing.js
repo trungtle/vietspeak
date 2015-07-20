@@ -1,12 +1,6 @@
 const CHOICE_NUM = 4;
 const WRONG_DEDUCTION = 3;
 
-Template.qWordPairing.onCreated(function() {
-
-    var lesson = Template.currentData();
-    setUpQuestion(lesson);
-});
-
 Template.qWordPairing.helpers({
 
     choices: function() {
@@ -86,7 +80,7 @@ function reduceAnswerScore(){
     }
 }
 
-function setUpQuestion(lesson) {
+setupWordPairing = function(lesson) {
     var choices = lesson.phrases;
 
     // pick choices of a single question type
@@ -114,7 +108,7 @@ function setUpQuestion(lesson) {
     });
 
 
-// set up displayed/matching fields of EN-displayed words
+    // set up displayed/matching fields of EN-displayed words
     _.map(enChoices, function(choice) {
       _.extend(choice,{
         displayedWord: choice.english[0],
@@ -130,7 +124,6 @@ function setUpQuestion(lesson) {
     choices = _.shuffle(choices);
 
     Session.set("choices", choices);
-    Session.set("feedback", "");
     Session.set("prevChoiceWord", null); // comparison for match
     Session.set("numMatches", 0);
     Session.set("answerScore", WRONG_DEDUCTION*CHOICE_NUM);
