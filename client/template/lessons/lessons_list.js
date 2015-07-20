@@ -14,7 +14,8 @@ Template.lessonsList.helpers({
             levels.push({
                 level: i,
                 lessonsPerLevel: lessonsPerLevel,
-                evenRow: i % 2 == 0
+                evenRow: i % 2 == 0,
+                xpRequired: LEVEL_XP_REQUIREMENTS[i]
             });
         }
         return levels;
