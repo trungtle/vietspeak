@@ -1,5 +1,6 @@
 const CHOICE_NUM = 4;
 const WRONG_DEDUCTION = 3;
+
 Template.qWordPairing.onCreated(function() {
 
     var lesson = Template.currentData();
@@ -23,9 +24,9 @@ Template.qWordPairing.events({
         // find clicked choice object based on id
         var clickWord = ev.target.id;
         var prevChoiceWord = Session.get("prevChoiceWord");
-        
+
         compareChoices(prevChoiceWord, clickWord);
-        
+
     }
 
 });
@@ -45,7 +46,7 @@ aWordPairing = function() {
 function compareChoices(prevChoiceWord, curChoiceWord) {
     var choices = Session.get("choices");
     var curChoice = _.findWhere(choices, {displayedWord: curChoiceWord});
-    
+
     if (prevChoiceWord) { // compare previous choice with the new one
       // choices matched:
         var prevChoice = _.findWhere(choices, {displayedWord: prevChoiceWord});
@@ -59,7 +60,7 @@ function compareChoices(prevChoiceWord, curChoiceWord) {
             prevChoice.disabled = true;
             curChoice.disabled = true;
       // choices didn't match:
-        } else { 
+        } else {
             prevChoice["checked"] = false;
             curChoice["checked"] = false;
             reduceAnswerScore();
@@ -91,7 +92,7 @@ function setUpQuestion(lesson) {
     // pick choices of a single question type
     choices = _.reject(choices, function(choice) {
         return choice.qType !== QTYPE.TRANSLATE_VE; // @TODO -- choose appropriate QTYPE
-                
+
     });
     // randomly pick a set number of choices
     var vnChoices = _.sample(choices, CHOICE_NUM);
@@ -101,7 +102,7 @@ function setUpQuestion(lesson) {
     for(var i = 0; i < vnChoices.length; ++i) {
       enChoices.push($.extend(true, {}, vnChoices[i]));
     }
-    
+
     // set up displayed/matching fields of VN-displayed words
     _.map(vnChoices, function(choice) {
       _.extend(choice,{
@@ -122,13 +123,14 @@ function setUpQuestion(lesson) {
         disabled: false
       });
     });
-    
+
     var choices = vnChoices.concat(enChoices);
 
     // Randomize!
     choices = _.shuffle(choices);
 
     Session.set("choices", choices);
+    Session.set("feedback", "");
     Session.set("prevChoiceWord", null); // comparison for match
     Session.set("numMatches", 0);
     Session.set("answerScore", WRONG_DEDUCTION*CHOICE_NUM);
