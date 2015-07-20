@@ -285,11 +285,16 @@ enableSubmitButton = function() {
 }
 
 resetChallenge = function(lesson) {
-    Session.set("phraseIndex", 0); // phraseIndex can sometimes be random
-    Session.set("qNumber", 1); // qNumber increments naturally
+    // phraseIndex tracks the current index of the phrase/question.
+    // It can be random if all the phrases are exhausted
+    Session.set("phraseIndex", 0);
+
+    // qNumber increments naturally and is exposed to user how many questions they have been asked
+    Session.set("qNumber", 1);
     Session.set("challengeProgress", 0);
     Session.set("qState", QSTATE.PROMPT);
-    Session.set("xpGained", 100); // the amount of xp user gained if answered perfectly
 
+    // the amount of xp user gained if answered perfectly
+    Session.set("xpGained", 100);
     setupQuestion(lesson, 0);
 }
