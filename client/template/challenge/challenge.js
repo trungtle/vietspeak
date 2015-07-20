@@ -238,11 +238,10 @@ function challengeComplete(lesson) {
     Meteor.users.update(userId, {$inc: { "profile.xp": Session.get('xpGained')}});
 
     // Unlock new level
-    _.each(LEVEL_XP_REQUIREMENTS, function(xpReq, level) {
-        if (user.profile.xp >= xpReq) {
-            Meteor.call('unlockLevel', userId, level);
-        }
-    });
+    var nextLevel = user.profile.level + 1;
+    if (user.profile.xp >= LEVEL_XP_REQUIREMENTS[nextLevel]) {
+        Meteor.call('unlockLevel', userId, nextLevel);
+    }
 
 }
 

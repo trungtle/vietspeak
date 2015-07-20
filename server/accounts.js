@@ -42,8 +42,8 @@ function resetUser(options, user) {
     }
 
     user.profile['unlockedLessons'] = {};
-    unlockLevel(user, 1);
     user.profile['level'] = 1;
+    unlockLevel(user, user.profile['level']);
     user.profile['dayStreak'] = 0;
     user.profile['xp'] = 0;
     user.profile['timeLastChallengeCompleted'] = 0;
@@ -59,6 +59,8 @@ unlockLevel = function(user, level) {
     for (var i = 0; i < lessons.length; i++) {
         unlockLesson(user, lessons[i].name);
     }
+
+    Meteor.users.update(user._id, {$set: { "profile.level": level}});
 }
 
 unlockLesson = function(user, lessonName) {
@@ -85,6 +87,7 @@ function checkDayStreak() {
 
         // Reset day streak if user hasn't practice within the last day
         if (now - user.profile.timeLastChallengeCompleted >= SECONDS_PER_DAY) {
+            console.log(now - user.profile.timeLastChallengeCompleted);
             Meteor.users.update(user._id, {$set: {"profile.dayStreak": 0}})
         }
     });

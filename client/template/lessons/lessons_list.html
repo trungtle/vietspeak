@@ -2,7 +2,7 @@
   <div class='lesson-list'>
     <div class="row">
       {{#each levels}}
-        <div>Points required: {{xpRequired}}</div>
+        <h3>Level {{level}}. Points required: {{xpRequired}}</h3>
         <ul class="small-block-grid-{{lessonsPerLevel}} lesson-level {{#if evenRow}}even-row{{/if}}">
           {{#each lessons level}}
             {{> lessonItem}}
