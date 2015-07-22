@@ -11,6 +11,8 @@ Template.questionArea.helpers({
             case QTYPE.MULTIPLE_CHOICES_TRANSLATION:
             case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
                 return "qMultipleChoicesTranslation";
+            case QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS:
+                return "qMultipleChoicesMultipleAnswers";
             case QTYPE.WORD_PAIRING:
                 return "qWordPairing";
             case QTYPE.REARRANGE:

@@ -50,6 +50,8 @@ Template.challenge.helpers({
                 return "Match with correct answer";
             case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
                 return "Match with correct picture";
+            case QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS:
+                return "Pick all answers that mean the same thing";
             case QTYPE.TRUE_FALSE:
                 return "True or False";
             case QTYPE.WORD_PAIRING:
@@ -180,7 +182,10 @@ function setupQuestion(lesson, phraseIndex) {
         case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
             setupMultipleChoicesTranslation(lesson);
             break;
-
+        case QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS:
+            setupMultipleChoicesMultipleAnswers(lesson);
+            break;
+        
         case QTYPE.WORD_PAIRING:
             setupWordPairing(lesson);
             break;
@@ -241,7 +246,7 @@ function challengeComplete(lesson) {
     var nextLevel = user.profile.level + 1;
     if (user.profile.xp >= LEVEL_XP_REQUIREMENTS[nextLevel]) {
         Session.set("reachedNewLevel", true);
-        Meteor.call('unlockLevel', userId, nextLevel);
+        Meteor.call("unlockLevel", userId, nextLevel);
     }
 
 }
@@ -268,6 +273,9 @@ answer = function(lesson) {
         case QTYPE.MULTIPLE_CHOICES_TRANSLATION:
         case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
             answerScore = aMultipleChoicesTranslation(phrase);
+            break;
+        case QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS:
+            answerScore = aMultipleChoicesMultipleAnswers(phrase);
             break;
         case QTYPE.WORD_PAIRING:
             answerScore = aWordPairing();
