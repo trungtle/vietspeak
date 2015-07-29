@@ -5,9 +5,20 @@ BASIC_1 = {
     content: ["basic1"],
     phrases: [
     {
+        qType: QTYPE.FILL_IN_BLANK,
+        vnPhraseLower: "Tôi",  
+        vnPhraseUpper: "phụ nữ.",
+        answer: "là",
+        otherChoices: ["la", "lá", "lã"]
+        
+    },  {
+        qType: QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS,
+        vietnamese: ["Đàn ông", "Đàn ông2!!!"],
+        english: ["Man"]
+    },  {
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,
-        image: "/img/lessons/man.jpg",
         vietnamese: "Đàn ông",
+        image: "/img/lessons/man.jpg",
         english: ["Man"]
     }, {
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,
