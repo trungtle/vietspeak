@@ -58,6 +58,8 @@ Template.challenge.helpers({
                 return "Match the pairs";
             case QTYPE.REARRANGE:
                 return "Arrange this phrase in Vietnamese";
+            case QTYPE.FILL_IN_BLANK:
+                return "Which word goes into the blank?"
         }
     },
     completed: function() {
@@ -193,7 +195,9 @@ function setupQuestion(lesson, phraseIndex) {
         case QTYPE.REARRANGE:
             setupRearrange(lesson);
             break;
-
+        case QTYPE.FILL_IN_BLANK:
+            setupFillInBlank(lesson);
+            break;
         default:
             return;
     }
@@ -281,6 +285,9 @@ answer = function(lesson) {
             answerScore = aWordPairing();
         case QTYPE.REARRANGE:
             answerScore = aRearrange();
+            break;
+        case QTYPE.FILL_IN_BLANK:
+            answerScore = aFillInBlank();
             break;
     }
 

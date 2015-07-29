@@ -17,6 +17,8 @@ Template.questionArea.helpers({
                 return "qWordPairing";
             case QTYPE.REARRANGE:
                 return "qRearrange";
+            case QTYPE.FILL_IN_BLANK:
+                return "qFillInBlank";
             default:
                 return;
         }
