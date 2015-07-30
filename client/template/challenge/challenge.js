@@ -1,10 +1,3 @@
-// Key codes
-const KEYCODE_ENTER = 13;
-const KEYCODE_ONE = 49;
-const KEYCODE_TWO = 50;
-const KEYCODE_THREE = 51;
-const KEYCODE_FOUR = 52;
-
 // Challenge Progress points
 
 CHALLENGE_PROGRESS_CORRECT = 10;

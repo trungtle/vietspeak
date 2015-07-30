@@ -1,5 +1,8 @@
 const CHOICE_NUM = 4;
 
+// Hot key pressed
+$(document).bind('keypress',pressedFn);
+
 Template.qMultipleChoicesTranslation.helpers({
 
     phrase: function() {
@@ -61,33 +64,6 @@ Template.qMultipleChoicesTranslation.events({
         // Allow for answering
         enableSubmitButton();
     },
-
-    "keypress": function(ev) {
-
-        switch (ev.keyCode) {
-
-            default: break;
-
-            // Simulate selecting options
-            case KEYCODE_ONE:
-                    console.log(choices[i]);
-
-                $('#choice-0').click();
-                break;
-
-            case KEYCODE_TWO:
-                    $('#choice-1').click();
-                break;
-
-            case KEYCODE_THREE:
-                    $('#choice-2').click();
-                break;
-
-            case KEYCODE_FOUR:
-                    $('#choice-3').click();
-                break;
-        }
-    }
 });
 
 // ----------------------
@@ -151,4 +127,54 @@ function pickChoices(lesson) {
     }
 
     Session.set("choices", choices);
+}
+
+function pressedFn(e)
+{
+    // Select a choice
+    var choices = Session.get("choices");
+    var selectedIndex = -1;
+
+    switch (e.keyCode) {
+
+        case KEYCODE_ENTER:
+            $("#submit").click();
+            return;
+
+        // Simulate selecting options
+        case KEYCODE_ONE:
+            selectedIndex = 0;
+            break;
+
+        case KEYCODE_TWO:
+            selectedIndex = 1;
+            break;
+
+        case KEYCODE_THREE:
+            selectedIndex = 2;
+            break;
+
+        case KEYCODE_FOUR:
+            selectedIndex = 3;
+            break;
+
+        default:
+            break;
+    }
+
+    // Uncheck all other choices
+    for (var i = 0; i < CHOICE_NUM; ++i) {
+        if (i === selectedIndex) {
+            choices[i].checked = true;
+        }
+        else {
+            choices[i].checked = false;
+        }
+    }
+
+    // Update session
+    Session.set("choices", choices);
+
+    // Allow for answering
+    enableSubmitButton();
 }

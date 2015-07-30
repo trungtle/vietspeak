@@ -1,6 +1,3 @@
-// maybe we should have a single file contain our constants
-const KEYCODE_ENTER = 13;
-
 Template.qTranslateVE.rendered = function() {
 
     // Focus answer box
