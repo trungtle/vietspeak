@@ -6,30 +6,42 @@
 // Colors
 // -------------
 
-$dark-red: #BF4414;
 $dark-blue: #34495E;
 $medium-blue: #3C74A2;
+
 $light-blue: #7FA7C9;
 $light-green: #2ecc71;
 $medium-green: #1abc9c;
+
 $light-yellow: #fbb351;
 $banana: #f1c40f;
 $very-light-yellow: #FFE29A;
+
 $light-orange: #f39c12;
 $orange: #e67e22;
 $dark-orange: #DC840A;
+
+$dark-red: #BF4414;
 $medium-red: #c13f2f;
 $light-red: #d35400;
+
 $light-purple: #636685;
-$dark: #333333;
-$teal: #2ecc71;
+
 $light-gray: #ccc;
 $very-light-gray: #eee;
+
 $heavy-white-transparent: rgba(255,255,255,.97);
 $more-medium-white-transparent: rgba(255,255,255,.8);
 $medium-white-transparent: rgba(255,255,255,.5);
 $light-white-transparent: rgba(255,255,255,.2);
 $transparent: rgba(0,0,0,0);
+
+$material-gray: #e74b3d;
+$material-red: #e74b3d;
+$material-dark: #2c333b;
+$material-teal: #16bb9b;
+$material-gray: #8b8b8b;
+$material-orange: #fbb351;
 
 // -------------
 // Font stack
@@ -124,10 +136,16 @@ span {
   font-family: $body-font;
 }
 
-body {
-  background-image: url("img/block-background.jpg");
-  background-attachment: fixed;
-  background-size: cover;
+.container {
+  height: 100%;
+  background-image: url("img/mascot-landing-page.png"), url("img/march.jpg");
+  background-attachment: fixed, fixed;
+  background-repeat: no-repeat, no-repeat;
+  background-position: left -20px bottom -20px, top left;
+  background-size: 400px auto, cover;
+  -ms-transform: rotate(-12.85deg), rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(-12.85deg), rotate(0deg); /* Chrome, Safari, Opera */
+  transform: rotate(-12.85deg), rotate(0deg);
 }
 
 textarea {
@@ -136,6 +154,13 @@ textarea {
 
 /* Top navigation */
 
+nav.top-bar {
+  text-align:center;
+}
+section.top-bar-section {
+  display: inline-block;
+}
+
 .top-bar {
   background-color: $transparent;
 }
@@ -143,11 +168,6 @@ textarea {
 .title-area {
   .name {
     @extend .top-bar;
-    a {
-      font-size: 30px;
-      font-weight: bold !important;
-      color: $medium-blue !important;
-    }
   }
 }
 
@@ -167,23 +187,98 @@ textarea {
   }
 }
 
-// Page title
-
-.page-title {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  text-align: center;
-  background-color: $medium-white-transparent;
-}
-
 /* Landing page */
 
-.landing-page-login {
+#learn-more {
+  margin-top: 20px;
+  text-shadow: 2px 2px rgba(0,0,0,.2);
+  font-family: $heading-font;
+  font-size: 1.2em;
+  text-align: center;
   a {
-    padding: 20px;
-    background-color: black;
-    font-size: 1.5em;
     color: white;
+  }
+}
+
+#landing-page-slogan {
+  margin-top: 20px;
+  margin-left: 10px;
+  font-family: $heading-font;
+  font-size: 1.1em;
+  color: $material-gray;
+  display: inline-block;
+
+  em {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.05em;
+    background-image: "img/vn-flag.png";
+  }
+}
+
+#landing-page-registration {
+  margin-top: 124px;
+  background-color: white;
+  @include box-shadow;
+  padding: 30px;
+  width: 346px;
+  height: 424px;
+  margin-left: auto;
+  margin-right: auto;
+
+  h1 {
+    font-size: 1.5em;
+    color: $material-gray;
+    margin-bottom: 35px;
+  }
+
+  input[type="text"] {
+    border-radius: 2px;
+    margin-bottom: 20px;
+    font-family: $body-font;
+  }
+
+  input[type="checkbox"] {
+    border-radius: 2px;
+  }
+
+  .terms {
+    color: $material-gray;
+    font-size: .8em;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+}
+
+.landing-page-signup {
+  padding: 10px;
+  width: 125px;
+  height: 55px;
+  background-color: $material-orange;
+  font-size: 1.2em;
+  border-radius: 10px;
+  color: white;
+
+  &:hover {
+    background-color: $material-teal;
+  }
+}
+
+.landing-page-login {
+  padding: 10px;
+  width: 125px;
+  height: 55px;
+  background-color: $transparent;
+  border: 2px solid $light-gray;
+  font-size: 1.2em;
+  border-radius: 10px;
+  color: $light-gray;
+
+  &:hover {
+    background-color: $material-teal;
+    border: 0px solid;
   }
 }
 
@@ -225,10 +320,6 @@ $lesson-item-width: $lesson-item-height;
   margin-bottom: 40px;
   background-color: $medium-white-transparent;
   @include box-shadow;
-}
-
-.lesson-level.even-row {
-  background-color: $light-white-transparent;
 }
 
 .lesson-item {
@@ -302,7 +393,8 @@ $lesson-item-width: $lesson-item-height;
 /* Challenge area */
 
 #challenge-header {
-  background-color: $more-medium-white-transparent;
+  background-color: $material-dark;
+  color: white;
 }
 
 #instruction {
@@ -319,7 +411,7 @@ $lesson-item-width: $lesson-item-height;
 #question-area,
 #feedback-area {
   padding: 10px;
-  background-color: $medium-white-transparent;
+  background-color: white;
 }
 
 #question-area {

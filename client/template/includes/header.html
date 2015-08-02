@@ -1,6 +1,6 @@
 <template name="header">
-  {{#if currentUser}}
-    <nav class='top-bar' data-topbar role='navigation'>
+  <nav class='top-bar' data-topbar role='navigation'>
+    {{#if currentUser}}
       <!-- Title area -->
       <ul class='title-area'>
         <li class='name'>
@@ -40,6 +40,15 @@
           </li>
         </ul>
       </section>
-    </nav>
-  {{/if}}
+    {{else}}
+      <!-- Landing page -->
+    <section>
+      <span><a href="{{pathFor 'index'}}"><img src="img/logo-landing.png" height="53px" width="96px"></a></span>
+
+      <span><p id="landing-page-slogan">
+        Where you can learn <img src="img/vn-flag.png"> <em>Vietnamese</em> in a simple and effective way.
+      </p></span>
+    </section>
+    {{/if}}
+  </nav>
 </template>
