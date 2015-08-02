@@ -86,8 +86,7 @@ function checkDayStreak() {
     _.each(users, function(user) {
 
         // Reset day streak if user hasn't practice within the last day
-        if (now - user.profile.timeLastChallengeCompleted >= SECONDS_PER_DAY) {
-            console.log(now - user.profile.timeLastChallengeCompleted);
+        if (now - user.profile.timeLastChallengeCompleted >= MILLISECONDS_PER_DAY) {
             Meteor.users.update(user._id, {$set: {"profile.dayStreak": 0}})
         }
     });

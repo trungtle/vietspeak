@@ -1,7 +1,3 @@
-// maybe we should have a single file contain our constants
-const KEYCODE_ENTER = 13;
-
-
 Template.qRearrange.helpers({
     englishHint: function() {
         return Session.get("englishHint");
