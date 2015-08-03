@@ -1,27 +1,18 @@
 <template name="header">
   <nav class='top-bar' data-topbar role='navigation'>
     {{#if currentUser}}
-      <!-- Title area -->
-      <ul class='title-area'>
-        <li class='name'>
-          <span><a href="{{pathFor 'index'}}"><img src="img/logo-landing.png" height="53px" width="96px"></a></span>
-        </li>
-        <li class='toggle-topbar icon'>
-          <a href="{{pathFor 'index'}}">
-            <span>Menu</span>
-          </a>
-        </li>
-      </ul>
       <!-- Menu -->
       <section class='top-bar-section'>
+        <span class='left'><a href="{{pathFor 'index'}}"><img src="img/logo-landing.png" height="53px" width="96px"></a></span>
         <ul class='left'>
           <li>
             <a class="nav-lesson" href="{{pathFor 'lessonsList'}}">
               Lessons
             </a>
           </li>
+
         </ul>
-        <ul class='right'>
+        <ul class='right user'>
           <li>
             <div class="label">Day streak: {{currentUser.profile.dayStreak}}</div>
           </li>
@@ -38,13 +29,13 @@
       </section>
     {{else}}
       <!-- Landing page -->
-    <section>
-      <span><a href="{{pathFor 'index'}}"><img src="img/logo-landing.png" height="53px" width="96px"></a></span>
+      <section>
+        <span><a href="{{pathFor 'index'}}"><img src="img/logo-landing.png" height="53px" width="96px"></a></span>
 
-      <span><p id="landing-page-slogan">
-        Where you can learn <img src="img/vn-flag.png"> <em>Vietnamese</em> in a simple and effective way.
-      </p></span>
-    </section>
+        <span><p id="landing-page-slogan">
+          Where you can learn <img src="img/vn-flag.png"> <em>Vietnamese</em> in a simple and effective way.
+        </p></span>
+      </section>
     {{/if}}
   </nav>
 </template>

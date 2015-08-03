@@ -7,6 +7,23 @@ nav.top-bar {
 }
 section.top-bar-section {
   display: inline-block;
+  margin-top: 10px;
+
+  .user {
+    margin-left: 100px;
+  }
+
+  .label {
+    background-color: $transparent;
+    border-radius: 20px;
+    border: 2px solid $material-gray;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 10px;
+    font-size: .8em;
+    color: black;
+  }
 }
 
 .top-bar {
@@ -24,7 +41,7 @@ section.top-bar-section {
     background-color: $transparent;
     a:not(.button) {
       @extend .top-bar;
-      font-size: 30px;
+      font-size: 1.2em;
       color: black;
       font-weight: bold;
     }
