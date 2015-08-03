@@ -9,7 +9,7 @@ BASIC_1 = {
         vnPhraseLower: "Tôi",  
         vnPhraseUpper: "phụ nữ.",
         answer: "là",
-        otherChoices: ["la", "lá", "lã"]
+        wrongChoices: ["la", "lá", "lã"]
         
     },  {
         qType: QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS,
