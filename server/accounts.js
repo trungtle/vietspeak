@@ -12,43 +12,6 @@ Meteor.publish("user", function() {
     });
 });
 
-// --------------
-// Accounts
-// --------------
-
-// By default, create an admin account
-
-Meteor.users.remove({
-    username: 'admin'
-});
-
-Accounts.onCreateUser(resetUser);
-
-if (Meteor.users.find().count() === 0) {
-
-    Accounts.createUser({
-        username: 'admin',
-        password: 'password'
-    });
-}
-
-function resetUser(options, user) {
-    if (user.profile == undefined) {
-        user.profile = {};
-    }
-
-    if (options.profile) {
-        user.profile = options.profile;
-    }
-
-    user.profile['unlockedLessons'] = {};
-    user.profile['level'] = 1;
-    unlockLevel(user, user.profile['level']);
-    user.profile['dayStreak'] = 0;
-    user.profile['xp'] = 0;
-    user.profile['timeLastChallengeCompleted'] = 0;
-    return user;
-}
 
 // --------------
 // Unlock lessons
@@ -71,6 +34,44 @@ unlockLesson = function(user, lessonName) {
     };
 
     Meteor.users.update(user._id, {$set: { "profile.unlockedLessons": unlockedLessons}});
+}
+
+// --------------
+// Accounts
+// --------------
+
+resetUser = function(options, user) {
+    if (user.profile == undefined) {
+        user.profile = {};
+    }
+
+    if (options.profile) {
+        user.profile = options.profile;
+    }
+
+    user.profile['unlockedLessons'] = {};
+    user.profile['level'] = 1;
+    unlockLevel(user, user.profile['level']);
+    user.profile['dayStreak'] = 0;
+    user.profile['xp'] = 0;
+    user.profile['timeLastChallengeCompleted'] = 0;
+    return user;
+}
+
+// By default, create an admin account
+
+Meteor.users.remove({
+    username: 'admin'
+});
+
+Accounts.onCreateUser(resetUser);
+
+if (Meteor.users.find().count() === 0) {
+
+    Accounts.createUser({
+        username: 'admin',
+        password: 'password'
+    });
 }
 
 // --------------
