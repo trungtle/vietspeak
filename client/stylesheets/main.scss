@@ -23,12 +23,17 @@ span {
 }
 
 .container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
   height: 100%;
+  overflow: scroll;
   background-image: url("img/mascot-landing-page.png"), url("img/march.jpg");
-  background-attachment: fixed, fixed;
   background-repeat: no-repeat, no-repeat;
   background-position: left -20px bottom -20px, top left;
   background-size: 400px auto, cover;
+  background-attachment: scroll, scroll;
 }
 
 textarea {

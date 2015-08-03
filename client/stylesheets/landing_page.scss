@@ -29,7 +29,7 @@
   }
 }
 
-#landing-page-signup-login {
+#landing-page-signup-login-form {
   margin-top: 104px;
   background-color: white;
   @include box-shadow;
@@ -53,6 +53,7 @@
     border-radius: 2px;
     margin-bottom: 10px;
     font-family: $heading-font;
+    font-size: 1.2em;
 
     option {
       font-family: $heading-font;
@@ -64,6 +65,7 @@
   }
 
   span {
+    font-family: $heading-font;
     font-size: .8em;
   }
 
@@ -77,17 +79,8 @@
     font-family: $heading-font;
   }
 
-  input.landing-page-signup {
-    background-color: $material-orange;
-    font-size: 1.2em;
-    color: white;
-
-    &:hover {
-      background-color: $material-teal;
-    }
-  }
-
-  input.landing-page-login {
+  .switch-signup-login {
+    @extend input[type="submit"];
     background-color: $transparent;
     border: 2px solid $light-gray;
     color: $light-gray;
@@ -95,6 +88,16 @@
     &:hover {
       background-color: $material-teal;
       border: 0px solid;
+    }
+  }
+
+  input.landing-page-signup, input.landing-page-login {
+    background-color: $material-orange;
+    font-size: 1.2em;
+    color: white;
+
+    &:hover {
+      background-color: $material-teal;
     }
   }
 
