@@ -26,25 +26,22 @@ Template.qFillInBlank.events({
         var clickWord = ev.target.id;
 
         var clickChoice = _.findWhere(choices, {displayedWord: clickWord});
-        var checkedAnswers = _.where(Session.get("choices"), {
+        var checkedChoices = _.where(choices, {
                 checked: true
         });
         
+        var ONLY_ALLOW_ONE_ANSWER = true; //  placeholder for generic multiple choice  template work 
         
-        if(checkedAnswers.length > 0 && true) { 
-            if (clickChoice.displayedWord === checkedAnswers[0].displayedWord) {
-                clickChoice.isCorrect = false;
-                clickChoice.checked = false;
+        if(checkedChoices.length && ONLY_ALLOW_ONE_ANSWER) { 
+            // if clicked on a checked choice, then uncheck it (outside of this block)
+            // otherwise uncheck the previously checked choice
+            if(clickChoice.displayedWord !== checkedChoices[0].displayedWord) {
+                checkedChoices[0].checked = false;
             }
 
-
-        } else {
-
-            clickChoice.checked = !clickChoice.checked;
-            if(_.indexOf(expectedAnswers, clickChoice.displayedWord) !== -1) {
-                clickChoice.isCorrect = true;
-            }
         }
+        clickChoice.checked = !clickChoice.checked;
+        
         // Update session
         Session.set("choices", choices);
 
@@ -63,22 +60,22 @@ setupFillInBlank = function(lesson) {
 }
 
 aFillInBlank = function(phrase) {
-    var checkedAnswers = _.where(Session.get("choices"), {
+    var checkedChoices = _.where(Session.get("choices"), {
         checked: true
     });
-    checkedAnswers = _.map(checkedAnswers, function(answer) {
+    checkedChoices = _.map(checkedChoices, function(answer) {
         return answer.displayedWord;
     });
 
     var expectedAnswers = Session.get("expectedAnswers");
 
 
-    var unionCheckExpect = _.union(checkedAnswers, expectedAnswers);
+    var unionCheckExpect = _.union(checkedChoices, expectedAnswers);
 
     var answerCorrect = false;
     var feedback = "no feedback";
-    if(expectedAnswers.length === checkedAnswers.length &&
-        unionCheckExpect.length === checkedAnswers.length) { 
+    if(expectedAnswers.length === checkedChoices.length &&
+        unionCheckExpect.length === checkedChoices.length) { 
         // user checked only the correct answers
         answerCorrect = true
     } else {
@@ -98,10 +95,13 @@ aFillInBlank = function(phrase) {
 function pickChoices(lesson) {
     var phraseIndex = Session.get("phraseIndex");
     var phrase = lesson.phrases[phraseIndex];
-    var choices = phrase.otherChoices;
-    choices.push(phrase.answer);
-
     
+    var expectedAnswers = new Array();
+    expectedAnswers.push(phrase.answer);
+    
+    var choices = phrase.wrongChoices;
+    
+
     choices = _.map(choices, function(choice) {
         return {
             checked: false,
@@ -110,12 +110,15 @@ function pickChoices(lesson) {
         };
     });
 
-    
+    // push answer object onto the choices
+    choices.push(  {
+            checked: false,
+            isCorrect: true,
+            displayedWord: phrase.answer,
+        });
    
     choices = _.shuffle(choices);
     
-    var expectedAnswers = new Array();
-    expectedAnswers.push(phrase.answer);
     Session.set("choices", choices);
     Session.set("expectedAnswers", expectedAnswers);
    
