@@ -1,0 +1,22 @@
+@import "client/stylesheets/utilities/all";
+
+/* Override foundation */
+
+button,
+.button {
+  outline: none;
+  background-color: $medium-blue;
+}
+
+label {
+  font-size: 20px;
+}
+
+.panel {
+  border: 0px;
+  border-radius: 10px;
+}
+
+.has-tip {
+  font-weight: normal;
+}

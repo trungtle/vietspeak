@@ -1,0 +1,61 @@
+@import "utilities/all";
+
+/* Lesson page */
+
+$lesson-item-margin: 15px;
+$lesson-list-width: 800px;
+$lesson-item-height: 120px;
+$lesson-item-width: $lesson-item-height;
+
+.lesson-list {
+  @include margin-top-from-nav;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  min-height: 100%;
+  list-style: none;
+  width: $lesson-list-width;
+}
+
+.lesson-level {
+  padding-top: 20px;
+  margin-bottom: 40px;
+  background-color: $medium-white-transparent;
+  @include box-shadow;
+}
+
+.lesson-item {
+  text-align: center;
+  .button {
+    position: relative;
+    width: $lesson-item-width;
+    height: $lesson-item-height;
+    background-image: url("/img/icon-turtle.png");
+    background-size: 80px 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include box-shadow;
+  }
+  a {
+    text-align: center;
+  }
+  .lesson-item-name {
+    position: absolute;
+    bottom: 0px;
+    color: white;
+    font-size: 1.2em;
+  }
+}
+
+.lesson-item.completed {
+  .button {
+    background-image: url("/img/check_white.png");
+  }
+}
+
+.lesson-item.locked {
+  .button {
+    cursor: default;
+    @include desaturate;
+  }
+}

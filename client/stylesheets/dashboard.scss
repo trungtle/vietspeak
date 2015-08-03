@@ -1,0 +1,12 @@
+@import "utilities/all";
+
+// Dashboard
+
+.dashboard-area {
+  @include margin-top-from-nav;
+  min-height: 500px;
+  width: 800px;
+  background-color: $medium-white-transparent;
+  @include box-shadow;
+
+}

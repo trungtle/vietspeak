@@ -1,0 +1,106 @@
+@import "utilities/all";
+
+/* Landing page */
+
+#learn-more {
+  margin-top: 20px;
+  text-shadow: 2px 2px rgba(0,0,0,.2);
+  font-family: $heading-font;
+  font-size: 1.2em;
+  text-align: center;
+  a {
+    color: white;
+  }
+}
+
+#landing-page-slogan {
+  margin-top: 20px;
+  margin-left: 10px;
+  font-family: $heading-font;
+  font-size: 1.1em;
+  color: $material-gray;
+  display: inline-block;
+
+  em {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.05em;
+    background-image: "img/vn-flag.png";
+  }
+}
+
+#landing-page-signup-login {
+  margin-top: 104px;
+  background-color: white;
+  @include box-shadow;
+  padding: 30px;
+  width: 346px;
+  margin-left: auto;
+  margin-right: auto;
+  color: $material-gray;
+
+  h1 {
+    font-size: 1.5em;
+    color: $material-gray;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: .8em;
+  }
+
+  input[type="text"], input[type="password"], select {
+    border-radius: 2px;
+    margin-bottom: 10px;
+    font-family: $heading-font;
+
+    option {
+      font-family: $heading-font;
+    }
+  }
+
+  input[type="checkbox"] {
+    border-radius: 2px;
+  }
+
+  span {
+    font-size: .8em;
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px;
+    width: 125px;
+    height: 55px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-family: $heading-font;
+  }
+
+  input.landing-page-signup {
+    background-color: $material-orange;
+    font-size: 1.2em;
+    color: white;
+
+    &:hover {
+      background-color: $material-teal;
+    }
+  }
+
+  input.landing-page-login {
+    background-color: $transparent;
+    border: 2px solid $light-gray;
+    color: $light-gray;
+
+    &:hover {
+      background-color: $material-teal;
+      border: 0px solid;
+    }
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+}
+
+

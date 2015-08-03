@@ -1,0 +1,36 @@
+@import "utilities/all";
+
+/* Top navigation */
+
+nav.top-bar {
+  text-align:center;
+}
+section.top-bar-section {
+  display: inline-block;
+}
+
+.top-bar {
+  background-color: $transparent;
+}
+
+.title-area {
+  .name {
+    @extend .top-bar;
+  }
+}
+
+.top-bar-section {
+  li:not(.has-form) {
+    background-color: $transparent;
+    a:not(.button) {
+      @extend .top-bar;
+      font-size: 30px;
+      color: black;
+      font-weight: bold;
+    }
+    .nav-lesson {
+      background-position: middle !important;
+      background-repeat: no-repeat !important;
+    }
+  }
+}

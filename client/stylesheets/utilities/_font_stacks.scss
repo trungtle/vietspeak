@@ -1,0 +1,40 @@
+// fonts
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+// -------------
+// Font stack
+// -------------
+
+$dosis-font-stack: 'Dosis',
+sans-serif;
+$open-sans-font-stack: 'Open Sans',
+sans-serif;
+$san-francisco-font-stack: 'San Francisco',
+sans-serif;
+$heading-font: $dosis-font-stack;
+$body-font: $san-francisco-font-stack;
+
+// -------------
+// Font face
+// -------------
+
+@font-face {
+  font-family: "Hipsteria";
+  src: url("/fonts/VN_Hipsteria/Hipsteria.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Museo";
+  src: url("/fonts/VN_Museo/VNF_Museo Slab 500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "BreeSerif";
+  src: url("/fonts/VN_Bree/BreeSerif.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "San Francisco";
+  src: url("/fonts/San Francisco Display/SanFrancisco.ttf") format("truetype");
+}
