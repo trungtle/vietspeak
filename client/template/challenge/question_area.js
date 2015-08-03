@@ -19,6 +19,8 @@ Template.questionArea.helpers({
                 return "qRearrange";
             case QTYPE.FILL_IN_BLANK:
                 return "qFillInBlank";
+            case QTYPE.REPLACE_WRONG_WORD:
+                return "qReplaceWrongWord";
             default:
                 return;
         }

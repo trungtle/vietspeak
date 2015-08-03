@@ -5,6 +5,8 @@ BASIC_1 = {
     content: ["basic1"],
     phrases: [
     {
+        qType: QTYPE.REPLACE_WRONG_WORD,
+    },  {
         qType: QTYPE.FILL_IN_BLANK,
         vnPhraseLower: "Tôi",  
         vnPhraseUpper: "phụ nữ.",

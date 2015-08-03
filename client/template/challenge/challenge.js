@@ -53,6 +53,9 @@ Template.challenge.helpers({
                 return "Arrange this phrase in Vietnamese";
             case QTYPE.FILL_IN_BLANK:
                 return "Which word goes into the blank?"
+            case QTYPE.REPLACE_WRONG_WORD:
+                return "One of the words in the phrase is wrong. Choose which and its replacement."
+
         }
     },
     completed: function() {
@@ -191,6 +194,9 @@ function setupQuestion(lesson, phraseIndex) {
         case QTYPE.FILL_IN_BLANK:
             setupFillInBlank(lesson);
             break;
+        case QTYPE.REPLACE_WRONG_WORD:
+            setupReplaceWrongWord(lesson);
+            break;
         default:
             return;
     }
@@ -281,6 +287,9 @@ answer = function(lesson) {
             break;
         case QTYPE.FILL_IN_BLANK:
             answerScore = aFillInBlank();
+            break;
+        case QTYPE.REPLACE_WRONG_WORD:
+            answerScore = aReplaceWrongWord();
             break;
     }
 
