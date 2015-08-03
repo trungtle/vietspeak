@@ -139,10 +139,6 @@ function pressedFn(e)
 
     switch (e.keyCode) {
 
-        case KEYCODE_ENTER:
-            $("#submit").click();
-            return;
-
         // Simulate selecting options
         case KEYCODE_ONE:
             selectedIndex = 0;

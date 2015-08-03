@@ -17,7 +17,10 @@ Template.qTranslateVE.helpers({
     isListeningOnly: function() {
         var phrase = this.phrases[Session.get("phraseIndex")];
         return phrase.qType === QTYPE.LISTEN_VE;
-    }
+    },
+    gotFeedback: function() {
+        return Session.equals("qState", QSTATE.CONTINUE);
+    },
 });
 
 Template.qTranslateVE.events({

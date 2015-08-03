@@ -43,9 +43,13 @@
   padding-left: 30px;
   padding-bottom: 10px;
   margin-bottom: 0px;
+  color: white;
 }
 
 #challenge-area {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   @include box-shadow;
 }
@@ -89,6 +93,11 @@
   @include box-shadow-light-blue;
 }
 
+#answer-text.disabled {
+  pointer-events: none;
+  @include box-shadow-none;
+}
+
 .phrase-translate {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -107,14 +116,15 @@
 
 .choice {
   min-height: 70px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: $medium-white-transparent;
   cursor: pointer;
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
   border-radius: 10px;
-  border: solid 3px $transparent;
-  width: 190px;
+  border: solid 3px $light-gray;
+  padding-bottom: 20px;
 
   &:hover {
     border: solid 3px gray;
@@ -122,11 +132,20 @@
 
   .image-hint {
     width: 150px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
     display: block;
     border-radius: 10px;
+  }
+}
+
+.choice.disabled {
+  pointer-events: none;
+
+  .image-hint {
+    @include desaturate;
   }
 }
 
