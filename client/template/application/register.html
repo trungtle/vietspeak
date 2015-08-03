@@ -1,0 +1,16 @@
+<template name="register">
+  <h1>Create a profile</h1>
+  <form>
+		<p>Where are you from?</p>
+		{{> countryCodeSelect}}
+    <input type="text" name="registerName" placeholder="name">
+    <input type="text" name="registerEmail" placeholder="email">
+    <input type="password" name="registerPassword" placeholder="password">
+    <input type="password" name="registerConfirmPassword" placeholder="confirm password">
+    <input type="checkbox" name="terms"><span>&nbsp; I accept all terms & conditions <a href="">more</a></span>
+	  <input type="submit" value="Sign Up" class="landing-page-signup button">
+	  <span id="login-link"><a>&nbsp; Already have an account?</a></span>
+  </form>
+
+</template>
+

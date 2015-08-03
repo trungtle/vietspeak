@@ -131,6 +131,8 @@ function pickChoices(lesson) {
 
 function pressedFn(e)
 {
+    //@todo: should only run if we're during the muliple choices questions
+
     // Select a choice
     var choices = Session.get("choices");
     var selectedIndex = -1;
@@ -159,7 +161,7 @@ function pressedFn(e)
             break;
 
         default:
-            break;
+            return;
     }
 
     // Uncheck all other choices

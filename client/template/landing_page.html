@@ -1,20 +1,11 @@
 <template name="landingPage">
   <div class="row">
-    <div id="landing-page-registration">
-      <h1>Registration</h1>
-      <form>
-        <input type="text" name="username" placeholder="name">
-        <input type="text" name="email" placeholder="email">
-        <input type="password" name="password" placeholder="password">
-        <input type="checkbox" name="terms"><span class="terms">&nbsp; I accept all terms & conditions <a href="">more</a></span>
-      </form>
-      <button class="landing-page-signup">
-        Sign Up
-      </button>
-      <button class="landing-page-login right">
-        <!-- {{> loginButtons align="right"}} -->
-        Log In
-      </button>
+    <div id="landing-page-signup-login">
+      {{#unless isLogging}}
+        {{> register}}
+      {{else}}
+        {{> login}}
+      {{/unless}}
     </div>
     <div id="learn-more">
       <a href="">
