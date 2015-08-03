@@ -1,6 +1,11 @@
 <template name="landingPage">
   <div class="row">
     <div id="landing-page-signup-login">
+      {{#if error}}
+        <div data-alert class="alert-box alert round">
+          {{errorMessage}}
+        </div>
+      {{/if}}
       {{#unless isLogging}}
         {{> register}}
       {{else}}

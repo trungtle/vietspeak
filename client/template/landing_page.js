@@ -5,9 +5,16 @@ Template.register.onCreated(function() {
 Template.landingPage.helpers({
 	isLogging: function() {
 		return Session.get("isLogging");
-	}
+	},
+    error: function() {
+        return Session.get("error");
+    },
+    errorMessage: function() {
+        return Session.get("errorMessage");
+    }
 });
 
-Template.landingPage.events({
-
-})
+errorAlert = function(message) {
+    Session.set("error", true);
+    Session.set("errorMessage", message);
+}

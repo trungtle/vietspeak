@@ -29,32 +29,9 @@ span {
   background-repeat: no-repeat, no-repeat;
   background-position: left -20px bottom -20px, top left;
   background-size: 400px auto, cover;
-  -ms-transform: rotate(-12.85deg), rotate(0deg); /* IE 9 */
-  -webkit-transform: rotate(-12.85deg), rotate(0deg); /* Chrome, Safari, Opera */
-  transform: rotate(-12.85deg), rotate(0deg);
 }
 
 textarea {
   resize: none;
 }
 
-/* Override foundation */
-
-button,
-.button {
-  outline: none;
-  background-color: $medium-blue;
-}
-
-label {
-  font-size: 20px;
-}
-
-.panel {
-  border: 0px;
-  border-radius: 10px;
-}
-
-.has-tip {
-  font-weight: normal;
-}
