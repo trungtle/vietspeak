@@ -36,13 +36,12 @@
 
 #challenge-header {
   background-color: $material-dark;
-  color: white;
 }
 
 #instruction {
+  padding-top: 40px;
   padding-left: 30px;
   padding-bottom: 10px;
-  margin-bottom: 0px;
   color: white;
 }
 
@@ -51,23 +50,25 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  background-color: white;
   @include box-shadow;
 }
 
 #question-area,
 #feedback-area {
   padding: 10px;
-  background-color: white;
 }
 
 #question-area {
   padding-top: 40px;
-  min-height: 100px;
+  min-height: 400px;
 }
 
 #challenge-progress {
-  border: solid 0px;
-  background-color: $light-white-transparent;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 20px;
+  border: 3px solid $material-teal;
 }
 
 #challenge-complete-area {
@@ -112,6 +113,7 @@
 .phrase-multiple-choices {
   font-size: 1.7em;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .choice {
@@ -125,6 +127,7 @@
   border-radius: 10px;
   border: solid 3px $light-gray;
   padding-bottom: 20px;
+  padding-top: 20px;
 
   &:hover {
     border: solid 3px gray;
@@ -176,6 +179,7 @@
 }
 
 #feedback {
+  font-family: $heading-font;
   font-size: 20px;
 }
 

@@ -1,4 +1,8 @@
-Template.register.onCreated(function() {
+Template.landingPage.onRendered(function() {
+    newBackground("img/march.jpg");
+});
+
+Template.landingPage.onCreated(function() {
 	Session.set("isLogging", false);
 });
 

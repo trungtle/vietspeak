@@ -4,6 +4,7 @@
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 
 body,
@@ -22,7 +23,11 @@ span {
   font-family: $body-font;
 }
 
-.container {
+hr {
+  margin: 0;
+}
+
+#container {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -33,7 +38,7 @@ span {
   background-repeat: no-repeat, no-repeat;
   background-position: left -20px bottom -20px, top left;
   background-size: 400px auto, cover;
-  background-attachment: scroll, scroll;
+  background-attachment: hidden, hidden;
 }
 
 textarea {

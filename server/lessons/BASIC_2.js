@@ -1,7 +1,8 @@
 BASIC_2 = {
-    name: "Basics 2",
+    createdAt: new Date(),
+    name: "basics_2",
+    title: "Basics 2",
     level: 1,
-    content: ["basic2"],
     preview: "có, thích, anh ấy, cô ấy, bạn",
     phrases: [{
         qType: QTYPE.TRANSLATE_VE,

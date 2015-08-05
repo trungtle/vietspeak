@@ -1,15 +1,12 @@
 GREETINGS = {
-    name: "Greetings",
-    content: ["greetings1"],
+    createdAt: new Date(),
+    name: "greetings",
+    title: "Greetings",
     level: 1,
     phrases: [{
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
         vietnamese: "Xin chào",
         english: ["Hello"]
-    }, {
-        qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
-        vietnamese: "Chào",
-        english: ["Hi / Bye", "Hi", "Bye"]
     }, {
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION,
         vietnamese: "Tạm biệt",

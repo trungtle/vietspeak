@@ -32,12 +32,19 @@ $medium-white-transparent: rgba(255,255,255,.5);
 $light-white-transparent: rgba(255,255,255,.2);
 $transparent: rgba(0,0,0,0);
 
-$material-gray: #e74b3d;
+$heavy-black-transparent: rgba(0,0,0,.97);
+$more-medium-black-transparent: rgba(0,0,0,.8);
+$medium-black-transparent: rgba(0,0,0,.5);
+$light-black-transparent: rgba(0,0,0,.2);
+$transparent: rgba(0,0,0,0);
+
 $material-red: #e74b3d;
 $material-dark: #2c333b;
 $material-teal: #16bb9b;
 $material-gray: #8b8b8b;
 $material-orange: #fbb351;
+$material-dark: #2c333b;
+$material-light-gray: #ccc;
 
 @mixin desaturate {
   -webkit-filter: grayscale(100%);

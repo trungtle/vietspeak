@@ -2,13 +2,16 @@
 
 /* Top navigation */
 
-nav.top-bar {
-  text-align:center;
+section {
+  margin-top: 20px;
 }
-section.top-bar-section {
-  display: inline-block;
-  margin-top: 10px;
 
+section.top-bar-title {
+  margin-left: 50px;
+}
+
+section.top-bar-section {
+  margin-right: 50px;
   .user {
     margin-left: 100px;
   }
@@ -23,17 +26,12 @@ section.top-bar-section {
     padding: 10px;
     font-size: .8em;
     color: black;
+    font-weight: bold;
   }
 }
 
 .top-bar {
   background-color: $transparent;
-}
-
-.title-area {
-  .name {
-    @extend .top-bar;
-  }
 }
 
 .top-bar-section {
