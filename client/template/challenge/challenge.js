@@ -99,7 +99,6 @@ Template.feedback.helpers({
 
 Template.challenge.events({
     "click #submit": function(ev) {
-
         var qState = Session.get("qState");
         switch (qState) {
             case QSTATE.PROMPT:
@@ -119,7 +118,7 @@ Template.challenge.events({
         }
     },
 
-    "keyup": function(ev) {
+    "keypress": function(ev) {
 
         if (ev.keyCode === KEYCODE_ENTER) { // Enter key
             $("#submit").click();
@@ -133,6 +132,10 @@ function nextQuestion(lesson) {
 
     var qTotal = _.keys(lesson.phrases).length;
     var phraseIndex = Session.get("phraseIndex");
+    var qType = lesson.phrases[phraseIndex].qType;
+
+    // Cleanup previous question states
+    cleanupQuestion(qType);
 
     // User has looped through all the phrases, pick a random phrase
     if (phraseIndex >= qTotal - 1) {
@@ -153,13 +156,11 @@ function nextQuestion(lesson) {
     Session.set("qNumber", qNumber + 1);
 
     // Initialize the question
-    setupQuestion(lesson, phraseIndex);
+    qType = lesson.phrases[phraseIndex].qType;
+    setupQuestion(lesson, qType);
 }
 
-function setupQuestion(lesson, phraseIndex) {
-    Session.set("feedback", "");
-
-    var qType = lesson.phrases[phraseIndex].qType;
+function setupQuestion(lesson, qType) {
     switch (qType) {
         case QTYPE.TRANSLATE_VE:
         case QTYPE.LISTEN_VE:
@@ -182,6 +183,26 @@ function setupQuestion(lesson, phraseIndex) {
             setupRearrange(lesson);
             break;
 
+        default:
+            return;
+    }
+}
+
+function cleanupQuestion(qType) {
+
+    Session.set("feedback", "");
+
+    switch (qType) {
+        case QTYPE.MULTIPLE_CHOICES_TRANSLATION:
+        case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
+            cleanupMultipleChoicesTranslation();
+            break;
+
+        case QTYPE.TRANSLATE_VE:
+        case QTYPE.LISTEN_VE:
+        case QTYPE.TRUE_FALSE:
+        case QTYPE.WORD_PAIRING:
+        case QTYPE.REARRANGE:
         default:
             return;
     }
@@ -292,5 +313,6 @@ resetChallenge = function(lesson) {
 
     // the amount of xp user gained if answered perfectly
     Session.set("xpGained", 100);
-    setupQuestion(lesson, 0);
+    var qType = lesson.phrases[0].qType;
+    setupQuestion(lesson, qType);
 }
