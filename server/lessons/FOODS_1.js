@@ -1,5 +1,5 @@
 FOODS_1 = {
-	createdAt: new Date(),
+	index: 4,
 	name: "foods",
 	title: "Foods",
 	level: 2,
