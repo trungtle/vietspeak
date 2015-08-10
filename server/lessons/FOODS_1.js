@@ -1,5 +1,7 @@
 FOODS_1 = {
-	name: "Foods 1",
+	createdAt: new Date(),
+	name: "foods",
+	title: "Foods",
 	level: 2,
 	preview: "Cơm, thịt heo, thịt gà, cá, thịt bò...",
 	phrases: [{
@@ -23,6 +25,14 @@ FOODS_1 = {
 		vietnamese: "Thịt bò",
 		english: ["Beef"]
 	}, {
+		qType: QTYPE.TRANSLATE_VE,
+		vietnamese: "Cơm",
+		english: ["Rice"]
+	}, {
+		qType: QTYPE.TRANSLATE_VE,
+		vietnamese: "Thịt heo",
+		english: ["Pork"]
+	}, {
 		qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,
 		image: "/img/lessons/vegetables.jpg",
 		vietnamese: "Rau",
@@ -38,8 +48,6 @@ FOODS_1 = {
 		vietnamese: "Cô ấy uống",
 		english: ["She drinks"]
 	}, {
-		qType: QTYPE.WORD_PAIRING,
-	}, {
 		qType: QTYPE.TRANSLATE_VE,
 		vietnamese: "Tôi ăn cơm",
 		english: ["I eat rice"]
@@ -51,6 +59,8 @@ FOODS_1 = {
 		qType: QTYPE.TRANSLATE_VE,
 		vietnamese: "Bạn có thích ăn rau?",
 		english: ["Do you like eating vegetables?"]
+	}, {
+		qType: QTYPE.WORD_PAIRING,
 	}, {
 		qType: QTYPE.TRANSLATE_VE,
 		vietnamese: "Cô ấy thích thịt gà",

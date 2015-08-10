@@ -45,13 +45,11 @@ Template.qTrueFalse.events({
 
             // Simulate selecting options
             case KEYCODE_ONE:
-                    console.log(choices[i]);
-
                 $('#choice-true').click();
                 break;
 
             case KEYCODE_TWO:
-                    $('#choice-fasle').click();
+                $('#choice-fasle').click();
                 break;
         }
 

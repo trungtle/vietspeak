@@ -3,11 +3,11 @@
     <div class="small-12 columns">
       <div id='challenge-area'>
         <div id='challenge-header'>
-          {{> challengeProgress}}
           <h3 id="instruction">
             {{instruction}}
           </h3>
         </div>
+        {{> challengeProgress}}
         <div id='question-area'>
           {{> questionArea}}
         </div>
@@ -23,6 +23,7 @@
     </div>
   </div>
 </template>
+
 <template name="feedback">
   <div class='left' id='feedback'>
     {{#if gotFeedback}}

@@ -1,8 +1,5 @@
 const CHOICE_NUM = 4;
 
-// Hot key pressed
-$(document).bind('keypress',pressedFn);
-
 Template.qMultipleChoicesTranslation.helpers({
 
     phrase: function() {
@@ -73,6 +70,15 @@ Template.qMultipleChoicesTranslation.events({
 setupMultipleChoicesTranslation = function(lesson) {
     Session.set("isEV", true); // English phrase, Vietnamese choices
     pickChoices(lesson);
+
+    // Hot key pressed
+    $(document).on('keypress',pressedFn);
+}
+
+cleanupMultipleChoicesTranslation = function() {
+
+    // Off
+    $(document).off('keypress');
 }
 
 aMultipleChoicesTranslation = function(phrase) {
@@ -131,6 +137,8 @@ function pickChoices(lesson) {
 
 function pressedFn(e)
 {
+    //@todo: should only run if we're during the muliple choices questions
+
     // Select a choice
     var choices = Session.get("choices");
     var selectedIndex = -1;
@@ -159,7 +167,7 @@ function pressedFn(e)
             break;
 
         default:
-            break;
+            return;
     }
 
     // Uncheck all other choices

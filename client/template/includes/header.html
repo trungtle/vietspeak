@@ -1,31 +1,28 @@
 <template name="header">
   {{#if currentUser}}
     <nav class='top-bar' data-topbar role='navigation'>
-      <!-- Title area -->
-      <ul class='title-area'>
-        <li class='name'>
-          <h1>
-            <a href="{{pathFor 'index'}}">
-              Vietspeak
-            </a>
-          </h1>
-        </li>
-        <li class='toggle-topbar icon'>
-          <a href="{{pathFor 'index'}}">
-            <span>Menu</span>
-          </a>
-        </li>
-      </ul>
       <!-- Menu -->
-      <section class='top-bar-section'>
-        <ul class='left'>
-          <li>
-            <a class="nav-lesson" href="{{pathFor 'lessonsList'}}">
-              Lessons
+      <section class='top-bar-title'>
+        <ul class='title-area'>
+          <span><a href="{{pathFor 'index'}}"><img src="/img/logo-questions.png" height="53px" width="96px"></a></span>
+          <li class='toggle-topbar icon'>
+            <a href="{{pathFor 'index'}}">
+              <span>Menu</span>
             </a>
           </li>
         </ul>
-        <ul class='right'>
+      </section>
+
+      <section class='top-bar-section'>
+
+        <ul class='left'>
+          <li>
+            <a class="nav-lesson" href="{{pathFor 'lessonsList'}}">
+              lessons
+            </a>
+          </li>
+        </ul>
+        <ul class='right user'>
           <li>
             <div class="label">Day streak: {{currentUser.profile.dayStreak}}</div>
           </li>
@@ -39,6 +36,17 @@
             {{> loginButtons align="right"}}
           </li>
         </ul>
+      </section>
+    </nav>
+  {{else}}
+    <nav class="top-bar landing-page" data-topbar role='navigation'>
+      <!-- Landing page -->
+      <section>
+        <span><a href="{{pathFor 'index'}}"><img src="/img/logo-landing.png" height="53px" width="96px"></a></span>
+
+        <span><p id="landing-page-slogan">
+          Where you can learn <img src="img/vn-flag.png"> <strong>Vietnamese</strong> in a simple and effective way.
+        </p></span>
       </section>
     </nav>
   {{/if}}

@@ -1,22 +1,31 @@
 <template name="lessonsList">
   <div class='lesson-list'>
-    <div class="row">
-      {{#each levels}}
-        <h3>Level {{level}}. Points required: {{xpRequired}}</h3>
-        <ul class="small-block-grid-{{lessonsPerLevel}} lesson-level {{#if evenRow}}even-row{{/if}}">
+    <div class="row lesson-list-header">
+      <img src="/img/lesson-icon.png"><span class="page-title">lessons</span>
+    </div>
+    <div class="row lesson-list-body">
+      <ul class="small-block-grid-4">
+        {{#each levels}}
           {{#each lessons level}}
             {{> lessonItem}}
           {{/each}}
-        </ul>
-      {{/each}}
+        {{/each}}
+      </ul>
     </div>
   </div>
 </template>
 
 <template name="lessonItem">
   <li class="lesson-item {{#if completed}}completed{{/if}} {{#unless unlocked}}locked{{/unless}}">
-    <a class="button" href="{{#if unlocked}}{{pathFor 'lessonPage'}}{{/if}}">
-      <h3 class="lesson-item-name">{{name}}</h3>
+    <a class="button" href="{{#if unlocked}}{{pathFor 'lessonPage'}}{{/if}}" style="background-image: url('/img/icons/{{name}}.png');">
+      <span class="lesson-item-title {{#unless unlocked}}locked{{/unless}}">
+        <strong>{{title}}</strong>
+        <h6>Level {{level}}</h6>
+        {{#unless unlocked}}
+          <p>{{xpRequired}} pts required</p>
+        {{/unless}}
+      </span>
     </a>
+
   </li>
 </template>

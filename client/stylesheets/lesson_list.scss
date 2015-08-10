@@ -1,0 +1,133 @@
+@import "utilities/all";
+
+/* Lesson page */
+
+$lesson-list-width: 800px;
+$lesson-item-height: 152px;
+$lesson-item-width: $lesson-item-height;
+
+.lesson-list {
+  @include margin-top-from-nav;
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none;
+  width: $lesson-list-width;
+  background-color: white;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @include box-shadow;
+
+  .lesson-list-header {
+    margin-bottom: 15px;
+
+    img {
+      margin-bottom: 14px;
+    }
+
+    .page-title {
+      font-family: $heading-font;
+      font-size: 2em;
+      color: $material-light-gray;
+      margin-left: 16px;
+    }
+  }
+
+  .lesson-list-body {
+    height: 520px;
+    padding-right: 40px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+
+.lesson-item {
+  text-align: center;
+
+  .button {
+    width: $lesson-item-width;
+    height: $lesson-item-height;
+    background-size: $lesson-item-width $lesson-item-width;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $material-gray;
+    border-radius: 15px;
+    overflow-y: hidden;
+    text-align: center;
+    margin-bottom: 0px;
+
+    &:hover {
+      @include box-shadow;
+    }
+  }
+
+  &:hover .lesson-item-title {
+    background-color: $medium-white-transparent;
+    height: 100px;
+  }
+
+  &:hover .lesson-item-title.locked {
+    background-color: $medium-black-transparent;
+    height: $lesson-item-height;
+    padding-top: 40px;
+  }
+
+  .lesson-item-title {
+    transition: all .1s ease-in-out;
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 3px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 40px;
+    width: 100%;
+    color: white;
+    font-size: 1.3em;
+    text-shadow: 1px 1px 5px $medium-black-transparent;
+    font-family: $heading-font;
+
+    p {
+      padding-bottom: 0px;
+      font-size: .6em;
+    }
+
+    h6 {
+      margin-top: 10px;
+      color: white;
+      margin-bottom: -5px;
+    }
+  }
+}
+
+.lesson-item.completed {
+  .button {
+    background-image: url("img/icon-completed.png");
+  }
+}
+
+.lesson-item.locked {
+  .button {
+    // background-image: url("img/icon-locked.png");
+    @include desaturate;
+  }
+}
+
+// -------
+// Scrollbar
+// -------
+
+.lesson-list-body::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 9px;
+}
+
+.lesson-list-body::-webkit-scrollbar-thumb {
+  background-color: $material-teal;
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.lesson-list-body::-webkit-scrollbar-track {
+  background-color: $material-light-gray;
+}

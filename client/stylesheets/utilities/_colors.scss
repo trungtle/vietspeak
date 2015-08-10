@@ -1,0 +1,52 @@
+// -------------
+// Colors
+// -------------
+
+$dark-blue: #34495E;
+$medium-blue: #3C74A2;
+
+$light-blue: #7FA7C9;
+$light-green: #2ecc71;
+$medium-green: #1abc9c;
+
+$light-yellow: #fbb351;
+$banana: #f1c40f;
+$very-light-yellow: #FFE29A;
+
+$light-orange: #f39c12;
+$orange: #e67e22;
+$dark-orange: #DC840A;
+
+$dark-red: #BF4414;
+$medium-red: #c13f2f;
+$light-red: #d35400;
+
+$light-purple: #636685;
+
+$light-gray: #ccc;
+$very-light-gray: #eee;
+
+$heavy-white-transparent: rgba(255,255,255,.97);
+$more-medium-white-transparent: rgba(255,255,255,.8);
+$medium-white-transparent: rgba(255,255,255,.5);
+$light-white-transparent: rgba(255,255,255,.2);
+$transparent: rgba(0,0,0,0);
+
+$heavy-black-transparent: rgba(0,0,0,.97);
+$more-medium-black-transparent: rgba(0,0,0,.8);
+$medium-black-transparent: rgba(0,0,0,.5);
+$light-black-transparent: rgba(0,0,0,.2);
+$transparent: rgba(0,0,0,0);
+
+$material-red: #e74b3d;
+$material-dark: #2c333b;
+$material-teal: #16bb9b;
+$material-gray: #8b8b8b;
+$material-orange: #fbb351;
+$material-dark: #2c333b;
+$material-light-gray: #ccc;
+
+@mixin desaturate {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}

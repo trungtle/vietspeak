@@ -1,0 +1,51 @@
+@import "utilities/all";
+
+/* Top navigation */
+
+section {
+  margin-top: 20px;
+}
+
+section.top-bar-title {
+  margin-left: 50px;
+}
+
+section.top-bar-section {
+  margin-right: 50px;
+  .user {
+    margin-left: 100px;
+  }
+
+  .label {
+    background-color: $transparent;
+    border-radius: 20px;
+    border: 2px solid $material-gray;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 10px;
+    font-size: .8em;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+.top-bar {
+  background-color: $transparent;
+}
+
+.top-bar-section {
+  li:not(.has-form) {
+    background-color: $transparent;
+    a:not(.button) {
+      @extend .top-bar;
+      font-size: 1.2em;
+      color: black;
+      font-weight: bold;
+    }
+    .nav-lesson {
+      background-position: middle !important;
+      background-repeat: no-repeat !important;
+    }
+  }
+}

@@ -1,29 +1,21 @@
 <template name="landingPage">
-  <div class="row landing-page-header">
-    <div class="small-12 columns">
-      <h1 class="name">
-    		Vietspeak
-    	</h1>
-      <h3>
-        Xin chào! Your journey in Vietnam begins here.
-      </h3>
-    </div>
-  </div>
   <div class="row">
-    <div class="small-12 columns panel">
-
-      {{#markdown}}
-
-Perhaps you’re sitting on a bus going to work in Saigon, or eating a [bánh mì](https://en.wikipedia.org/wiki/B%C3%A1nh_m%C3%AC) on the streets of Hanoi. How do you connect to all the Vietnamese people around you?
-
-I developed Vietspeak as a little companion on the journey of learning Vietnamese. It follows the spirits of many popular language apps such as [Duolingo](https://www.duolingo.com/), [Human Japanese](http://www.humanjapanese.com/), [Mindsnack](https://www.mindsnacks.com/), [Memrise](https://www.memrise.com/). I’ve included several cultural notes that unlocks when you complete more lessons. It can’t replace official teaching materials from the [Vietnam National University](http://vsl.edu.vn/academics/vietnamese-language-courses) and the professional teachers at [vlstudies](http://vlstudies.com/), but I hope Vietspeak can bring some enjoyable time during your bus ride.
-
-Whatever it can do, I hope you will feel more at home in Vietnam. Let’s venture forth!
-
-      {{/markdown}}
+    <div id="landing-page-signup-login-form">
+      {{#if error}}
+        <div data-alert class="alert-box alert round">
+          {{errorMessage}}
+        </div>
+      {{/if}}
+      {{#unless isLogging}}
+        {{> register}}
+      {{else}}
+        {{> login}}
+      {{/unless}}
     </div>
-    <div class="landing-page-login right">
-      {{> loginButtons align="right"}}
+    <div id="learn-more">
+      <a href="">
+        Learn more &darr;
+      </a>
     </div>
   </div>
 </template>
