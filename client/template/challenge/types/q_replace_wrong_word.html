@@ -1,5 +1,9 @@
 <template name="qReplaceWrongWord">
-  <p class="phrase-multiple-choices">{{phrase}}</p>
+  {{#each phraseWords}}
+
+    <p class="phraseWord">{{word}}</p>
+  {{/each}}
+<!-- 
   <ul class="small-block-grid-4">
     {{#each choices}}
       <li>
@@ -8,5 +12,5 @@
         </div>
       </li>
     {{/each}}
-  </ul>
+  </ul> -->
 </template>

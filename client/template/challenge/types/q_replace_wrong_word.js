@@ -2,10 +2,8 @@ const CHOICE_NUM = 4;
 
 Template.qReplaceWrongWord.helpers({
 
-    phrase: function() {
-        var phrase = this.phrases[Session.get("phraseIndex")];
-        var prompt = phrase.vnPhraseLower + " !!!!! " + phrase.vnPhraseUpper;
-        return prompt;
+    phraseWords: function() {
+        return Session.get("phraseWords");
     },
 
     choices: function() {
@@ -101,31 +99,36 @@ function pickChoices(lesson) {
     
     // base this RWW question on random existing FIB question
     var possibleQuestions = _.where(lesson.phrases, {qType:QTYPE.FILL_IN_BLANK});
+    var question = _.sample(possibleQuestions, 1).pop();
+    // console.log(question);
+
+    function toWordObj (choice) {
+        return {    
+                    word: choice,
+                    isWrong: false    
+                };
+    };
+    // select an incorrect word to put into the phrase
+    var wrongWord = { 
+                        word : _.sample(question.wrongChoices, 1).pop(),
+                        isWrong : true
+                     };
+
+    // add attributes to phrasewords
+    console.log(question.vnPhraseLower);
+    var phraseWords = s.words(question.vnPhraseLower);
+    console.log(phraseWords);
     
-    var question = _.sample(possibleQuestions, 1)[0];
-    console.log(question);
+    phraseWords = _.map(phraseWords, toWordObj);
+    
+    phraseWords.push(wrongWord);
+    phraseWords =phraseWords.concat(_.map(s.words(question.vnPhraseUpper), toWordObj));
 
-
+    
     var choices = new Array();
-
-    // choices = _.map(choices, function(choice) {
-    //     return {
-    //         checked: false,
-    //         isCorrect: false,
-    //         displayedWord: choice,
-    //     };
-    // });
-
-    // // push answer object onto the choices
-    // choices.push(  {
-    //         checked: false,
-    //         isCorrect: true,
-    //         displayedWord: phrase.answer,
-    //     });
-   
-    // choices = _.shuffle(choices);
     
     Session.set("choices", choices);
     Session.set("expectedAnswers", expectedAnswers);
+    Session.set("phraseWords", phraseWords);
    
 }
