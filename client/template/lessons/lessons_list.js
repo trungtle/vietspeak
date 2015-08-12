@@ -28,7 +28,7 @@ Template.lessonsList.helpers({
 
 function lessonsAtLevel(level)
 {
-    var lessons = Lessons.find({level: level}, {sort: {createdAt: -1}}).fetch();
+    var lessons = Lessons.find({level: level}, {sort: {index: 1}}).fetch();
     var profile = Meteor.user().profile;
     var unlockedLessons = profile.unlockedLessons;
     _.each(lessons, function(lesson) {

@@ -1,5 +1,5 @@
 BASIC_2 = {
-    createdAt: new Date(),
+    index: 2,
     name: "basics_2",
     title: "Basics 2",
     level: 1,
