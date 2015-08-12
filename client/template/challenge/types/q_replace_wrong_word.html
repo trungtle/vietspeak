@@ -1,16 +1,25 @@
 <template name="qReplaceWrongWord">
-  {{#each phraseWords}}
-
-    <p class="phraseWord">{{word}}</p>
-  {{/each}}
-<!-- 
-  <ul class="small-block-grid-4">
-    {{#each choices}}
-      <li>
-        <div class="choice {{#if checked}}checked{{/if}} {{#if gotFeedback}}{{#if isCorrect}}correct{{else}}wrong{{/if}}{{/if}} " id ="{{displayedWord}}">
-          {{displayedWord}}
-        </div>
-      </li>
+  <p>English phrase:</p>
+  <p>{{englishTranslation}}</p>
+  <p>Vietnamese Phrase:</p>
+  <ul class="inline-list">
+    {{#each phraseWords}}   
+    <li>
+          <div class="{{#if replaceEnabled}} phraseWord {{/if}}">{{word}}</div>
+      
+    </li>
     {{/each}}
-  </ul> -->
+  </ul>
+  {{#if showMultipleChoice}}
+    <ul class="small-block-grid-4">
+      {{#each choices}}
+        <li>
+          <div class="choice {{#if checked}}checked{{/if}} {{#if gotFeedback}}{{#if isCorrect}}correct{{else}}wrong{{/if}}{{/if}} " id ="{{displayedWord}}">
+            {{displayedWord}}
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+    <!-- <p>CHOICES GO HERE</p> -->
+  {{/if}}
 </template>

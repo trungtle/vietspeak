@@ -13,8 +13,8 @@ BASIC_1 = {
         vnPhraseLower: "Tôi",  
         vnPhraseUpper: "phụ nữ.",
         answer: "là",
-        wrongChoices: ["la", "lá", "lã"]
-        
+        wrongChoices: ["la", "lá", "lã"],
+        english: ["I am a woman", "I'm a woman"]
     },  {
         qType: QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS,
         vietnamese: ["Đàn ông", "Đàn ông2!!!"],

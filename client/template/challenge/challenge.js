@@ -54,7 +54,7 @@ Template.challenge.helpers({
             case QTYPE.FILL_IN_BLANK:
                 return "Which word goes into the blank?"
             case QTYPE.REPLACE_WRONG_WORD:
-                return "One of the words in the phrase is wrong. Choose which and its replacement."
+                return "One of the words in the Vietnamese phrase is wrong. Choose which and its replacement."
 
         }
     },
