@@ -62,9 +62,8 @@ Template.qReplaceWrongWord.events({
     },
 
 
-    "click .phraseWord": function (ev) {
+    "click .phraseWordClickable": function (ev) {
         var phraseWords = Session.get("phraseWords");
-
         var clickWord = ev.target.textContent;
         var selectedWord = _.findWhere(phraseWords, {word: clickWord});
             
@@ -78,17 +77,14 @@ Template.qReplaceWrongWord.events({
             }
 
             selectedWord.animationEnabled = true;
-
             Session.set("phraseWords", phraseWords);
         }
 
     },
-
     "animationend .phraseWord"  : disableAnimation,
     "oAnimationEnd .phraseWord"  : disableAnimation,
     "webkitAnimationEnd .phraseWord"  : disableAnimation,
-    
-    
+
 });
 
 
@@ -118,14 +114,12 @@ aReplaceWrongWord = function(phrase) {
 
 function disableAnimation(ev) {
     var phraseWords = Session.get("phraseWords");
-
     var clickWord = ev.target.textContent;
     var selectedWord = _.findWhere(phraseWords, {word: clickWord});
 
     selectedWord.animationEnabled = false;
 
     Session.set("phraseWords", phraseWords);
-
 }
 
 // @TODO -- generic MC template base
@@ -162,7 +156,6 @@ function aMultipleChoice(phrase) {
 function pickChoices(lesson) {
     var phraseIndex = Session.get("phraseIndex");
     var phrase = lesson.phrases[phraseIndex];
-    
     
     // base this RWW question on random existing FIB question
     var possibleQuestions = _.where(lesson.phrases, {qType:QTYPE.FILL_IN_BLANK});

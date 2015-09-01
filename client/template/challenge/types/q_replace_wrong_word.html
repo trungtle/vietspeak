@@ -1,11 +1,13 @@
 <template name="qReplaceWrongWord">
-  <p>English phrase:</p>
-  <p>{{englishTranslation}}</p>
+  <div class="row"> 
+    <div class="small-2 columns">English phrase:</div>
+    <div class="small-9 columns phrase-translate">{{englishTranslation}}</div>
+  </div>
   <p>Vietnamese Phrase:</p>
   <ul class="inline-list">
     {{#each phraseWords}}   
     <li>
-          <div class="{{#if replaceEnabled}}phraseWord{{/if}} {{#if animationEnabled}} animate-shake-wrong{{/if}}">{{word}}</div>
+          <div class="phraseWord {{#if replaceEnabled}}phraseWordClickable{{else}}{{#if isWrong}}wrong{{/if}}{{/if}} {{#if animationEnabled}} animate-shake-wrong{{/if}}">{{word}}</div>
       
     </li>
     {{/each}}
@@ -20,6 +22,5 @@
         </li>
       {{/each}}
     </ul>
-    <!-- <p>CHOICES GO HERE</p> -->
   {{/if}}
 </template>
