@@ -21,9 +21,9 @@ Template.qReplaceWrongWord.helpers({
     showMultipleChoice: function() {
         return !getReplaceEnabled();
     },
-    animationEnabled: function (){
-        return Session.get("animationEnabled");
-    }
+    // animationEnabled: function (){
+    //     return Session.get("animationEnabled");
+    // }
 });
 
 
@@ -76,14 +76,21 @@ Template.qReplaceWrongWord.events({
             if(!Session.get("pointDeduction")) { // halve possible score for question
                 Session.set("pointDeduction", CHALLENGE_PROGRESS_CORRECT/2);
             }
-            // @TODO -- see the console log.
-            console.log("TODO: add prompt/animation for wrong choice");
-            Session.set("animationEnabled", true);
 
+            selectedWord.animationEnabled = true;
+
+            Session.set("phraseWords", phraseWords);
         }
-    }
 
+    },
+
+    "animationend .phraseWord"  : disableAnimation,
+    "oAnimationEnd .phraseWord"  : disableAnimation,
+    "webkitAnimationEnd .phraseWord"  : disableAnimation,
+    
+    
 });
+
 
 // ----------------------
 // Public functions
@@ -108,6 +115,18 @@ aReplaceWrongWord = function(phrase) {
 // ----------------------
 // Private functions
 // ----------------------
+
+function disableAnimation(ev) {
+    var phraseWords = Session.get("phraseWords");
+
+    var clickWord = ev.target.textContent;
+    var selectedWord = _.findWhere(phraseWords, {word: clickWord});
+
+    selectedWord.animationEnabled = false;
+
+    Session.set("phraseWords", phraseWords);
+
+}
 
 // @TODO -- generic MC template base
 // check if multiple choice answer is correct
@@ -160,7 +179,7 @@ function pickChoices(lesson) {
   
     
     Session.set("replaceEnabled", true);
-    Session.set("animationEnabled", false);
+    // Session.set("animationEnabled", false);
 
     Session.set("pointDeduction", 0); // used for wrong selection of incorrect word
 }
@@ -202,7 +221,8 @@ function setupMultipleChoice(wrongAnswers, rightAnswers) {
 function toWordObj (wrongVal, choice) {
     return {    
         word: choice,
-        isWrong: wrongVal    
+        isWrong: wrongVal,
+        animationEnabled: false    
     };
 };
 
