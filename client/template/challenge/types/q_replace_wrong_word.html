@@ -5,7 +5,7 @@
   <ul class="inline-list">
     {{#each phraseWords}}   
     <li>
-          <div class="{{#if replaceEnabled}} phraseWord {{/if}}">{{word}}</div>
+          <div class="{{#if replaceEnabled}}phraseWord{{/if}} {{#if animationEnabled}} animate-shake-wrong{{/if}}">{{word}}</div>
       
     </li>
     {{/each}}

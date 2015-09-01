@@ -21,7 +21,9 @@ Template.qReplaceWrongWord.helpers({
     showMultipleChoice: function() {
         return !getReplaceEnabled();
     },
-
+    animationEnabled: function (){
+        return Session.get("animationEnabled");
+    }
 });
 
 
@@ -76,6 +78,8 @@ Template.qReplaceWrongWord.events({
             }
             // @TODO -- see the console log.
             console.log("TODO: add prompt/animation for wrong choice");
+            Session.set("animationEnabled", true);
+
         }
     }
 
@@ -156,6 +160,8 @@ function pickChoices(lesson) {
   
     
     Session.set("replaceEnabled", true);
+    Session.set("animationEnabled", false);
+
     Session.set("pointDeduction", 0); // used for wrong selection of incorrect word
 }
 

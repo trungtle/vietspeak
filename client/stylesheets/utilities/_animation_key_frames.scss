@@ -1,5 +1,65 @@
 /* Animations */
 
+@keyframes shakeWrongAnimation {
+  0%  {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(7deg);
+  }
+  66% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-7deg);
+  }
+}
+
+@-o-keyframes shakeWrongAnimation {
+  0%  {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(7deg);
+  }
+  66% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-7deg);
+  }
+}
+
+@-moz-keyframes shakeWrongAnimation {
+  0%  {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(7deg);
+  }
+  66% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-7deg);
+  }
+}
+
+@-webkit-keyframes shakeWrongAnimation {
+  0%  {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(7deg);
+  }
+  66% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-7deg);
+  }
+}
+
 @keyframes flickerAnimation {
   0% {
     opacity: 1;
@@ -47,3 +107,5 @@
     opacity: 1;
   }
 }
+
+
