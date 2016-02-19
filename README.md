@@ -3,6 +3,8 @@ Vietnamese learning app
 
 [Link to page](http://vietspeak.meteor.com/landingPage)
 
+This is a work in progress, so expect there are many mission components to the web app. I basically work on this in my free time.
+
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_1.png)
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_2.png)
 
