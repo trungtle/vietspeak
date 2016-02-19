@@ -1,6 +1,9 @@
 # vietspeak
 Vietnamese learning app
 
+![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_1.png)
+Format: ![Alt Text](url)
+
 Current page: vietspeak.meteor.com
 Old: vietspeak.website
 
