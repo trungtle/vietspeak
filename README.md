@@ -4,15 +4,13 @@ Vietnamese learning app
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_1.png)
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_2.png)
 
-(Current link)[http://vietspeak.meteor.com/landingPage]
+[Current link](http://vietspeak.meteor.com/landingPage)
 Old: vietspeak.website
 
 *Target audience*:
-- Foreigners coming to work and live in Vietnam from 3 months and up
+- Foreigners and expats coming to work and live in Vietnam from 3 months and up
 - 20-40 age range
 - Interested in learning not just the language but also Vietnamese culture
-
-x Not tourists coming for short time
 
 ##Purpose
 To be one of the first Vietnamese learning app for people on the go. I realize there is a lack of learning app out there in online or mobile format that is designed with the modern UI, visuals, and technical framework (for example. no iOS app currently exists).
