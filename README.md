@@ -1,11 +1,10 @@
 # vietspeak
 Vietnamese learning app
 
+[Link to page](http://vietspeak.meteor.com/landingPage)
+
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_1.png)
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_2.png)
-
-[Current link](http://vietspeak.meteor.com/landingPage)
-Old: vietspeak.website
 
 *Target audience*:
 - Foreigners and expats coming to work and live in Vietnam from 3 months and up
