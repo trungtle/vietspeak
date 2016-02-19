@@ -4,7 +4,7 @@ Vietnamese learning app
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_1.png)
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_2.png)
 
-Current page: vietspeak.meteor.com
+(Current link)[http://vietspeak.meteor.com/landingPage]
 Old: vietspeak.website
 
 *Target audience*:
