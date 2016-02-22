@@ -13,7 +13,7 @@ The purpose of Vietspeak can be 2-fold:
 a) The language part: Teach useful language knowledge for learners to be able to interact with Vietnamese speakers with comfort.
 b) The culture part: Give an intimate experience of living in Vietnam as a Vietnamese person. Because of this, the lesson should includes themes, visuals, and topics related to Vietnamese culture.
 
-##Target audience*:
+##Target audience:
 - Foreigners and expats coming to work and live in Vietnam from 3 months and up
 - Mobile app users
 - Casual gamers
