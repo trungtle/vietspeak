@@ -1,9 +1,7 @@
 # Vietspeak
 Vietnamese learning app
 
-[Live page](http://vietspeak.meteor.com/landingPage), currently still in alpha stage.
-
-This is a work in progress, so there are still many features missing and incomplete contents.
+[Live page](http://vietspeak.meteor.com/landingPage), currently still in alpha stage. This is a work in progress, so there are still many features missing and incomplete contents.
 
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_1.png)
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_2.png)
