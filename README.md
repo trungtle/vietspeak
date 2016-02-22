@@ -8,18 +8,18 @@ This is a work in progress, so expect there are many mission components to the w
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_1.png)
 ![Screen shot](https://s3-us-west-2.amazonaws.com/trle/vietspeak/Vietspeak_2.png)
 
-*Target audience*:
-- Foreigners and expats coming to work and live in Vietnam from 3 months and up
-- Mobile app users
-- Casual gamers
-- Interested in learning not just the language but also Vietnamese culture
-
 ##Purpose
 To be one of the first Vietnamese learning app for people on the go. I realize there is a lack of learning app out there in online or mobile format that is designed with the modern UI, visuals, and technical framework (for example. no iOS app currently exists).
 
 The purpose of Vietspeak can be 2-fold:
 a) The language part: Teach useful language knowledge for learners to be able to interact with Vietnamese speakers with comfort.
 b) The culture part: Give an intimate experience of living in Vietnam as a Vietnamese person. Because of this, the lesson should includes themes, visuals, and topics related to Vietnamese culture.
+
+##Target audience*:
+- Foreigners and expats coming to work and live in Vietnam from 3 months and up
+- Mobile app users
+- Casual gamers
+- Interested in learning not just the language but also Vietnamese culture
 
 ##Timeline
 But to start with, the project can be broken into the following milestones (keep in mind I must allow flexibility to deviate from plan due to limitation in skills, time, and resources):
