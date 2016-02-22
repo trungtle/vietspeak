@@ -87,3 +87,10 @@ But to start with, the project can be broken into the following milestones (keep
 - Holiday
 - Diacritic (Dấu)
 
+##Credits
+
+Trung Le, creator, programmer (Javascript, meteor)
+Ha Nam, designer, UI/UX (website link coming soon)
+and many feedbacks from friends and family.
+
+
