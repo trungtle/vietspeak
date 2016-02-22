@@ -1,4 +1,4 @@
-# vietspeak
+# Vietspeak
 Vietnamese learning app
 
 [Link to page](http://vietspeak.meteor.com/landingPage)
@@ -89,8 +89,6 @@ But to start with, the project can be broken into the following milestones (keep
 
 ##Credits
 
-Trung Le, creator, programmer (Javascript, meteor)
-Ha Nam, designer, UI/UX (website link coming soon)
-and many feedbacks from friends and family.
+Trung Le, creator, programmer (Javascript, meteor). Ha Nam, designer, UI/UX (website link coming soon), and many feedbacks from friends and family.
 
 
