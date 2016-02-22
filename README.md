@@ -10,7 +10,8 @@ This is a work in progress, so expect there are many mission components to the w
 
 *Target audience*:
 - Foreigners and expats coming to work and live in Vietnam from 3 months and up
-- 20-40 age range
+- Mobile app users
+- Casual gamers
 - Interested in learning not just the language but also Vietnamese culture
 
 ##Purpose
@@ -59,30 +60,30 @@ But to start with, the project can be broken into the following milestones (keep
 
 *Lessons*
 
-Basic phrases I am, you are, she is
-Greetings
-Shopping
-Numbers
-Animals
-Question
-Food
-Family
-Places
-Things around the house
-Things around the office
-On the street
-Things in the countryside
-Restaurant & Hotel
-Nature
-Date & Time
-Seasons
-Adjectives
-Verbs
-Nouns
-Proverb
-Jokes
-Flirting
-Pronouns
-Holiday
-Diacritic (Dấu)
+- Basic phrases I am, you are, she is
+- Greetings
+- Shopping
+- Numbers
+- Animals
+- Question
+- Food
+- Family
+- Places
+- Things around the house
+- Things around the office
+- On the street
+- Things in the countryside
+- Restaurant & Hotel
+- Nature
+- Date & Time
+- Seasons
+- Adjectives
+- Verbs
+- Nouns
+- Proverb
+- Jokes
+- Flirting
+- Pronouns
+- Holiday
+- Diacritic (Dấu)
 
