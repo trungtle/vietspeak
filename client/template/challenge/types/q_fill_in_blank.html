@@ -1,0 +1,12 @@
+<template name="qFillInBlank">
+  <p class="phrase-multiple-choices">{{phrase}}</p>
+  <ul class="small-block-grid-4">
+    {{#each choices}}
+      <li>
+        <div class="choice {{#if checked}}checked{{/if}} {{#if gotFeedback}}{{#if isCorrect}}correct{{else}}wrong{{/if}}{{/if}} " id ="{{displayedWord}}">
+          {{displayedWord}}
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</template>

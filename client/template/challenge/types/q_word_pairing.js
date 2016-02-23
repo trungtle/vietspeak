@@ -47,7 +47,6 @@ function compareChoices(prevChoiceWord, curChoiceWord) {
         if (prevChoice.matchingWord === curChoice.displayedWord) {
             curChoice.checked = true;
             Session.set("numMatches", Session.get("numMatches") + 1);
-            // TODO: disable both buttons
             if(Session.get("numMatches") === CHOICE_NUM) {
               enableSubmitButton();
             }

@@ -1,6 +1,16 @@
+@import "utilities/animation_key_frames";
+
 .animate-flicker {
   -webkit-animation: flickerAnimation 3s infinite;
   -moz-animation: flickerAnimation 3s infinite;
   -o-animation: flickerAnimation 3s infinite;
   animation: flickerAnimation 3s infinite;
+}
+
+.animate-shake-wrong {
+    color : red;
+    animation: shakeWrongAnimation 0.4s ease 0s 2 alternate;
+    -o-animation: shakeWrongAnimation 0.4s ease 0s 2 alternate;
+    -moz-animation: shakeWrongAnimation 0.4s ease 0s 2 alternate;
+    -webkit-animation: shakeWrongAnimation 0.4s ease 0s 2 alternate;
 }

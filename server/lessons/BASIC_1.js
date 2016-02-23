@@ -7,9 +7,22 @@ BASIC_1 = {
     content: ["basic1"],
     phrases: [
     {
+        qType: QTYPE.REPLACE_WRONG_WORD,
+    },  {
+        qType: QTYPE.FILL_IN_BLANK,
+        vnPhraseLower: "Tôi",  
+        vnPhraseUpper: "phụ nữ.",
+        answer: "là",
+        wrongChoices: ["la", "lá", "lã"],
+        english: ["I am a woman", "I'm a woman"]
+    },  {
+        qType: QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS,
+        vietnamese: ["Đàn ông", "Đàn ông2!!!"],
+        english: ["Man"]
+    },  {
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,
-        image: "/img/lessons/man.jpg",
         vietnamese: "Đàn ông",
+        image: "/img/lessons/man.jpg",
         english: ["Man"]
     }, {
         qType: QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC,

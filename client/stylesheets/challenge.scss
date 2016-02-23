@@ -172,6 +172,17 @@
   color: #bbbbbb;
   margin-right: 10px;
 }
+
+/* Replace Wrong Word Choices*/
+.phraseWord.phraseWordClickable {
+  &:hover {
+    background-color: $very-light-gray;
+  }
+}
+
+.phraseWord.wrong {
+  color: $light-green;
+}
 /* Report area */
 
 #feedback-area {

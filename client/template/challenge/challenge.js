@@ -43,12 +43,19 @@ Template.challenge.helpers({
                 return "Match with correct answer";
             case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
                 return "Match with correct picture";
+            case QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS:
+                return "Pick all answers that mean the same thing";
             case QTYPE.TRUE_FALSE:
                 return "True or False";
             case QTYPE.WORD_PAIRING:
                 return "Match the pairs";
             case QTYPE.REARRANGE:
                 return "Arrange this phrase in Vietnamese";
+            case QTYPE.FILL_IN_BLANK:
+                return "Which word goes into the blank?"
+            case QTYPE.REPLACE_WRONG_WORD:
+                return "One of the words in the Vietnamese phrase is wrong. Choose which and its replacement."
+
         }
     },
     completed: function() {
@@ -156,7 +163,10 @@ function setupQuestion(lesson, qType) {
         case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
             setupMultipleChoicesTranslation(lesson);
             break;
-
+        case QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS:
+            setupMultipleChoicesMultipleAnswers(lesson);
+            break;
+        
         case QTYPE.WORD_PAIRING:
             setupWordPairing(lesson);
             break;
@@ -164,7 +174,12 @@ function setupQuestion(lesson, qType) {
         case QTYPE.REARRANGE:
             setupRearrange(lesson);
             break;
-
+        case QTYPE.FILL_IN_BLANK:
+            setupFillInBlank(lesson);
+            break;
+        case QTYPE.REPLACE_WRONG_WORD:
+            setupReplaceWrongWord(lesson);
+            break;
         default:
             return;
     }
@@ -237,7 +252,7 @@ function challengeComplete(lesson) {
     var nextLevel = user.profile.level + 1;
     if (user.profile.xp >= LEVEL_XP_REQUIREMENTS[nextLevel]) {
         Session.set("reachedNewLevel", true);
-        Meteor.call('unlockLevel', userId, nextLevel);
+        Meteor.call("unlockLevel", userId, nextLevel);
     }
 
 }
@@ -265,10 +280,19 @@ answer = function(lesson) {
         case QTYPE.MULTIPLE_CHOICES_TRANSLATION_PIC:
             answerScore = aMultipleChoicesTranslation(phrase);
             break;
+        case QTYPE.MULTIPLE_CHOICES_MULTIPLE_ANSWERS:
+            answerScore = aMultipleChoicesMultipleAnswers(phrase);
+            break;
         case QTYPE.WORD_PAIRING:
             answerScore = aWordPairing();
         case QTYPE.REARRANGE:
             answerScore = aRearrange();
+            break;
+        case QTYPE.FILL_IN_BLANK:
+            answerScore = aFillInBlank();
+            break;
+        case QTYPE.REPLACE_WRONG_WORD:
+            answerScore = aReplaceWrongWord();
             break;
     }
 
